@@ -27,10 +27,10 @@
 		81B8474EC71C05A7EE09B14F /* Interval.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89F75D5A587D47489BA4064 /* Interval.swift */; };
 		829643621590B665F7201F56 /* FeedbackSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44815C38B66CA0483084955E /* FeedbackSettings.swift */; };
 		90561B36AA9DD8ACAB56FF07 /* PresetsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92F3755622CCC6BFAFA0276 /* PresetsViewModelTests.swift */; };
+		943CD476A893E91678FE0B6E /* TimerSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F20F758721D9A8EA306222 /* TimerSetupView.swift */; };
 		94C48979B28AA17915E2B070 /* TimerPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670AF383C0813909E0B4D3B /* TimerPhase.swift */; };
 		9744345497E0EC89994AA78E /* FeedbackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9FF769EC901DE7BA20973 /* FeedbackManager.swift */; };
 		9872ACD149AA845CC5CD0D37 /* IntervalTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92038A8EBA13AB01D84798E /* IntervalTimer.swift */; };
-		A47B7CD9C8B07530D8530541 /* PresetsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5E0EB1BBF1605A919EB843 /* PresetsListView.swift */; };
 		A4809D274DB712002D8C8F7F /* TimeFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982C27C0F6D4AD002F151D74 /* TimeFormatting.swift */; };
 		B118A851A510299DDF8839BB /* TimerPhaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABC17943849D22370525287 /* TimerPhaseTests.swift */; };
 		B3D05E50E9D754DC4BE15066 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A59FC09B72AE63D98D4D99F /* HomeViewModelTests.swift */; };
@@ -88,12 +88,12 @@
 		C89F75D5A587D47489BA4064 /* Interval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interval.swift; sourceTree = "<group>"; };
 		CF238667267FD6E3065250A7 /* PresetStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetStore.swift; sourceTree = "<group>"; };
 		D33A597C831F998A89AE0BD4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		E5F20F758721D9A8EA306222 /* TimerSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSetupView.swift; sourceTree = "<group>"; };
 		E92038A8EBA13AB01D84798E /* IntervalTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalTimer.swift; sourceTree = "<group>"; };
 		E9E9FF769EC901DE7BA20973 /* FeedbackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackManager.swift; sourceTree = "<group>"; };
 		ED801F12AEBEE2E55E77E0B7 /* ClimberTimer Watch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ClimberTimer Watch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F92F3755622CCC6BFAFA0276 /* PresetsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetsViewModelTests.swift; sourceTree = "<group>"; };
 		FC013C7BB41A809FED7723A7 /* WatchHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHomeView.swift; sourceTree = "<group>"; };
-		FC5E0EB1BBF1605A919EB843 /* PresetsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetsListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -207,8 +207,8 @@
 			children = (
 				6049785728AF3FB30D13279C /* ActiveTimerView.swift */,
 				BF10BDFAB787E71F62BE34A9 /* HomeView.swift */,
-				FC5E0EB1BBF1605A919EB843 /* PresetsListView.swift */,
 				D33A597C831F998A89AE0BD4 /* SettingsView.swift */,
+				E5F20F758721D9A8EA306222 /* TimerSetupView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -411,12 +411,12 @@
 				1801C3BDFC829D0EE210D185 /* Interval.swift in Sources */,
 				9872ACD149AA845CC5CD0D37 /* IntervalTimer.swift in Sources */,
 				313581DD4F804934F1322FA6 /* PresetStore.swift in Sources */,
-				A47B7CD9C8B07530D8530541 /* PresetsListView.swift in Sources */,
 				2BE0CF721746411A15EF3879 /* PresetsViewModel.swift in Sources */,
 				2AB3005907AE7FF911975552 /* SettingsView.swift in Sources */,
 				CC12558CAE6D95E05D14C121 /* SettingsViewModel.swift in Sources */,
 				A4809D274DB712002D8C8F7F /* TimeFormatting.swift in Sources */,
 				174E4E5C63E87E47DF4175EB /* TimerPhase.swift in Sources */,
+				943CD476A893E91678FE0B6E /* TimerSetupView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

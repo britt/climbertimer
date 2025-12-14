@@ -2,7 +2,15 @@ import Foundation
 import SwiftData
 
 @Model
-public class Interval {
+public class Interval: Hashable {
+    public static func == (lhs: Interval, rhs: Interval) -> Bool {
+        lhs.id == rhs.id
+    }
+
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
     public var id: UUID
     public var name: String
     public var workDuration: TimeInterval
