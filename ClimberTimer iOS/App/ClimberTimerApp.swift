@@ -3,15 +3,23 @@ import SwiftData
 
 @main
 struct ClimberTimerApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
+    let modelContainer: ModelContainer
+    @State private var presetStore: PresetStore
+
+    init() {
+        do {
+            let container = try ModelContainer(for: Interval.self)
+            modelContainer = container
+            _presetStore = State(initialValue: PresetStore(modelContainer: container))
+        } catch {
+            fatalError("Failed to create ModelContainer: \(error)")
         }
     }
-}
 
-struct ContentView: View {
-    var body: some View {
-        Text("ClimberTimer")
+    var body: some Scene {
+        WindowGroup {
+            HomeView(presetStore: presetStore)
+        }
+        .modelContainer(modelContainer)
     }
 }
