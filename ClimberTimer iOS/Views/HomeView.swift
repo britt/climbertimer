@@ -19,7 +19,7 @@ struct HomeView: View {
         NavigationStack(path: $navigationPath) {
             List {
                 // Last Used Section
-                if let lastUsed = presetStore.loadLastUsed() {
+                if let lastUsed = presetStore.lastUsed {
                     Section("Last Used") {
                         Button(action: {
                             navigationPath.append(lastUsed)

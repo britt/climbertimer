@@ -14,6 +14,22 @@ public class PresetStore {
     private var modelContext: ModelContext
     private let userDefaults: UserDefaults
     private static let lastUsedKey = "lastUsedInterval"
+    private var lastUsedVersion = 0  // Triggers @Observable updates
+
+    public var lastUsed: Interval? {
+        // Access version to create @Observable dependency
+        _ = lastUsedVersion
+        guard let data = userDefaults.data(forKey: Self.lastUsedKey),
+              let lastUsedData = try? JSONDecoder().decode(LastUsedInterval.self, from: data) else {
+            return nil
+        }
+        return Interval(
+            name: "",
+            workDuration: lastUsedData.workDuration,
+            restDuration: lastUsedData.restDuration,
+            repetitions: lastUsedData.repetitions
+        )
+    }
 
     public init(modelContainer: ModelContainer, userDefaults: UserDefaults = .standard) {
         self.modelContainer = modelContainer
@@ -43,26 +59,19 @@ public class PresetStore {
     // MARK: - Last Used (UserDefaults)
 
     public func saveLastUsed(_ interval: Interval) {
-        let lastUsed = LastUsedInterval(
+        let lastUsedData = LastUsedInterval(
             workDuration: interval.workDuration,
             restDuration: interval.restDuration,
             repetitions: interval.repetitions
         )
-        if let data = try? JSONEncoder().encode(lastUsed) {
+        if let data = try? JSONEncoder().encode(lastUsedData) {
             userDefaults.set(data, forKey: Self.lastUsedKey)
         }
+        // Increment version to trigger @Observable update
+        lastUsedVersion += 1
     }
 
     public func loadLastUsed() -> Interval? {
-        guard let data = userDefaults.data(forKey: Self.lastUsedKey),
-              let lastUsed = try? JSONDecoder().decode(LastUsedInterval.self, from: data) else {
-            return nil
-        }
-        return Interval(
-            name: "",
-            workDuration: lastUsed.workDuration,
-            restDuration: lastUsed.restDuration,
-            repetitions: lastUsed.repetitions
-        )
+        return lastUsed
     }
 }
