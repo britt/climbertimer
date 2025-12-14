@@ -12,6 +12,7 @@
 		174E4E5C63E87E47DF4175EB /* TimerPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670AF383C0813909E0B4D3B /* TimerPhase.swift */; };
 		1801C3BDFC829D0EE210D185 /* Interval.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89F75D5A587D47489BA4064 /* Interval.swift */; };
 		194F9D4896B681AADC76CD65 /* PresetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF238667267FD6E3065250A7 /* PresetStore.swift */; };
+		1A46799AC31CDDA8BD1E6E6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D26570FEFD5F55CEA1FE911C /* Assets.xcassets */; };
 		2AB3005907AE7FF911975552 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33A597C831F998A89AE0BD4 /* SettingsView.swift */; };
 		2BE0CF721746411A15EF3879 /* PresetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1504680F560943987AB20286 /* PresetsViewModel.swift */; };
 		313581DD4F804934F1322FA6 /* PresetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF238667267FD6E3065250A7 /* PresetStore.swift */; };
@@ -43,6 +44,7 @@
 		CC12558CAE6D95E05D14C121 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E41A2D571D145833092DE1 /* SettingsViewModel.swift */; };
 		E257F0412FBAE5E40AB5D52C /* WatchPresetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B2C6D955E53A0390E9861B /* WatchPresetsView.swift */; };
 		E2ECCB108407AFCBAEC0A16A /* ClimberTimerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF9A9FBE56C26BE21F6B819 /* ClimberTimerApp.swift */; };
+		E88438F2CB7F1FF0532CA09A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6866EF410FB6E6483791B91D /* Assets.xcassets */; };
 		F535D519CF52B4E68813F39B /* TimeFormattingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524E542F0B38AAFE1EF67F3F /* TimeFormattingTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +75,7 @@
 		5E5ACCB55D3E6A697F362708 /* WatchActiveTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchActiveTimerView.swift; sourceTree = "<group>"; };
 		6049785728AF3FB30D13279C /* ActiveTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveTimerView.swift; sourceTree = "<group>"; };
 		62FFC822DD212FB13D07882B /* ClimberTimer Watch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ClimberTimer Watch.entitlements"; sourceTree = "<group>"; };
+		6866EF410FB6E6483791B91D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6DF9A9FBE56C26BE21F6B819 /* ClimberTimerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimberTimerApp.swift; sourceTree = "<group>"; };
 		7243353B18F89DF630A6A409 /* IntervalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalTests.swift; sourceTree = "<group>"; };
 		7E27853E3061BE52971F2946 /* DataStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreTests.swift; sourceTree = "<group>"; };
@@ -87,6 +90,7 @@
 		C2B2C6D955E53A0390E9861B /* WatchPresetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchPresetsView.swift; sourceTree = "<group>"; };
 		C89F75D5A587D47489BA4064 /* Interval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interval.swift; sourceTree = "<group>"; };
 		CF238667267FD6E3065250A7 /* PresetStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetStore.swift; sourceTree = "<group>"; };
+		D26570FEFD5F55CEA1FE911C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D33A597C831F998A89AE0BD4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		E5F20F758721D9A8EA306222 /* TimerSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSetupView.swift; sourceTree = "<group>"; };
 		E92038A8EBA13AB01D84798E /* IntervalTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalTimer.swift; sourceTree = "<group>"; };
@@ -100,6 +104,7 @@
 		034A2AEB652DFE0A5B192101 /* ClimberTimer iOS */ = {
 			isa = PBXGroup;
 			children = (
+				D26570FEFD5F55CEA1FE911C /* Assets.xcassets */,
 				90713EC44E0FACEB589563C7 /* ClimberTimer.entitlements */,
 				9689AFEA3B35779912752213 /* Info.plist */,
 				310288FB682B27352EB9906F /* App */,
@@ -158,6 +163,7 @@
 		6348B9A6C1EA2B2EBE130B66 /* ClimberTimer Watch */ = {
 			isa = PBXGroup;
 			children = (
+				6866EF410FB6E6483791B91D /* Assets.xcassets */,
 				62FFC822DD212FB13D07882B /* ClimberTimer Watch.entitlements */,
 				39920330C8CCFB86F27CA4C3 /* Info.plist */,
 				82ADCD0051CC5B25AB875EDC /* App */,
@@ -284,6 +290,7 @@
 			buildConfigurationList = A163C053CE7664C1A4049142 /* Build configuration list for PBXNativeTarget "ClimberTimer Watch Watch App" */;
 			buildPhases = (
 				94C9BA06CC8056F9247F7CAE /* Sources */,
+				1DC10BD8738827790330B7C2 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -301,6 +308,7 @@
 			buildConfigurationList = F39049AD1FB34F01C6FE2FDE /* Build configuration list for PBXNativeTarget "ClimberTimer" */;
 			buildPhases = (
 				C1F7CCFA987BB7739C066433 /* Sources */,
+				FA0D617FA9BDC343FA0B2D2E /* Resources */,
 			);
 			buildRules = (
 			);
@@ -360,6 +368,25 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1DC10BD8738827790330B7C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E88438F2CB7F1FF0532CA09A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA0D617FA9BDC343FA0B2D2E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A46799AC31CDDA8BD1E6E6E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		08E509960424C8BC56D22600 /* Sources */ = {
