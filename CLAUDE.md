@@ -43,13 +43,13 @@ If ANY of these occur, you MUST delete the code and start over:
 
 ```bash
 # 1. Build iOS (MUST pass)
-xcodebuild build -scheme "ClimberTimer iOS" -destination 'platform=iOS Simulator,name=iPhone 15' | grep -E "(error:|warning:|BUILD)"
+xcodebuild build -scheme "ClimberTimer" -destination 'platform=iOS Simulator,name=iPhone 16' | grep -E "(error:|warning:|BUILD)"
 
 # 2. Build watchOS (MUST pass)
-xcodebuild build -scheme "ClimberTimer Watch" -destination 'platform=watchOS Simulator,name=Apple Watch Series 9 (45mm)' | grep -E "(error:|warning:|BUILD)"
+xcodebuild build -scheme "ClimberTimer Watch Watch App" -destination 'platform=watchOS Simulator,name=Apple Watch Series 10 (46mm)' | grep -E "(error:|warning:|BUILD)"
 
 # 3. Run tests (ALL must pass)
-xcodebuild test -scheme ClimberTimer -destination 'platform=iOS Simulator,name=iPhone 15' | grep -E "(error:|failed|passed|BUILD)"
+xcodebuild test -scheme "ClimberTimer" -destination 'platform=iOS Simulator,name=iPhone 16' | grep -E "(error:|failed|passed|BUILD)"
 ```
 
 **If ANY command fails → DO NOT COMMIT. Fix the issue first.**
@@ -79,7 +79,7 @@ If ANY answer is "no" → STOP. Write the test first.
 For every production file, there MUST be a corresponding test file:
 - `Shared/Models/Interval.swift` → `ClimberTimerTests/Models/IntervalTests.swift`
 - `Shared/Services/IntervalTimer.swift` → `ClimberTimerTests/Services/IntervalTimerTests.swift`
-- `Shared/Services/DataStore.swift` → `ClimberTimerTests/Services/DataStoreTests.swift`
+- `Shared/Services/PresetStore.swift` → `ClimberTimerTests/Services/PresetStoreTests.swift`
 - `Shared/Services/FeedbackManager.swift` → `ClimberTimerTests/Services/FeedbackManagerTests.swift`
 
 ### 7. Task Completion Requirements
@@ -175,16 +175,16 @@ For EACH feature/function:
 
 ```bash
 # Run all tests from command line
-xcodebuild test -scheme ClimberTimer -destination 'platform=iOS Simulator,name=iPhone 15'
+xcodebuild test -scheme "ClimberTimer" -destination 'platform=iOS Simulator,name=iPhone 16'
 
 # Build iOS target
-xcodebuild build -scheme "ClimberTimer iOS" -destination 'platform=iOS Simulator,name=iPhone 15'
+xcodebuild build -scheme "ClimberTimer" -destination 'platform=iOS Simulator,name=iPhone 16'
 
-# Build watchOS target
-xcodebuild build -scheme "ClimberTimer Watch" -destination 'platform=watchOS Simulator,name=Apple Watch Series 9 (45mm)'
+# Build watchOS target (MUST verify this compiles and can launch)
+xcodebuild build -scheme "ClimberTimer Watch Watch App" -destination 'platform=watchOS Simulator,name=Apple Watch Series 10 (46mm)'
 
 # Run tests with coverage
-xcodebuild test -scheme ClimberTimer -destination 'platform=iOS Simulator,name=iPhone 15' -enableCodeCoverage YES
+xcodebuild test -scheme "ClimberTimer" -destination 'platform=iOS Simulator,name=iPhone 16' -enableCodeCoverage YES
 ```
 
 ## Red Flags - STOP Immediately
