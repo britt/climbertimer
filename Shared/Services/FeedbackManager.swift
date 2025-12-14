@@ -1,7 +1,7 @@
 import Foundation
-import AVFoundation
 #if os(iOS)
 import UIKit
+import AudioToolbox
 #elseif os(watchOS)
 import WatchKit
 #endif
@@ -19,17 +19,29 @@ public class FeedbackManager {
 
     public func playCountdownBeep() {
         guard shouldPlayAudio else { return }
+        #if os(iOS)
         AudioServicesPlaySystemSound(1057) // Standard beep
+        #elseif os(watchOS)
+        WKInterfaceDevice.current().play(.click)
+        #endif
     }
 
     public func playPhaseTransition() {
         guard shouldPlayAudio else { return }
+        #if os(iOS)
         AudioServicesPlaySystemSound(1052) // Different tone
+        #elseif os(watchOS)
+        WKInterfaceDevice.current().play(.directionUp)
+        #endif
     }
 
     public func playCompletion() {
         guard shouldPlayAudio else { return }
+        #if os(iOS)
         AudioServicesPlaySystemSound(1025) // Completion sound
+        #elseif os(watchOS)
+        WKInterfaceDevice.current().play(.success)
+        #endif
     }
 
     public func triggerHaptic() {
