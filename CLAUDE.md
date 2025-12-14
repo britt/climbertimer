@@ -29,7 +29,34 @@ If ANY of these occur, you MUST delete the code and start over:
 - ❌ "Tests after achieve same goal" → NO. DELETE CODE.
 - ❌ "SwiftUI views can't be tested" → TEST THE VIEW MODEL FIRST.
 
-### 3. Test Coverage Requirements
+### 3. VERIFY COMPILATION BEFORE EVERY COMMIT
+
+**MANDATORY**: Code MUST compile on BOTH platforms before committing.
+
+**Pre-Commit Verification Checklist:**
+1. ✅ Run iOS build - MUST succeed with zero errors
+2. ✅ Run watchOS build - MUST succeed with zero errors
+3. ✅ Run tests - ALL must pass
+4. ✅ Zero compiler warnings
+
+**Commands to run BEFORE every `git commit`:**
+
+```bash
+# 1. Build iOS (MUST pass)
+xcodebuild build -scheme "ClimberTimer iOS" -destination 'platform=iOS Simulator,name=iPhone 15' | grep -E "(error:|warning:|BUILD)"
+
+# 2. Build watchOS (MUST pass)
+xcodebuild build -scheme "ClimberTimer Watch" -destination 'platform=watchOS Simulator,name=Apple Watch Series 9 (45mm)' | grep -E "(error:|warning:|BUILD)"
+
+# 3. Run tests (ALL must pass)
+xcodebuild test -scheme ClimberTimer -destination 'platform=iOS Simulator,name=iPhone 15' | grep -E "(error:|failed|passed|BUILD)"
+```
+
+**If ANY command fails → DO NOT COMMIT. Fix the issue first.**
+
+Committing code that doesn't compile is NEVER acceptable. Not "just to save progress." Not "I'll fix it in the next commit." NEVER.
+
+### 4. Test Coverage Requirements
 
 - **Minimum 80%** coverage on business logic:
   - Models: 90%+
@@ -38,7 +65,7 @@ If ANY of these occur, you MUST delete the code and start over:
 - UI views may have lower coverage but ViewModels must be thoroughly tested
 - Untested code = Code that shouldn't exist
 
-### 4. Before Writing ANY Code
+### 5. Before Writing ANY Code
 
 Ask yourself:
 1. Did I write a failing test for this?
@@ -47,7 +74,7 @@ Ask yourself:
 
 If ANY answer is "no" → STOP. Write the test first.
 
-### 5. Test File Structure
+### 6. Test File Structure
 
 For every production file, there MUST be a corresponding test file:
 - `Shared/Models/Interval.swift` → `ClimberTimerTests/Models/IntervalTests.swift`
@@ -55,7 +82,7 @@ For every production file, there MUST be a corresponding test file:
 - `Shared/Services/DataStore.swift` → `ClimberTimerTests/Services/DataStoreTests.swift`
 - `Shared/Services/FeedbackManager.swift` → `ClimberTimerTests/Services/FeedbackManagerTests.swift`
 
-### 6. Task Completion Requirements
+### 7. Task Completion Requirements
 
 **MANDATORY RULE**: NO TASK IS COMPLETE until:
 - ✅ ALL tests pass (100% green)
@@ -66,7 +93,7 @@ For every production file, there MUST be a corresponding test file:
 
 A task with failing tests, build errors, or warnings is INCOMPLETE. Period.
 
-### 7. Progress Documentation
+### 8. Progress Documentation
 
 **MANDATORY RULE**: YOU MUST REPORT YOUR PROGRESS IN `PROGRESS.md`
 
@@ -92,7 +119,7 @@ Format:
 - Notes: [any relevant notes]
 ```
 
-### 8. Git Commits - Commit Early, Commit Often
+### 9. Git Commits - Commit Early, Commit Often
 
 **MANDATORY RULE**: COMMIT EARLY, COMMIT OFTEN
 
