@@ -1,0 +1,573 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5BA7CF414ABB50C8C0E5C678 /* ClimberTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D26E7C031F2BAF3F2EA2660 /* ClimberTimerTests.swift */; };
+		78CFF3E784795FD7CD91A65D /* ClimberTimerWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063252CCD86E1F2807C32AFE /* ClimberTimerWatchApp.swift */; };
+		E2ECCB108407AFCBAEC0A16A /* ClimberTimerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF9A9FBE56C26BE21F6B819 /* ClimberTimerApp.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		56DA70F62F60419AC07A8780 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 076630D2C5B85E6EA5A4F3CD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5D48B829EA240F4850E0DDE6;
+			remoteInfo = ClimberTimer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		063252CCD86E1F2807C32AFE /* ClimberTimerWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimberTimerWatchApp.swift; sourceTree = "<group>"; };
+		2D26E7C031F2BAF3F2EA2660 /* ClimberTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimberTimerTests.swift; sourceTree = "<group>"; };
+		39920330C8CCFB86F27CA4C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		62FFC822DD212FB13D07882B /* ClimberTimer Watch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ClimberTimer Watch.entitlements"; sourceTree = "<group>"; };
+		6DF9A9FBE56C26BE21F6B819 /* ClimberTimerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimberTimerApp.swift; sourceTree = "<group>"; };
+		90713EC44E0FACEB589563C7 /* ClimberTimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClimberTimer.entitlements; sourceTree = "<group>"; };
+		95F81242CA4B5D016CD847B4 /* ClimberTimerTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ClimberTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9689AFEA3B35779912752213 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		AE7DEE61395BA4855314778D /* .gitkeep */ = {isa = PBXFileReference; path = .gitkeep; sourceTree = "<group>"; };
+		B677E980FAFB33EE890B6998 /* ClimberTimer.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = ClimberTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED801F12AEBEE2E55E77E0B7 /* ClimberTimer Watch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ClimberTimer Watch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		034A2AEB652DFE0A5B192101 /* ClimberTimer iOS */ = {
+			isa = PBXGroup;
+			children = (
+				90713EC44E0FACEB589563C7 /* ClimberTimer.entitlements */,
+				9689AFEA3B35779912752213 /* Info.plist */,
+				310288FB682B27352EB9906F /* App */,
+				BE7C78BD70DAFD2CA1D08289 /* ViewModels */,
+				B58BD2C6A78D4CD2EC029B55 /* Views */,
+			);
+			path = "ClimberTimer iOS";
+			sourceTree = "<group>";
+		};
+		1276F18C4F0399F7E2D91E7F /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		15764A46D4466B34D8936486 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		310288FB682B27352EB9906F /* App */ = {
+			isa = PBXGroup;
+			children = (
+				6DF9A9FBE56C26BE21F6B819 /* ClimberTimerApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		4812AA98BCF607C2F9C94201 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				BAFFFDE71F9209E9CD49F051 /* Models */,
+				F72BFEA1471706442DE75853 /* Services */,
+				75D23E311D010FA9FD7575C0 /* Utilities */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		526FCDCB86D8DF745959A735 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6348B9A6C1EA2B2EBE130B66 /* ClimberTimer Watch */ = {
+			isa = PBXGroup;
+			children = (
+				62FFC822DD212FB13D07882B /* ClimberTimer Watch.entitlements */,
+				39920330C8CCFB86F27CA4C3 /* Info.plist */,
+				82ADCD0051CC5B25AB875EDC /* App */,
+				6E3D1A0B72E70A741B143326 /* Views */,
+			);
+			path = "ClimberTimer Watch";
+			sourceTree = "<group>";
+		};
+		64F01D0F3EB8ECDE2EA1BD8D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ED801F12AEBEE2E55E77E0B7 /* ClimberTimer Watch Watch App.app */,
+				B677E980FAFB33EE890B6998 /* ClimberTimer.app */,
+				95F81242CA4B5D016CD847B4 /* ClimberTimerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6E3D1A0B72E70A741B143326 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		75D23E311D010FA9FD7575C0 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		82ADCD0051CC5B25AB875EDC /* App */ = {
+			isa = PBXGroup;
+			children = (
+				063252CCD86E1F2807C32AFE /* ClimberTimerWatchApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		B58BD2C6A78D4CD2EC029B55 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BA378F5A8840F88D9320D438 /* ClimberTimerTests */ = {
+			isa = PBXGroup;
+			children = (
+				2D26E7C031F2BAF3F2EA2660 /* ClimberTimerTests.swift */,
+				526FCDCB86D8DF745959A735 /* Models */,
+				DB886BF3696725A6541F02ED /* Services */,
+				1276F18C4F0399F7E2D91E7F /* Utilities */,
+				15764A46D4466B34D8936486 /* ViewModels */,
+			);
+			path = ClimberTimerTests;
+			sourceTree = "<group>";
+		};
+		BAFFFDE71F9209E9CD49F051 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AE7DEE61395BA4855314778D /* .gitkeep */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BE7C78BD70DAFD2CA1D08289 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		DB886BF3696725A6541F02ED /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F72BFEA1471706442DE75853 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		FF644002E1E4448F7C44BF3B = {
+			isa = PBXGroup;
+			children = (
+				034A2AEB652DFE0A5B192101 /* ClimberTimer iOS */,
+				6348B9A6C1EA2B2EBE130B66 /* ClimberTimer Watch */,
+				BA378F5A8840F88D9320D438 /* ClimberTimerTests */,
+				4812AA98BCF607C2F9C94201 /* Shared */,
+				64F01D0F3EB8ECDE2EA1BD8D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		152E0F83161CAFFFF17651C3 /* ClimberTimer Watch Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A163C053CE7664C1A4049142 /* Build configuration list for PBXNativeTarget "ClimberTimer Watch Watch App" */;
+			buildPhases = (
+				94C9BA06CC8056F9247F7CAE /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ClimberTimer Watch Watch App";
+			packageProductDependencies = (
+			);
+			productName = "ClimberTimer Watch Watch App";
+			productReference = ED801F12AEBEE2E55E77E0B7 /* ClimberTimer Watch Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5D48B829EA240F4850E0DDE6 /* ClimberTimer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F39049AD1FB34F01C6FE2FDE /* Build configuration list for PBXNativeTarget "ClimberTimer" */;
+			buildPhases = (
+				C1F7CCFA987BB7739C066433 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ClimberTimer;
+			packageProductDependencies = (
+			);
+			productName = ClimberTimer;
+			productReference = B677E980FAFB33EE890B6998 /* ClimberTimer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FC3D2C4D961BFB4692F68727 /* ClimberTimerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9333719BE8AF6D6C57293332 /* Build configuration list for PBXNativeTarget "ClimberTimerTests" */;
+			buildPhases = (
+				08E509960424C8BC56D22600 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				89F63B7547BCAD488B16AB8A /* PBXTargetDependency */,
+			);
+			name = ClimberTimerTests;
+			packageProductDependencies = (
+			);
+			productName = ClimberTimerTests;
+			productReference = 95F81242CA4B5D016CD847B4 /* ClimberTimerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		076630D2C5B85E6EA5A4F3CD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = 18B8C2A338D569B16A039D63 /* Build configuration list for PBXProject "ClimberTimer" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = FF644002E1E4448F7C44BF3B;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5D48B829EA240F4850E0DDE6 /* ClimberTimer */,
+				152E0F83161CAFFFF17651C3 /* ClimberTimer Watch Watch App */,
+				FC3D2C4D961BFB4692F68727 /* ClimberTimerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		08E509960424C8BC56D22600 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BA7CF414ABB50C8C0E5C678 /* ClimberTimerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94C9BA06CC8056F9247F7CAE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78CFF3E784795FD7CD91A65D /* ClimberTimerWatchApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1F7CCFA987BB7739C066433 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2ECCB108407AFCBAEC0A16A /* ClimberTimerApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		89F63B7547BCAD488B16AB8A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5D48B829EA240F4850E0DDE6 /* ClimberTimer */;
+			targetProxy = 56DA70F62F60419AC07A8780 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		218B2186122E7B50A7ACACD1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "ClimberTimer Watch/ClimberTimer Watch.entitlements";
+				INFOPLIST_FILE = "ClimberTimer Watch/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.climbertimer.ios.watchkitapp;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		26713BB92BC7014FA50D492D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "ClimberTimer iOS/ClimberTimer.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "ClimberTimer iOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.climbertimer.ios;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		398138740A4914D214DE08A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+		BB2DD46C97B3496D811AD4C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		C78535A6E390E8EB3C6BC898 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "ClimberTimer iOS/ClimberTimer.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "ClimberTimer iOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.climbertimer.ios;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E1BEE8D690BBF37F2C98E9D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.climbertimer.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ClimberTimer.app/ClimberTimer";
+			};
+			name = Release;
+		};
+		E83B847E40B32FD6A71DDB2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.climbertimer.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ClimberTimer.app/ClimberTimer";
+			};
+			name = Debug;
+		};
+		FEDAEBD59437959092103BDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "ClimberTimer Watch/ClimberTimer Watch.entitlements";
+				INFOPLIST_FILE = "ClimberTimer Watch/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.climbertimer.ios.watchkitapp;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		18B8C2A338D569B16A039D63 /* Build configuration list for PBXProject "ClimberTimer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB2DD46C97B3496D811AD4C3 /* Debug */,
+				398138740A4914D214DE08A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9333719BE8AF6D6C57293332 /* Build configuration list for PBXNativeTarget "ClimberTimerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E83B847E40B32FD6A71DDB2F /* Debug */,
+				E1BEE8D690BBF37F2C98E9D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A163C053CE7664C1A4049142 /* Build configuration list for PBXNativeTarget "ClimberTimer Watch Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				218B2186122E7B50A7ACACD1 /* Debug */,
+				FEDAEBD59437959092103BDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F39049AD1FB34F01C6FE2FDE /* Build configuration list for PBXNativeTarget "ClimberTimer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C78535A6E390E8EB3C6BC898 /* Debug */,
+				26713BB92BC7014FA50D492D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 076630D2C5B85E6EA5A4F3CD /* Project object */;
+}
