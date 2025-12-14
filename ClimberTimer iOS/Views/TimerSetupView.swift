@@ -6,7 +6,6 @@ struct TimerSetupView: View {
     @State private var presetsViewModel: PresetsViewModel
     @Bindable var settingsViewModel: SettingsViewModel
     @State private var showingTimer = false
-    @State private var showingSettings = false
     @State private var showingSavePreset = false
     @State private var presetName = ""
     @Environment(\.dismiss) private var dismiss
@@ -104,23 +103,11 @@ struct TimerSetupView: View {
         .padding()
         .navigationTitle("Timer Setup")
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    showingSettings = true
-                } label: {
-                    Image(systemName: "gear")
-                }
-            }
-        }
         .fullScreenCover(isPresented: $showingTimer) {
             ActiveTimerView(
                 interval: viewModel.createInterval(),
                 settings: settingsViewModel.toFeedbackSettings()
             )
-        }
-        .sheet(isPresented: $showingSettings) {
-            SettingsView(viewModel: settingsViewModel)
         }
         .alert("Save Preset", isPresented: $showingSavePreset) {
             TextField("Preset Name", text: $presetName)

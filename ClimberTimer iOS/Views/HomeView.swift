@@ -85,14 +85,18 @@ struct HomeView: View {
             }
             .environment(\.editMode, .constant(isEditing ? .active : .inactive))
             .navigationTitle("ClimberTimer")
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        showingSettings = true
-                    } label: {
-                        Image(systemName: "gear")
-                    }
+            .safeAreaInset(edge: .bottom, alignment: .trailing) {
+                Button {
+                    showingSettings = true
+                } label: {
+                    Image(systemName: "gear")
+                        .font(.title2)
+                        .padding()
+                        .background(Color(.systemBackground))
+                        .clipShape(Circle())
+                        .shadow(radius: 2)
                 }
+                .padding()
             }
             .navigationDestination(for: Interval.self) { interval in
                 TimerSetupView(
