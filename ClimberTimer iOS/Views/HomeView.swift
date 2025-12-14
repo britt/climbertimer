@@ -2,13 +2,12 @@ import SwiftUI
 import SwiftData
 
 struct HomeView: View {
+    @Bindable var presetStore: PresetStore
     @State private var presetsViewModel: PresetsViewModel
     @State private var settingsViewModel = SettingsViewModel()
     @State private var showingSettings = false
     @State private var navigationPath = NavigationPath()
     @State private var isEditing = false
-
-    private let presetStore: PresetStore
 
     init(presetStore: PresetStore) {
         self.presetStore = presetStore
