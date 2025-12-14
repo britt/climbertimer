@@ -105,13 +105,6 @@ struct TimerSetupView: View {
         .navigationTitle("Timer Setup")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "house")
-                }
-            }
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
                     showingSettings = true

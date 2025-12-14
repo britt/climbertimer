@@ -6,6 +6,7 @@ struct HomeView: View {
     @State private var settingsViewModel = SettingsViewModel()
     @State private var showingSettings = false
     @State private var navigationPath = NavigationPath()
+    @State private var isEditing = false
 
     private let presetStore: PresetStore
 
@@ -43,7 +44,7 @@ struct HomeView: View {
                 }
 
                 // Presets Section
-                Section("Presets") {
+                Section {
                     if presetsViewModel.presets.isEmpty {
                         Text("No presets saved")
                             .foregroundStyle(.secondary)
@@ -66,8 +67,23 @@ struct HomeView: View {
                         }
                         .onDelete(perform: presetsViewModel.deletePreset)
                     }
+                } header: {
+                    HStack {
+                        Text("Presets")
+                        Spacer()
+                        if !presetsViewModel.presets.isEmpty {
+                            Button(isEditing ? "Done" : "Edit") {
+                                withAnimation {
+                                    isEditing.toggle()
+                                }
+                            }
+                            .font(.subheadline)
+                            .textCase(nil)
+                        }
+                    }
                 }
             }
+            .environment(\.editMode, .constant(isEditing ? .active : .inactive))
             .navigationTitle("ClimberTimer")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -75,11 +91,6 @@ struct HomeView: View {
                         showingSettings = true
                     } label: {
                         Image(systemName: "gear")
-                    }
-                }
-                if !presetsViewModel.presets.isEmpty {
-                    ToolbarItem(placement: .topBarLeading) {
-                        EditButton()
                     }
                 }
             }
