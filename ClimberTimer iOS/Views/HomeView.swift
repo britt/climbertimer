@@ -6,6 +6,7 @@ struct HomeView: View {
     @State private var presetsViewModel: PresetsViewModel
     @State private var settingsViewModel = SettingsViewModel()
     @State private var showingSettings = false
+    @State private var showingNewTimer = false
     @State private var navigationPath = NavigationPath()
     @State private var isEditing = false
 
@@ -84,16 +85,30 @@ struct HomeView: View {
             }
             .environment(\.editMode, .constant(isEditing ? .active : .inactive))
             .navigationTitle("ClimberTimer")
-            .safeAreaInset(edge: .bottom, alignment: .trailing) {
-                Button {
-                    showingSettings = true
-                } label: {
-                    Image(systemName: "gear")
-                        .font(.title2)
-                        .padding()
-                        .background(Color(.systemBackground))
-                        .clipShape(Circle())
-                        .shadow(radius: 2)
+            .safeAreaInset(edge: .bottom) {
+                HStack(spacing: 16) {
+                    Button {
+                        showingNewTimer = true
+                    } label: {
+                        Text("New Timer")
+                            .font(.title2.bold())
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color.green)
+                            .foregroundColor(.white)
+                            .cornerRadius(16)
+                    }
+
+                    Button {
+                        showingSettings = true
+                    } label: {
+                        Image(systemName: "gear")
+                            .font(.title2)
+                            .padding()
+                            .background(Color(.systemBackground))
+                            .clipShape(Circle())
+                            .shadow(radius: 2)
+                    }
                 }
                 .padding()
             }
@@ -106,6 +121,13 @@ struct HomeView: View {
             }
             .sheet(isPresented: $showingSettings) {
                 SettingsView(viewModel: settingsViewModel)
+            }
+            .navigationDestination(isPresented: $showingNewTimer) {
+                TimerSetupView(
+                    presetStore: presetStore,
+                    settingsViewModel: settingsViewModel,
+                    initialInterval: nil
+                )
             }
             .onAppear {
                 presetsViewModel.loadPresets()
