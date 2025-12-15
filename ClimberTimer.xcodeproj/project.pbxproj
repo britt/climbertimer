@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -43,14 +43,14 @@
 		C46BEF39325E2C86D21D0CED /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF10BDFAB787E71F62BE34A9 /* HomeView.swift */; };
 		C5978918C88B9746E3ED5854 /* IntervalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7243353B18F89DF630A6A409 /* IntervalTests.swift */; };
 		CC12558CAE6D95E05D14C121 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E41A2D571D145833092DE1 /* SettingsViewModel.swift */; };
+		COLR0001A2B3C4D5E6F78901 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = COLR0000A2B3C4D5E6F78901 /* Colors.swift */; };
+		COLR0002A2B3C4D5E6F78901 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = COLR0000A2B3C4D5E6F78901 /* Colors.swift */; };
 		E257F0412FBAE5E40AB5D52C /* WatchPresetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B2C6D955E53A0390E9861B /* WatchPresetsView.swift */; };
 		E2ECCB108407AFCBAEC0A16A /* ClimberTimerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF9A9FBE56C26BE21F6B819 /* ClimberTimerApp.swift */; };
 		E88438F2CB7F1FF0532CA09A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6866EF410FB6E6483791B91D /* Assets.xcassets */; };
 		F535D519CF52B4E68813F39B /* TimeFormattingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524E542F0B38AAFE1EF67F3F /* TimeFormattingTests.swift */; };
 		TYPO0001A2B3C4D5E6F78901 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = TYPO0000A2B3C4D5E6F78901 /* Typography.swift */; };
 		TYPO0002A2B3C4D5E6F78901 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = TYPO0000A2B3C4D5E6F78901 /* Typography.swift */; };
-		COLR0001A2B3C4D5E6F78901 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = COLR0000A2B3C4D5E6F78901 /* Colors.swift */; };
-		COLR0002A2B3C4D5E6F78901 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = COLR0000A2B3C4D5E6F78901 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +77,7 @@
 		2ABC17943849D22370525287 /* TimerPhaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPhaseTests.swift; sourceTree = "<group>"; };
 		2CD2632C584EE599B225E3AC /* FeedbackManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackManagerTests.swift; sourceTree = "<group>"; };
 		2D26E7C031F2BAF3F2EA2660 /* ClimberTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimberTimerTests.swift; sourceTree = "<group>"; };
-		32A4DA1EA5D9B48F51257105 /* ClimberTimerUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ClimberTimerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		32A4DA1EA5D9B48F51257105 /* ClimberTimerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClimberTimerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		32B73521D73004909C4A42D7 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		39920330C8CCFB86F27CA4C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3A59FC09B72AE63D98D4D99F /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
@@ -94,16 +94,17 @@
 		7E27853E3061BE52971F2946 /* DataStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreTests.swift; sourceTree = "<group>"; };
 		8A48A9BEB1D72CE5F22216C9 /* IntervalTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalTimerTests.swift; sourceTree = "<group>"; };
 		90713EC44E0FACEB589563C7 /* ClimberTimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClimberTimer.entitlements; sourceTree = "<group>"; };
-		95F81242CA4B5D016CD847B4 /* ClimberTimerTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ClimberTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		95F81242CA4B5D016CD847B4 /* ClimberTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClimberTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9689AFEA3B35779912752213 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		982C27C0F6D4AD002F151D74 /* TimeFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatting.swift; sourceTree = "<group>"; };
 		A79F0E37FA910F52F319BC66 /* LastUsedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastUsedUITests.swift; sourceTree = "<group>"; };
 		B019707A9D9468261B7BD735 /* SettingsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelTests.swift; sourceTree = "<group>"; };
-		B677E980FAFB33EE890B6998 /* ClimberTimer.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = ClimberTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B677E980FAFB33EE890B6998 /* ClimberTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClimberTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF10BDFAB787E71F62BE34A9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C2B2C6D955E53A0390E9861B /* WatchPresetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchPresetsView.swift; sourceTree = "<group>"; };
 		C89F75D5A587D47489BA4064 /* Interval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interval.swift; sourceTree = "<group>"; };
 		CF238667267FD6E3065250A7 /* PresetStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetStore.swift; sourceTree = "<group>"; };
+		COLR0000A2B3C4D5E6F78901 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		D26570FEFD5F55CEA1FE911C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D33A597C831F998A89AE0BD4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		E5F20F758721D9A8EA306222 /* TimerSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSetupView.swift; sourceTree = "<group>"; };
@@ -113,7 +114,6 @@
 		F92F3755622CCC6BFAFA0276 /* PresetsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetsViewModelTests.swift; sourceTree = "<group>"; };
 		FC013C7BB41A809FED7723A7 /* WatchHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHomeView.swift; sourceTree = "<group>"; };
 		TYPO0000A2B3C4D5E6F78901 /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
-		COLR0000A2B3C4D5E6F78901 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -409,7 +409,6 @@
 			);
 			mainGroup = FF644002E1E4448F7C44BF3B;
 			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -531,6 +530,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 88E97RR2M3;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -549,8 +549,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "ClimberTimer Watch/ClimberTimer Watch.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T3WWQ3395H;
 				INFOPLIST_FILE = "ClimberTimer Watch/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.climbertimer.ios.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.snugglebearteam.climbertimer.watchkitapp;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -563,13 +567,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "ClimberTimer iOS/ClimberTimer.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T3WWQ3395H;
 				INFOPLIST_FILE = "ClimberTimer iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.climbertimer.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.snugglebearteam.climbertimer.ios;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -636,6 +643,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 88E97RR2M3;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -718,13 +726,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "ClimberTimer iOS/ClimberTimer.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T3WWQ3395H;
 				INFOPLIST_FILE = "ClimberTimer iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.climbertimer.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.snugglebearteam.climbertimer.ios;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -734,6 +745,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 88E97RR2M3;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -751,6 +763,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 88E97RR2M3;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -769,8 +782,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "ClimberTimer Watch/ClimberTimer Watch.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T3WWQ3395H;
 				INFOPLIST_FILE = "ClimberTimer Watch/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.climbertimer.ios.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.snugglebearteam.climbertimer.watchkitapp;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
