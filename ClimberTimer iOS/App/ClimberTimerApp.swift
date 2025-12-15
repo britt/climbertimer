@@ -24,6 +24,7 @@ struct ClimberTimerApp: App {
     var body: some Scene {
         WindowGroup {
             HomeView(presetStore: presetStore)
+                .tint(AppColors.granite)
         }
         .modelContainer(modelContainer)
     }

@@ -18,13 +18,13 @@ struct WatchActiveTimerView: View {
 
             VStack {
                 Text(timer.currentPhase.displayName)
-                    .font(.caption)
+                    .font(Typography.caption)
 
                 Text(TimeFormatting.format(timer.timeRemaining))
-                    .font(.system(size: 48, weight: .bold, design: .monospaced))
+                    .font(Typography.timerSmall)
 
                 Text("\(timer.currentRep)/\(timer.totalReps)")
-                    .font(.caption)
+                    .font(Typography.caption)
             }
             .foregroundColor(.white)
         }
@@ -63,10 +63,10 @@ struct WatchActiveTimerView: View {
 
     private var backgroundColor: Color {
         switch timer.currentPhase {
-        case .countdown: return .orange
-        case .work: return .green
-        case .rest: return .blue
-        case .finished: return .gray
+        case .countdown: return AppColors.countdown
+        case .work: return AppColors.work
+        case .rest: return AppColors.rest
+        case .finished: return AppColors.finished
         }
     }
 }

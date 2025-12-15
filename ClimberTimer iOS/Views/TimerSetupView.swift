@@ -9,6 +9,7 @@ struct TimerSetupView: View {
     @State private var showingSavePreset = false
     @State private var presetName = ""
     @State private var hasLoadedInitialInterval = false
+    @State private var savedPresetName: String?
     @Environment(\.dismiss) private var dismiss
 
     private let presetStore: PresetStore
@@ -27,48 +28,63 @@ struct TimerSetupView: View {
             // Work Duration
             VStack {
                 Text("WORK")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
+                    .font(.custom("AvenirNext-Regular", size: 15))
+                    .foregroundStyle(AppColors.granite.opacity(0.7))
                 HStack {
                     Button("-") { if viewModel.workDuration > 1 { viewModel.workDuration -= 1 } }
+                        .foregroundStyle(AppColors.granite)
                         .buttonStyle(.bordered)
+                        .tint(AppColors.granite)
                     Text("\(Int(viewModel.workDuration))s")
-                        .font(.title)
-                        .frame(minWidth: 60)
+                        .font(.custom("Menlo-Bold", size: 35))
+                        .foregroundStyle(AppColors.granite)
+                        .frame(minWidth: 80)
                     Button("+") { if viewModel.workDuration < 60 { viewModel.workDuration += 1 } }
+                        .foregroundStyle(AppColors.granite)
                         .buttonStyle(.bordered)
+                        .tint(AppColors.granite)
                 }
             }
 
             // Rest Duration
             VStack {
                 Text("REST")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
+                    .font(.custom("AvenirNext-Regular", size: 15))
+                    .foregroundStyle(AppColors.granite.opacity(0.7))
                 HStack {
                     Button("-") { if viewModel.restDuration > 1 { viewModel.restDuration -= 1 } }
+                        .foregroundStyle(AppColors.granite)
                         .buttonStyle(.bordered)
+                        .tint(AppColors.granite)
                     Text("\(Int(viewModel.restDuration))s")
-                        .font(.title)
-                        .frame(minWidth: 60)
+                        .font(.custom("Menlo-Bold", size: 35))
+                        .foregroundStyle(AppColors.granite)
+                        .frame(minWidth: 80)
                     Button("+") { if viewModel.restDuration < 60 { viewModel.restDuration += 1 } }
+                        .foregroundStyle(AppColors.granite)
                         .buttonStyle(.bordered)
+                        .tint(AppColors.granite)
                 }
             }
 
             // Repetitions
             VStack {
                 Text("REPS")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
+                    .font(.custom("AvenirNext-Regular", size: 15))
+                    .foregroundStyle(AppColors.granite.opacity(0.7))
                 HStack {
                     Button("-") { if viewModel.repetitions > 1 { viewModel.repetitions -= 1 } }
+                        .foregroundStyle(AppColors.granite)
                         .buttonStyle(.bordered)
+                        .tint(AppColors.granite)
                     Text("\(viewModel.repetitions)")
-                        .font(.title)
-                        .frame(minWidth: 60)
+                        .font(.custom("Menlo-Bold", size: 35))
+                        .foregroundStyle(AppColors.granite)
+                        .frame(minWidth: 80)
                     Button("+") { if viewModel.repetitions < 20 { viewModel.repetitions += 1 } }
+                        .foregroundStyle(AppColors.granite)
                         .buttonStyle(.bordered)
+                        .tint(AppColors.granite)
                 }
             }
 
@@ -78,7 +94,10 @@ struct TimerSetupView: View {
             Button("Save as Preset") {
                 showingSavePreset = true
             }
+            .font(.custom("AvenirNext-DemiBold", size: 21))
+            .foregroundStyle(AppColors.granite)
             .buttonStyle(.bordered)
+            .tint(AppColors.granite)
 
             // Start Button
             Button(action: {
@@ -86,17 +105,30 @@ struct TimerSetupView: View {
                 showingTimer = true
             }) {
                 Text("START")
-                    .font(.title.bold())
+                    .font(.custom("AvenirNextCondensed-Bold", size: 28))
                     .frame(maxWidth: .infinity)
                     .padding()
-                    .background(Color.green)
+                    .background(AppColors.woodlandGreen.opacity(0.75))
                     .foregroundColor(.white)
-                    .cornerRadius(16)
+                    .cornerRadius(12)
             }
         }
         .padding()
-        .navigationTitle(initialInterval?.name.isEmpty == false ? initialInterval!.name : "New Timer")
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background {
+            ZStack {
+                Image("Background")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .offset(x: -500)
+                AppColors.tan.opacity(0.85)
+            }
+            .ignoresSafeArea()
+        }
+        .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
+        .toolbarBackground(.hidden, for: .navigationBar)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button {
@@ -105,11 +137,22 @@ struct TimerSetupView: View {
                     HStack(spacing: 4) {
                         Image(systemName: "chevron.left")
                         Text("Back")
+                            .font(.custom("AvenirNext-Regular", size: 17))
                     }
+                    .foregroundStyle(AppColors.granite)
                 }
             }
+            ToolbarItem(placement: .principal) {
+                Text(savedPresetName ?? (initialInterval?.name.isEmpty == false ? initialInterval!.name : "New Timer"))
+                    .font(.custom("AvenirNextCondensed-Bold", size: 20))
+                    .foregroundStyle(AppColors.darkBrown)
+            }
         }
-        .navigationBarBackButtonHidden(true)
+        .overlay(alignment: .top) {
+            Rectangle()
+                .fill(AppColors.granite.opacity(0.3))
+                .frame(height: 1)
+        }
         .fullScreenCover(isPresented: $showingTimer) {
             ActiveTimerView(
                 interval: viewModel.createInterval(),
@@ -120,12 +163,14 @@ struct TimerSetupView: View {
             TextField("Preset Name", text: $presetName)
             Button("Cancel", role: .cancel) { presetName = "" }
             Button("Save") {
+                let name = presetName
                 presetsViewModel.saveCurrentAsPreset(
-                    name: presetName,
+                    name: name,
                     workDuration: viewModel.workDuration,
                     restDuration: viewModel.restDuration,
                     repetitions: viewModel.repetitions
                 )
+                savedPresetName = name
                 presetName = ""
             }
         }

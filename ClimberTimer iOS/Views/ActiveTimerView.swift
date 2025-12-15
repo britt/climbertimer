@@ -21,17 +21,17 @@ struct ActiveTimerView: View {
             VStack(spacing: 24) {
                 // Phase indicator
                 Text(timer.currentPhase.displayName)
-                    .font(.title2.bold())
-                    .foregroundColor(.white.opacity(0.8))
+                    .font(.custom("AvenirNextCondensed-Bold", size: 34))
+                    .foregroundColor(.white)
 
                 // Time remaining
                 Text(TimeFormatting.format(timer.timeRemaining))
-                    .font(.system(size: 96, weight: .bold, design: .monospaced))
+                    .font(Typography.timer)
                     .foregroundColor(.white)
 
                 // Rep counter
                 Text("Rep \(timer.currentRep) of \(timer.totalReps)")
-                    .font(.title3)
+                    .font(Typography.title3)
                     .foregroundColor(.white.opacity(0.8))
 
                 Spacer()
@@ -99,10 +99,10 @@ struct ActiveTimerView: View {
 
     private var backgroundColor: Color {
         switch timer.currentPhase {
-        case .countdown: return .orange
-        case .work: return .green
-        case .rest: return .blue
-        case .finished: return .gray
+        case .countdown: return AppColors.countdown
+        case .work: return AppColors.work
+        case .rest: return AppColors.rest
+        case .finished: return AppColors.finished
         }
     }
 
