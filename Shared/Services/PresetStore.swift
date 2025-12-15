@@ -14,12 +14,19 @@ public class PresetStore {
     private var modelContext: ModelContext
     private let userDefaults: UserDefaults
     private static let lastUsedKey = "lastUsedInterval"
-    private var lastUsedVersion = 0  // Triggers @Observable updates
 
-    public var lastUsed: Interval? {
-        // Access version to create @Observable dependency
-        _ = lastUsedVersion
-        guard let data = userDefaults.data(forKey: Self.lastUsedKey),
+    public private(set) var lastUsed: Interval?
+
+    public init(modelContainer: ModelContainer, userDefaults: UserDefaults = .standard) {
+        self.modelContainer = modelContainer
+        self.modelContext = ModelContext(modelContainer)
+        self.userDefaults = userDefaults
+        // Load from UserDefaults on init
+        self.lastUsed = Self.loadFromDefaults(userDefaults: userDefaults)
+    }
+
+    private static func loadFromDefaults(userDefaults: UserDefaults) -> Interval? {
+        guard let data = userDefaults.data(forKey: lastUsedKey),
               let lastUsedData = try? JSONDecoder().decode(LastUsedInterval.self, from: data) else {
             return nil
         }
@@ -29,12 +36,6 @@ public class PresetStore {
             restDuration: lastUsedData.restDuration,
             repetitions: lastUsedData.repetitions
         )
-    }
-
-    public init(modelContainer: ModelContainer, userDefaults: UserDefaults = .standard) {
-        self.modelContainer = modelContainer
-        self.modelContext = ModelContext(modelContainer)
-        self.userDefaults = userDefaults
     }
 
     // MARK: - Presets (SwiftData)
@@ -67,8 +68,13 @@ public class PresetStore {
         if let data = try? JSONEncoder().encode(lastUsedData) {
             userDefaults.set(data, forKey: Self.lastUsedKey)
         }
-        // Increment version to trigger @Observable update
-        lastUsedVersion += 1
+        // Update stored property to trigger @Observable update
+        lastUsed = Interval(
+            name: "",
+            workDuration: interval.workDuration,
+            restDuration: interval.restDuration,
+            repetitions: interval.repetitions
+        )
     }
 
     public func loadLastUsed() -> Interval? {
