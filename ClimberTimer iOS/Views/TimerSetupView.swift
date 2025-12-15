@@ -95,8 +95,21 @@ struct TimerSetupView: View {
             }
         }
         .padding()
-        .navigationTitle("Timer Setup")
+        .navigationTitle(initialInterval?.name.isEmpty == false ? initialInterval!.name : "New Timer")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    HStack(spacing: 4) {
+                        Image(systemName: "chevron.left")
+                        Text("Back")
+                    }
+                }
+            }
+        }
+        .navigationBarBackButtonHidden(true)
         .fullScreenCover(isPresented: $showingTimer) {
             ActiveTimerView(
                 interval: viewModel.createInterval(),

@@ -14,9 +14,9 @@ final class IntervalTimerTests: XCTestCase {
         )
         let timer = IntervalTimer(interval: interval)
 
-        XCTAssertEqual(timer.currentPhase, .work)
+        XCTAssertEqual(timer.currentPhase, .countdown)
         XCTAssertEqual(timer.currentRep, 1)
-        XCTAssertEqual(timer.timeRemaining, 7)
+        XCTAssertEqual(timer.timeRemaining, 3) // countdown duration
         XCTAssertFalse(timer.isRunning)
     }
 
@@ -69,9 +69,9 @@ final class IntervalTimerTests: XCTestCase {
         timer.pause()
         timer.reset()
 
-        XCTAssertEqual(timer.currentPhase, .work)
+        XCTAssertEqual(timer.currentPhase, .countdown)
         XCTAssertEqual(timer.currentRep, 1)
-        XCTAssertEqual(timer.timeRemaining, 7)
+        XCTAssertEqual(timer.timeRemaining, 3) // countdown duration
         XCTAssertFalse(timer.isRunning)
     }
 
@@ -83,14 +83,27 @@ final class IntervalTimerTests: XCTestCase {
 
         timer.simulateTick(seconds: 1)
 
-        XCTAssertEqual(timer.timeRemaining, 6, accuracy: 0.1)
+        // Started with 3 second countdown, now 2 remaining
+        XCTAssertEqual(timer.timeRemaining, 2, accuracy: 0.1)
+    }
+
+    func test_countdown_phase_transitions_to_work() {
+        let interval = Interval(name: "Test", workDuration: 2, restDuration: 3, repetitions: 6)
+        let timer = IntervalTimer(interval: interval)
+
+        // Complete 3 second countdown
+        timer.simulateTick(seconds: 3)
+
+        XCTAssertEqual(timer.currentPhase, .work)
+        XCTAssertEqual(timer.timeRemaining, 2, accuracy: 0.1)
     }
 
     func test_work_phase_ends_transitions_to_rest() {
         let interval = Interval(name: "Test", workDuration: 2, restDuration: 3, repetitions: 6)
         let timer = IntervalTimer(interval: interval)
 
-        timer.simulateTick(seconds: 2)
+        // Complete countdown (3s) + work (2s)
+        timer.simulateTick(seconds: 5)
 
         XCTAssertEqual(timer.currentPhase, .rest)
         XCTAssertEqual(timer.timeRemaining, 3, accuracy: 0.1)
@@ -100,10 +113,8 @@ final class IntervalTimerTests: XCTestCase {
         let interval = Interval(name: "Test", workDuration: 2, restDuration: 3, repetitions: 6)
         let timer = IntervalTimer(interval: interval)
 
-        // Complete work phase
-        timer.simulateTick(seconds: 2)
-        // Complete rest phase
-        timer.simulateTick(seconds: 3)
+        // Complete countdown (3s) + work (2s) + rest (3s)
+        timer.simulateTick(seconds: 8)
 
         XCTAssertEqual(timer.currentPhase, .work)
         XCTAssertEqual(timer.currentRep, 2)
@@ -114,10 +125,8 @@ final class IntervalTimerTests: XCTestCase {
         let interval = Interval(name: "Test", workDuration: 1, restDuration: 1, repetitions: 2)
         let timer = IntervalTimer(interval: interval)
 
-        // Rep 1: work + rest
-        timer.simulateTick(seconds: 2)
-        // Rep 2: work + rest
-        timer.simulateTick(seconds: 2)
+        // Countdown (3s) + Rep 1: work + rest (2s) + Rep 2: work + rest (2s)
+        timer.simulateTick(seconds: 7)
 
         XCTAssertEqual(timer.currentPhase, .finished)
         XCTAssertFalse(timer.isRunning)
@@ -129,9 +138,15 @@ final class IntervalTimerTests: XCTestCase {
         let interval = Interval(name: "Test", workDuration: 5, restDuration: 3, repetitions: 1)
         let timer = IntervalTimer(interval: interval)
 
+        // During initial countdown phase, warning is true (3 seconds)
+        XCTAssertTrue(timer.isInCountdownWarning)
+
+        // Skip countdown (3s) to get to work phase with 5 seconds
+        timer.simulateTick(seconds: 3)
+        XCTAssertEqual(timer.currentPhase, .work)
         XCTAssertFalse(timer.isInCountdownWarning) // 5 seconds
 
-        timer.simulateTick(seconds: 2) // 3 seconds remaining
+        timer.simulateTick(seconds: 2) // 3 seconds remaining in work
         XCTAssertTrue(timer.isInCountdownWarning)
 
         timer.simulateTick(seconds: 1) // 2 seconds remaining
@@ -142,7 +157,13 @@ final class IntervalTimerTests: XCTestCase {
         let interval = Interval(name: "Test", workDuration: 5, restDuration: 3, repetitions: 1)
         let timer = IntervalTimer(interval: interval)
 
-        timer.simulateTick(seconds: 2) // 3 seconds remaining
+        // Start in countdown phase - warning seconds work here too
+        XCTAssertEqual(timer.countdownWarningSecond, 3)
+
+        // Skip countdown (3s) to work phase with 5 seconds
+        timer.simulateTick(seconds: 3)
+
+        timer.simulateTick(seconds: 2) // 3 seconds remaining in work
         XCTAssertEqual(timer.countdownWarningSecond, 3)
 
         timer.simulateTick(seconds: 1) // 2 seconds remaining

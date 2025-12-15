@@ -99,6 +99,7 @@ struct ActiveTimerView: View {
 
     private var backgroundColor: Color {
         switch timer.currentPhase {
+        case .countdown: return .orange
         case .work: return .green
         case .rest: return .blue
         case .finished: return .gray

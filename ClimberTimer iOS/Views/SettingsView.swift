@@ -8,9 +8,9 @@ struct SettingsView: View {
         NavigationStack {
             Form {
                 Section("Feedback") {
-                    Toggle("Audio", isOn: $viewModel.audioEnabled)
+                    Toggle("Sound", isOn: $viewModel.audioEnabled)
                     Toggle("Visual", isOn: $viewModel.visualEnabled)
-                    Toggle("Haptics", isOn: $viewModel.hapticsEnabled)
+                    Toggle("Vibrate", isOn: $viewModel.hapticsEnabled)
                 }
             }
             .navigationTitle("Settings")

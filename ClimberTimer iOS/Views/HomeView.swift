@@ -84,7 +84,7 @@ struct HomeView: View {
                 }
             }
             .environment(\.editMode, .constant(isEditing ? .active : .inactive))
-            .navigationTitle("ClimberTimer")
+            .navigationTitle("🧗‍♂️ Climber Timer")
             .safeAreaInset(edge: .bottom) {
                 HStack(spacing: 16) {
                     Button {

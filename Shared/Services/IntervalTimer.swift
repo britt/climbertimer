@@ -3,22 +3,23 @@ import Combine
 
 @Observable
 public class IntervalTimer {
-    public private(set) var currentPhase: TimerPhase = .work
+    public private(set) var currentPhase: TimerPhase = .countdown
     public private(set) var currentRep: Int = 1
-    public private(set) var timeRemaining: TimeInterval = 0
+    public private(set) var timeRemaining: TimeInterval = 3
     public private(set) var isRunning: Bool = false
 
     public let totalReps: Int
 
     private let workDuration: TimeInterval
     private let restDuration: TimeInterval
+    private let countdownDuration: TimeInterval = 3
     private var timerCancellable: AnyCancellable?
 
     public init(interval: Interval) {
         self.workDuration = interval.workDuration
         self.restDuration = interval.restDuration
         self.totalReps = interval.repetitions
-        self.timeRemaining = interval.workDuration
+        self.timeRemaining = countdownDuration
     }
 
     // MARK: - Controls
@@ -41,9 +42,9 @@ public class IntervalTimer {
     public func reset() {
         timerCancellable?.cancel()
         isRunning = false
-        currentPhase = .work
+        currentPhase = .countdown
         currentRep = 1
-        timeRemaining = workDuration
+        timeRemaining = countdownDuration
     }
 
     // MARK: - Countdown Warning
@@ -100,6 +101,10 @@ public class IntervalTimer {
 
     private func handlePhaseTransition() {
         switch currentPhase {
+        case .countdown:
+            currentPhase = .work
+            timeRemaining = workDuration
+
         case .work:
             currentPhase = .rest
             timeRemaining = restDuration
