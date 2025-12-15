@@ -26,7 +26,7 @@ struct HomeView: View {
                         }) {
                             HStack {
                                 VStack(alignment: .leading, spacing: 4) {
-                                    Text("Quick Start")
+                                    Text(lastUsed.name.isEmpty ? "Quick Start" : lastUsed.name)
                                         .font(.headline)
                                     Text(lastUsed.summary)
                                         .font(.subheadline)

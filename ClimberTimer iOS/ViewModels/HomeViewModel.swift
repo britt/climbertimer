@@ -6,6 +6,7 @@ public class HomeViewModel {
     public var workDuration: TimeInterval = 7
     public var restDuration: TimeInterval = 3
     public var repetitions: Int = 6
+    public var presetName: String = ""
 
     private let presetStore: PresetStore
 
@@ -19,12 +20,13 @@ public class HomeViewModel {
             workDuration = lastUsed.workDuration
             restDuration = lastUsed.restDuration
             repetitions = lastUsed.repetitions
+            presetName = lastUsed.name
         }
     }
 
     public func createInterval() -> Interval {
         Interval(
-            name: "",
+            name: presetName,
             workDuration: workDuration,
             restDuration: restDuration,
             repetitions: repetitions
@@ -40,5 +42,6 @@ public class HomeViewModel {
         workDuration = preset.workDuration
         restDuration = preset.restDuration
         repetitions = preset.repetitions
+        presetName = preset.name
     }
 }

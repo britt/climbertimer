@@ -3,6 +3,7 @@ import SwiftData
 
 // Codable struct for UserDefaults storage
 private struct LastUsedInterval: Codable {
+    let name: String
     let workDuration: TimeInterval
     let restDuration: TimeInterval
     let repetitions: Int
@@ -31,7 +32,7 @@ public class PresetStore {
             return nil
         }
         return Interval(
-            name: "",
+            name: lastUsedData.name,
             workDuration: lastUsedData.workDuration,
             restDuration: lastUsedData.restDuration,
             repetitions: lastUsedData.repetitions
@@ -61,6 +62,7 @@ public class PresetStore {
 
     public func saveLastUsed(_ interval: Interval) {
         let lastUsedData = LastUsedInterval(
+            name: interval.name,
             workDuration: interval.workDuration,
             restDuration: interval.restDuration,
             repetitions: interval.repetitions
@@ -70,7 +72,7 @@ public class PresetStore {
         }
         // Update stored property to trigger @Observable update
         lastUsed = Interval(
-            name: "",
+            name: interval.name,
             workDuration: interval.workDuration,
             restDuration: interval.restDuration,
             repetitions: interval.repetitions
