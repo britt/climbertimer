@@ -7,6 +7,7 @@ struct HomeView: View {
     @State private var settingsViewModel = SettingsViewModel()
     @State private var showingSettings = false
     @State private var showingNewTimer = false
+    @State private var showingLastUsedTimer = false
     @State private var navigationPath = NavigationPath()
     @State private var isEditing = false
 
@@ -21,10 +22,10 @@ struct HomeView: View {
                 // Last Used Section
                 if let lastUsed = presetStore.lastUsed {
                     Section {
-                        Button(action: {
-                            navigationPath.append(lastUsed)
-                        }) {
-                            HStack {
+                        HStack {
+                            Button(action: {
+                                navigationPath.append(lastUsed)
+                            }) {
                                 VStack(alignment: .leading, spacing: 4) {
                                     Text(lastUsed.name.isEmpty ? "Quick Start" : lastUsed.name)
                                         .font(.custom("AvenirNextCondensed-DemiBold", size: 21))
@@ -33,21 +34,25 @@ struct HomeView: View {
                                         .font(.custom("AvenirNext-Regular", size: 15))
                                         .foregroundStyle(AppColors.granite.opacity(0.7))
                                 }
-                                Spacer()
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .contentShape(Rectangle())
+                            }
+                            .buttonStyle(.plain)
+                            Button(action: {
+                                showingLastUsedTimer = true
+                            }) {
                                 Image(systemName: "play.circle.fill")
                                     .font(.title)
                                     .foregroundStyle(AppColors.woodlandGreen)
                             }
-                            .padding(.vertical, 8)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .contentShape(Rectangle())
-                            .overlay(alignment: .bottom) {
-                                Rectangle()
-                                    .fill(AppColors.granite.opacity(0.3))
-                                    .frame(height: 1)
-                            }
+                            .buttonStyle(.plain)
                         }
-                        .buttonStyle(.plain)
+                        .padding(.vertical, 8)
+                        .overlay(alignment: .bottom) {
+                            Rectangle()
+                                .fill(AppColors.granite.opacity(0.3))
+                                .frame(height: 1)
+                        }
                         .listRowBackground(Color.clear)
                         .listRowSeparator(.hidden)
                         .listRowInsets(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
@@ -174,6 +179,14 @@ struct HomeView: View {
             }
             .sheet(isPresented: $showingSettings) {
                 SettingsView(viewModel: settingsViewModel)
+            }
+            .fullScreenCover(isPresented: $showingLastUsedTimer) {
+                if let lastUsed = presetStore.lastUsed {
+                    ActiveTimerView(
+                        interval: lastUsed,
+                        settings: settingsViewModel.toFeedbackSettings()
+                    )
+                }
             }
             .navigationDestination(isPresented: $showingNewTimer) {
                 TimerSetupView(

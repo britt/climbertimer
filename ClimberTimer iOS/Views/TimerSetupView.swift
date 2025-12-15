@@ -170,6 +170,7 @@ struct TimerSetupView: View {
                     restDuration: viewModel.restDuration,
                     repetitions: viewModel.repetitions
                 )
+                viewModel.presetName = name
                 savedPresetName = name
                 presetName = ""
             }

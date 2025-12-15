@@ -20,7 +20,7 @@ public class FeedbackManager {
     public func playCountdownBeep() {
         guard shouldPlayAudio else { return }
         #if os(iOS)
-        AudioServicesPlaySystemSound(1057) // Standard beep
+        AudioServicesPlaySystemSound(1104) // Subtle low beep
         #elseif os(watchOS)
         WKInterfaceDevice.current().play(.click)
         #endif
