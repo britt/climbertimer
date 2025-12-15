@@ -22,8 +22,8 @@ public class PresetStore {
         self.modelContainer = modelContainer
         self.modelContext = ModelContext(modelContainer)
         self.userDefaults = userDefaults
-        // Load from UserDefaults on init
-        self.lastUsed = Self.loadFromDefaults(userDefaults: userDefaults)
+        // Load from UserDefaults on init, or use default quick start
+        self.lastUsed = Self.loadFromDefaults(userDefaults: userDefaults) ?? Interval.defaultQuickStart
     }
 
     private static func loadFromDefaults(userDefaults: UserDefaults) -> Interval? {
@@ -54,8 +54,21 @@ public class PresetStore {
     }
 
     public func deletePreset(_ interval: Interval) throws {
+        // If deleting the last used preset, reset to default
+        if let lastUsed = lastUsed,
+           lastUsed.name == interval.name &&
+           lastUsed.workDuration == interval.workDuration &&
+           lastUsed.restDuration == interval.restDuration &&
+           lastUsed.repetitions == interval.repetitions {
+            resetLastUsedToDefault()
+        }
         modelContext.delete(interval)
         try modelContext.save()
+    }
+
+    public func resetLastUsedToDefault() {
+        userDefaults.removeObject(forKey: Self.lastUsedKey)
+        lastUsed = Interval.defaultQuickStart
     }
 
     // MARK: - Last Used (UserDefaults)

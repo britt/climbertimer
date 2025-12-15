@@ -41,4 +41,13 @@ public class Interval: Hashable {
     public var summary: String {
         "\(Int(workDuration))s / \(Int(restDuration))s × \(repetitions)"
     }
+
+    public static var defaultQuickStart: Interval {
+        Interval(
+            name: "",
+            workDuration: 7,
+            restDuration: 3,
+            repetitions: 6
+        )
+    }
 }

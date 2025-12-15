@@ -103,11 +103,19 @@ struct HomeView: View {
                                 }
                             }
                             .buttonStyle(.plain)
+                            .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                                Button(role: .destructive) {
+                                    if let index = presetsViewModel.presets.firstIndex(where: { $0.id == preset.id }) {
+                                        presetsViewModel.deletePreset(at: IndexSet(integer: index))
+                                    }
+                                } label: {
+                                    Label("Delete", systemImage: "trash")
+                                }
+                            }
                             .listRowBackground(Color.clear)
                             .listRowSeparator(.hidden)
                             .listRowInsets(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                         }
-                        .onDelete(perform: presetsViewModel.deletePreset)
                     }
                 } header: {
                     HStack {
