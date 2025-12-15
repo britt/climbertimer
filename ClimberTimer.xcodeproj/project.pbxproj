@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 63;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,7 @@
 		3BEE4B25C32BE867C5C0FEED /* FeedbackSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44815C38B66CA0483084955E /* FeedbackSettings.swift */; };
 		5996EA75E2392C245C8A1EED /* IntervalTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92038A8EBA13AB01D84798E /* IntervalTimer.swift */; };
 		5BA7CF414ABB50C8C0E5C678 /* ClimberTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D26E7C031F2BAF3F2EA2660 /* ClimberTimerTests.swift */; };
+		5C26C813019B10C930846627 /* LastUsedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79F0E37FA910F52F319BC66 /* LastUsedUITests.swift */; };
 		699761B286BA56146A108941 /* SettingsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B019707A9D9468261B7BD735 /* SettingsViewModelTests.swift */; };
 		6B5829D8694306AB141B25E2 /* FeedbackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9FF769EC901DE7BA20973 /* FeedbackManager.swift */; };
 		6BCBE24C3030D3D97020A0AD /* TimeFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982C27C0F6D4AD002F151D74 /* TimeFormatting.swift */; };
@@ -56,6 +57,13 @@
 			remoteGlobalIDString = 5D48B829EA240F4850E0DDE6;
 			remoteInfo = ClimberTimer;
 		};
+		648566B66B16310C543E90D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 076630D2C5B85E6EA5A4F3CD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5D48B829EA240F4850E0DDE6;
+			remoteInfo = ClimberTimer;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +73,7 @@
 		2ABC17943849D22370525287 /* TimerPhaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPhaseTests.swift; sourceTree = "<group>"; };
 		2CD2632C584EE599B225E3AC /* FeedbackManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackManagerTests.swift; sourceTree = "<group>"; };
 		2D26E7C031F2BAF3F2EA2660 /* ClimberTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimberTimerTests.swift; sourceTree = "<group>"; };
+		32A4DA1EA5D9B48F51257105 /* ClimberTimerUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ClimberTimerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		32B73521D73004909C4A42D7 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		39920330C8CCFB86F27CA4C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3A59FC09B72AE63D98D4D99F /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
@@ -81,11 +90,12 @@
 		7E27853E3061BE52971F2946 /* DataStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreTests.swift; sourceTree = "<group>"; };
 		8A48A9BEB1D72CE5F22216C9 /* IntervalTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalTimerTests.swift; sourceTree = "<group>"; };
 		90713EC44E0FACEB589563C7 /* ClimberTimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClimberTimer.entitlements; sourceTree = "<group>"; };
-		95F81242CA4B5D016CD847B4 /* ClimberTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClimberTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		95F81242CA4B5D016CD847B4 /* ClimberTimerTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ClimberTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9689AFEA3B35779912752213 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		982C27C0F6D4AD002F151D74 /* TimeFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatting.swift; sourceTree = "<group>"; };
+		A79F0E37FA910F52F319BC66 /* LastUsedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastUsedUITests.swift; sourceTree = "<group>"; };
 		B019707A9D9468261B7BD735 /* SettingsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelTests.swift; sourceTree = "<group>"; };
-		B677E980FAFB33EE890B6998 /* ClimberTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClimberTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B677E980FAFB33EE890B6998 /* ClimberTimer.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = ClimberTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF10BDFAB787E71F62BE34A9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C2B2C6D955E53A0390E9861B /* WatchPresetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchPresetsView.swift; sourceTree = "<group>"; };
 		C89F75D5A587D47489BA4064 /* Interval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interval.swift; sourceTree = "<group>"; };
@@ -178,6 +188,7 @@
 				ED801F12AEBEE2E55E77E0B7 /* ClimberTimer Watch Watch App.app */,
 				B677E980FAFB33EE890B6998 /* ClimberTimer.app */,
 				95F81242CA4B5D016CD847B4 /* ClimberTimerTests.xctest */,
+				32A4DA1EA5D9B48F51257105 /* ClimberTimerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -261,6 +272,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		EC04FECE361BBCBF997AA0AC /* ClimberTimerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A79F0E37FA910F52F319BC66 /* LastUsedUITests.swift */,
+			);
+			path = ClimberTimerUITests;
+			sourceTree = "<group>";
+		};
 		F72BFEA1471706442DE75853 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +296,7 @@
 				034A2AEB652DFE0A5B192101 /* ClimberTimer iOS */,
 				6348B9A6C1EA2B2EBE130B66 /* ClimberTimer Watch */,
 				BA378F5A8840F88D9320D438 /* ClimberTimerTests */,
+				EC04FECE361BBCBF997AA0AC /* ClimberTimerUITests */,
 				4812AA98BCF607C2F9C94201 /* Shared */,
 				64F01D0F3EB8ECDE2EA1BD8D /* Products */,
 			);
@@ -321,6 +341,24 @@
 			productReference = B677E980FAFB33EE890B6998 /* ClimberTimer.app */;
 			productType = "com.apple.product-type.application";
 		};
+		6C03E3E428A4BF708E8FBBD0 /* ClimberTimerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B17B24B0A37612A38DF96065 /* Build configuration list for PBXNativeTarget "ClimberTimerUITests" */;
+			buildPhases = (
+				4F3A2E9EFFC72A7BF93116AE /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				050C5C901DBCC2DEC35F189F /* PBXTargetDependency */,
+			);
+			name = ClimberTimerUITests;
+			packageProductDependencies = (
+			);
+			productName = ClimberTimerUITests;
+			productReference = 32A4DA1EA5D9B48F51257105 /* ClimberTimerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		FC3D2C4D961BFB4692F68727 /* ClimberTimerTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9333719BE8AF6D6C57293332 /* Build configuration list for PBXNativeTarget "ClimberTimerTests" */;
@@ -346,7 +384,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 1640;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					6C03E3E428A4BF708E8FBBD0 = {
+						TestTargetID = 5D48B829EA240F4850E0DDE6;
+					};
+				};
 			};
 			buildConfigurationList = 18B8C2A338D569B16A039D63 /* Build configuration list for PBXProject "ClimberTimer" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -358,12 +401,14 @@
 			);
 			mainGroup = FF644002E1E4448F7C44BF3B;
 			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				5D48B829EA240F4850E0DDE6 /* ClimberTimer */,
 				152E0F83161CAFFFF17651C3 /* ClimberTimer Watch Watch App */,
 				FC3D2C4D961BFB4692F68727 /* ClimberTimerTests */,
+				6C03E3E428A4BF708E8FBBD0 /* ClimberTimerUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -403,6 +448,14 @@
 				699761B286BA56146A108941 /* SettingsViewModelTests.swift in Sources */,
 				F535D519CF52B4E68813F39B /* TimeFormattingTests.swift in Sources */,
 				B118A851A510299DDF8839BB /* TimerPhaseTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F3A2E9EFFC72A7BF93116AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C26C813019B10C930846627 /* LastUsedUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +502,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		050C5C901DBCC2DEC35F189F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5D48B829EA240F4850E0DDE6 /* ClimberTimer */;
+			targetProxy = 648566B66B16310C543E90D2 /* PBXContainerItemProxy */;
+		};
 		89F63B7547BCAD488B16AB8A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5D48B829EA240F4850E0DDE6 /* ClimberTimer */;
@@ -457,6 +515,23 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		12EEA4B23331A13130B30F72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.climbertimer.uitests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ClimberTimer;
+			};
+			name = Debug;
+		};
 		218B2186122E7B50A7ACACD1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -522,7 +597,6 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -543,6 +617,23 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.9;
 				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+		86CE0880EC3892CDD11BE746 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.climbertimer.uitests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ClimberTimer;
 			};
 			name = Release;
 		};
@@ -580,7 +671,6 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -702,6 +792,15 @@
 			buildConfigurations = (
 				218B2186122E7B50A7ACACD1 /* Debug */,
 				FEDAEBD59437959092103BDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B17B24B0A37612A38DF96065 /* Build configuration list for PBXNativeTarget "ClimberTimerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12EEA4B23331A13130B30F72 /* Debug */,
+				86CE0880EC3892CDD11BE746 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

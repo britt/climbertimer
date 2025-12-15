@@ -56,15 +56,28 @@ targets:
       PRODUCT_BUNDLE_IDENTIFIER: com.climbertimer.tests
       GENERATE_INFOPLIST_FILE: YES
 
+  ClimberTimerUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: ClimberTimerUITests
+    dependencies:
+      - target: ClimberTimer
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.climbertimer.uitests
+      GENERATE_INFOPLIST_FILE: YES
+
 schemes:
   ClimberTimer:
     build:
       targets:
         ClimberTimer: all
         ClimberTimerTests: [test]
+        ClimberTimerUITests: [test]
     run:
       config: Debug
     test:
       config: Debug
       targets:
         - ClimberTimerTests
+        - ClimberTimerUITests

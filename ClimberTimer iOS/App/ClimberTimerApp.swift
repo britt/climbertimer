@@ -7,6 +7,11 @@ struct ClimberTimerApp: App {
     @State private var presetStore: PresetStore
 
     init() {
+        // Reset UserDefaults for UI testing if launch argument is present
+        if CommandLine.arguments.contains("-resetUserDefaults") {
+            UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        }
+
         do {
             let container = try ModelContainer(for: Interval.self)
             modelContainer = container

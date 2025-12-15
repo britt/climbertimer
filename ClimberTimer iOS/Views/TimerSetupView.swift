@@ -8,24 +8,18 @@ struct TimerSetupView: View {
     @State private var showingTimer = false
     @State private var showingSavePreset = false
     @State private var presetName = ""
+    @State private var hasLoadedInitialInterval = false
     @Environment(\.dismiss) private var dismiss
 
     private let presetStore: PresetStore
+    private let initialInterval: Interval?
 
     init(presetStore: PresetStore, settingsViewModel: SettingsViewModel, initialInterval: Interval? = nil) {
         self.presetStore = presetStore
         self.settingsViewModel = settingsViewModel
+        self.initialInterval = initialInterval
         _viewModel = State(initialValue: HomeViewModel(presetStore: presetStore))
         _presetsViewModel = State(initialValue: PresetsViewModel(presetStore: presetStore))
-
-        // Load initial interval if provided
-        if let interval = initialInterval {
-            _viewModel = State(initialValue: {
-                let vm = HomeViewModel(presetStore: presetStore)
-                vm.loadPreset(interval)
-                return vm
-            }())
-        }
     }
 
     var body: some View {
@@ -120,6 +114,13 @@ struct TimerSetupView: View {
                     repetitions: viewModel.repetitions
                 )
                 presetName = ""
+            }
+        }
+        .onAppear {
+            // Load initial interval when view appears (not in init, due to SwiftUI state issues)
+            if !hasLoadedInitialInterval, let interval = initialInterval {
+                viewModel.loadPreset(interval)
+                hasLoadedInitialInterval = true
             }
         }
     }
