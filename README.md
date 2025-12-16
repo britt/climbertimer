@@ -73,7 +73,7 @@ Contributions are welcome! Please follow these guidelines:
 
 **Don't be a dick.**
 
-That's it. That's the rule. Be respectful, be helpful, be kind. We're all here to make something cool for climbers. Well, "we" — it's just me and an mass of inscrutable linear algebra right now, but you get the idea.
+That's it. That's the rule. Be respectful, be helpful, be kind. We're all here to make something cool for climbers. Well, "we" — it's just me and an LLM right now, but you get the idea.
 
 - Be welcoming to newcomers
 - Provide constructive feedback
