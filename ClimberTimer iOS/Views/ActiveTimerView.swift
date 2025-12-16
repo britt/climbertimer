@@ -12,64 +12,68 @@ struct ActiveTimerView: View {
     }
 
     var body: some View {
-        ZStack {
-            // Background color based on phase
-            backgroundColor
-                .ignoresSafeArea()
-                .opacity(flashOpacity)
+        GeometryReader { geometry in
+            let isLandscape = geometry.size.width > geometry.size.height
 
-            VStack(spacing: 24) {
-                // Phase indicator
-                Text(timer.currentPhase.displayName)
-                    .font(.custom("AvenirNextCondensed-Bold", size: 34))
-                    .foregroundColor(.white)
+            ZStack {
+                // Background color based on phase
+                backgroundColor
+                    .ignoresSafeArea()
+                    .opacity(flashOpacity)
 
-                // Time remaining
-                Text(TimeFormatting.format(timer.timeRemaining))
-                    .font(Typography.timer)
-                    .foregroundColor(.white)
+                VStack(spacing: isLandscape ? 8 : 24) {
+                    // Phase indicator
+                    Text(timer.currentPhase.displayName)
+                        .font(.custom("AvenirNextCondensed-Bold", size: isLandscape ? 44 : 68))
+                        .foregroundColor(.white)
 
-                // Rep counter
-                Text("Rep \(timer.currentRep) of \(timer.totalReps)")
-                    .font(Typography.title3)
-                    .foregroundColor(.white.opacity(0.8))
+                    // Time remaining
+                    Text(TimeFormatting.format(timer.timeRemaining))
+                        .font(.custom("Menlo-Bold", size: isLandscape ? 60 : 80))
+                        .foregroundColor(.white)
 
-                Spacer()
+                    // Rep counter
+                    Text("Rep \(timer.currentRep) of \(timer.totalReps)")
+                        .font(Typography.title3)
+                        .foregroundColor(.white.opacity(0.8))
 
-                // Controls
-                HStack(spacing: 32) {
-                    // Reset button
-                    Button(action: { timer.reset() }) {
-                        Image(systemName: "arrow.counterclockwise")
-                            .font(.title)
-                            .foregroundColor(.white)
-                            .frame(width: 60, height: 60)
-                            .background(Color.white.opacity(0.2))
-                            .clipShape(Circle())
-                    }
+                    Spacer()
 
-                    // Play/Pause button
-                    Button(action: toggleTimer) {
-                        Image(systemName: timer.isRunning ? "pause.fill" : "play.fill")
-                            .font(.title)
-                            .foregroundColor(.white)
-                            .frame(width: 80, height: 80)
-                            .background(Color.white.opacity(0.3))
-                            .clipShape(Circle())
-                    }
+                    // Controls
+                    HStack(spacing: 32) {
+                        // Reset button
+                        Button(action: { timer.reset() }) {
+                            Image(systemName: "arrow.counterclockwise")
+                                .font(.title)
+                                .foregroundColor(.white)
+                                .frame(width: isLandscape ? 50 : 60, height: isLandscape ? 50 : 60)
+                                .background(Color.white.opacity(0.2))
+                                .clipShape(Circle())
+                        }
 
-                    // Close button
-                    Button(action: { dismiss() }) {
-                        Image(systemName: "xmark")
-                            .font(.title)
-                            .foregroundColor(.white)
-                            .frame(width: 60, height: 60)
-                            .background(Color.white.opacity(0.2))
-                            .clipShape(Circle())
+                        // Play/Pause button
+                        Button(action: toggleTimer) {
+                            Image(systemName: timer.isRunning ? "pause.fill" : "play.fill")
+                                .font(.title)
+                                .foregroundColor(.white)
+                                .frame(width: isLandscape ? 60 : 80, height: isLandscape ? 60 : 80)
+                                .background(Color.white.opacity(0.3))
+                                .clipShape(Circle())
+                        }
+
+                        // Close button
+                        Button(action: { dismiss() }) {
+                            Image(systemName: "xmark")
+                                .font(.title)
+                                .foregroundColor(.white)
+                                .frame(width: isLandscape ? 50 : 60, height: isLandscape ? 50 : 60)
+                                .background(Color.white.opacity(0.2))
+                                .clipShape(Circle())
+                        }
                     }
                 }
+                .padding()
             }
-            .padding()
         }
         .onAppear {
             timer.start()
