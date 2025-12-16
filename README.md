@@ -13,7 +13,7 @@ A SwiftUI interval timer app designed for rock climbers. Built for iPhone and Ap
 
 ## Screenshots
 
-*Coming soon*
+![Climber Timer Screenshot](docs/screenshot.jpg)
 
 ## Requirements
 
