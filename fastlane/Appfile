@@ -1,0 +1,12 @@
+# App Store Connect API Key
+# Set these environment variables or use app_store_connect_api_key action
+# ASC_KEY_ID, ASC_ISSUER_ID, ASC_KEY_CONTENT
+
+# iOS App
+app_identifier("com.snugglebearteam.climbertimer")
+
+# Apple Developer Portal Team
+team_id("T3WWQ3395H")
+
+# App Store Connect Team (if different from Developer Portal)
+itc_team_id("T3WWQ3395H")
