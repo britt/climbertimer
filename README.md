@@ -88,3 +88,5 @@ Open an issue for bugs, feature requests, or questions.
 ---
 
 Made with caffeine and chalk dust.
+
+A [Snugglebearteam](https://www.snugglebearteam.com/) Production
