@@ -175,14 +175,17 @@ struct TimerSetupView: View {
         .sheet(isPresented: $showingWorkPicker) {
             DurationPickerView(title: "Work Duration", duration: $viewModel.workDuration)
                 .presentationDetents([.medium])
+                .presentationBackground(.clear)
         }
         .sheet(isPresented: $showingRestPicker) {
             DurationPickerView(title: "Rest Duration", duration: $viewModel.restDuration)
                 .presentationDetents([.medium])
+                .presentationBackground(.clear)
         }
         .sheet(isPresented: $showingRepsPicker) {
             RepsPickerView(reps: $viewModel.repetitions)
                 .presentationDetents([.medium])
+                .presentationBackground(.clear)
         }
         .onAppear {
             // Load initial interval when view appears (not in init, due to SwiftUI state issues)

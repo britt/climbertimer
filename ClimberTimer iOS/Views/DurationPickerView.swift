@@ -80,16 +80,7 @@ struct DurationPickerView: View {
                 Spacer()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background {
-                ZStack {
-                    Image("Background")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .offset(x: -500)
-                    AppColors.tan.opacity(0.85)
-                }
-                .ignoresSafeArea()
-            }
+            .background(.ultraThinMaterial)
             .navigationTitle("")
             .navigationBarTitleDisplayMode(.inline)
             .toolbarBackground(.hidden, for: .navigationBar)
