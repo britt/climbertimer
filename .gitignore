@@ -42,3 +42,21 @@ Carthage/Build
 
 # Worktrees
 .worktrees/
+
+# Ruby/Bundler
+vendor/bundle/
+.bundle/
+Gemfile.lock
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output/
+fastlane/README.md
+
+# Code signing (sensitive)
+*.p8
+*.p12
+*.mobileprovision
+*.provisionprofile
