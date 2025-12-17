@@ -5,6 +5,8 @@ struct RepsPickerView: View {
     @Environment(\.dismiss) private var dismiss
 
     @State private var selectedReps: Int
+    private let itemHeight: CGFloat = 44
+    private let visibleItems = 5
 
     init(reps: Binding<Int>) {
         self._reps = reps
@@ -14,15 +16,9 @@ struct RepsPickerView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                Picker("Repetitions", selection: $selectedReps) {
-                    ForEach(1...20, id: \.self) { rep in
-                        Text("\(rep)")
-                            .tag(rep)
-                    }
-                }
-                .pickerStyle(.wheel)
-                .frame(height: 200)
-                .padding(.top, 20)
+                SilentWheelPicker(selection: $selectedReps, items: Array(1...20))
+                    .frame(width: 100, height: itemHeight * CGFloat(visibleItems))
+                    .padding(.top, 20)
 
                 Spacer()
             }

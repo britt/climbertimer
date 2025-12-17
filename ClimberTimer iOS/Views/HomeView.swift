@@ -9,7 +9,6 @@ struct HomeView: View {
     @State private var showingNewTimer = false
     @State private var showingLastUsedTimer = false
     @State private var navigationPath = NavigationPath()
-    @State private var isEditing = false
 
     init(presetStore: PresetStore) {
         self.presetStore = presetStore
@@ -118,27 +117,13 @@ struct HomeView: View {
                         }
                     }
                 } header: {
-                    HStack {
-                        Text("Presets")
-                            .font(.custom("AvenirNext-Regular", size: 15))
-                            .foregroundStyle(AppColors.granite.opacity(0.7))
-                        Spacer()
-                        if !presetsViewModel.presets.isEmpty {
-                            Button(isEditing ? "Done" : "Edit") {
-                                withAnimation {
-                                    isEditing.toggle()
-                                }
-                            }
-                            .font(.custom("AvenirNext-Regular", size: 15))
-                            .foregroundStyle(AppColors.granite.opacity(0.7))
-                            .textCase(nil)
-                        }
-                    }
+                    Text("Presets")
+                        .font(.custom("AvenirNext-Regular", size: 15))
+                        .foregroundStyle(AppColors.granite.opacity(0.7))
                 }
             }
             .listStyle(.plain)
             .padding(.top, 8)
-            .environment(\.editMode, .constant(isEditing ? .active : .inactive))
             .navigationTitle("")
             .toolbarBackground(.hidden, for: .navigationBar)
             .toolbarColorScheme(.light, for: .navigationBar)

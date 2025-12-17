@@ -31,8 +31,8 @@ struct TimerSetupView: View {
             // Work Duration
             VStack {
                 Text("WORK")
-                    .font(.custom("AvenirNext-Regular", size: 21))
-                    .foregroundStyle(AppColors.granite.opacity(0.7))
+                    .font(.custom("AvenirNextCondensed-Bold", size: 21))
+                    .foregroundStyle(AppColors.granite)
                 Button {
                     showingWorkPicker = true
                 } label: {
@@ -50,8 +50,8 @@ struct TimerSetupView: View {
             // Rest Duration
             VStack {
                 Text("REST")
-                    .font(.custom("AvenirNext-Regular", size: 21))
-                    .foregroundStyle(AppColors.granite.opacity(0.7))
+                    .font(.custom("AvenirNextCondensed-Bold", size: 21))
+                    .foregroundStyle(AppColors.granite)
                 Button {
                     showingRestPicker = true
                 } label: {
@@ -69,8 +69,8 @@ struct TimerSetupView: View {
             // Repetitions
             VStack {
                 Text("REPS")
-                    .font(.custom("AvenirNext-Regular", size: 21))
-                    .foregroundStyle(AppColors.granite.opacity(0.7))
+                    .font(.custom("AvenirNextCondensed-Bold", size: 21))
+                    .foregroundStyle(AppColors.granite)
                 Button {
                     showingRepsPicker = true
                 } label: {

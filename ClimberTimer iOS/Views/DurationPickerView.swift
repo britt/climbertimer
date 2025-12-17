@@ -9,6 +9,8 @@ struct DurationPickerView: View {
     @State private var seconds: Int = 0
 
     let title: String
+    private let itemHeight: CGFloat = 44
+    private let visibleItems = 5
 
     init(title: String, duration: Binding<TimeInterval>) {
         self.title = title
@@ -26,53 +28,32 @@ struct DurationPickerView: View {
                 HStack(spacing: 0) {
                     // Hours
                     VStack(spacing: 4) {
-                        Picker("Hours", selection: $hours) {
-                            ForEach(0..<24, id: \.self) { hour in
-                                Text("\(hour)")
-                                    .tag(hour)
-                            }
-                        }
-                        .pickerStyle(.wheel)
-                        .frame(width: 80)
-                        .clipped()
+                        SilentWheelPicker(selection: $hours, items: Array(0..<24))
+                            .frame(width: 80, height: itemHeight * CGFloat(visibleItems))
 
                         Text("hours")
-                            .font(.custom("AvenirNext-Regular", size: 13))
-                            .foregroundStyle(AppColors.granite.opacity(0.7))
+                            .font(.custom("AvenirNext-DemiBold", size: 13))
+                            .foregroundStyle(AppColors.granite)
                     }
 
                     // Minutes
                     VStack(spacing: 4) {
-                        Picker("Minutes", selection: $minutes) {
-                            ForEach(0..<60, id: \.self) { minute in
-                                Text("\(minute)")
-                                    .tag(minute)
-                            }
-                        }
-                        .pickerStyle(.wheel)
-                        .frame(width: 80)
-                        .clipped()
+                        SilentWheelPicker(selection: $minutes, items: Array(0..<60))
+                            .frame(width: 80, height: itemHeight * CGFloat(visibleItems))
 
                         Text("min")
-                            .font(.custom("AvenirNext-Regular", size: 13))
-                            .foregroundStyle(AppColors.granite.opacity(0.7))
+                            .font(.custom("AvenirNext-DemiBold", size: 13))
+                            .foregroundStyle(AppColors.granite)
                     }
 
                     // Seconds
                     VStack(spacing: 4) {
-                        Picker("Seconds", selection: $seconds) {
-                            ForEach(0..<60, id: \.self) { second in
-                                Text("\(second)")
-                                    .tag(second)
-                            }
-                        }
-                        .pickerStyle(.wheel)
-                        .frame(width: 80)
-                        .clipped()
+                        SilentWheelPicker(selection: $seconds, items: Array(0..<60))
+                            .frame(width: 80, height: itemHeight * CGFloat(visibleItems))
 
                         Text("sec")
-                            .font(.custom("AvenirNext-Regular", size: 13))
-                            .foregroundStyle(AppColors.granite.opacity(0.7))
+                            .font(.custom("AvenirNext-DemiBold", size: 13))
+                            .foregroundStyle(AppColors.granite)
                     }
                 }
                 .padding(.top, 20)
@@ -107,5 +88,60 @@ struct DurationPickerView: View {
                 }
             }
         }
+    }
+}
+
+struct SilentWheelPicker: View {
+    @Binding var selection: Int
+    let items: [Int]
+
+    private let itemHeight: CGFloat = 44
+    @State private var scrollPosition: Int?
+
+    var body: some View {
+        GeometryReader { geometry in
+            ScrollView(.vertical, showsIndicators: false) {
+                LazyVStack(spacing: 0) {
+                    // Top padding
+                    Color.clear.frame(height: geometry.size.height / 2 - itemHeight / 2)
+
+                    ForEach(items, id: \.self) { item in
+                        Text("\(item)")
+                            .font(.custom("AvenirNext-Medium", size: 22))
+                            .foregroundStyle(AppColors.granite)
+                            .frame(height: itemHeight)
+                            .frame(maxWidth: .infinity)
+                            .id(item)
+                    }
+
+                    // Bottom padding
+                    Color.clear.frame(height: geometry.size.height / 2 - itemHeight / 2)
+                }
+                .scrollTargetLayout()
+            }
+            .scrollPosition(id: $scrollPosition, anchor: .center)
+            .scrollTargetBehavior(.viewAligned)
+            .onAppear {
+                scrollPosition = selection
+            }
+            .onChange(of: scrollPosition) { _, newValue in
+                if let newValue {
+                    selection = newValue
+                }
+            }
+            .onChange(of: selection) { _, newValue in
+                if scrollPosition != newValue {
+                    scrollPosition = newValue
+                }
+            }
+            .overlay {
+                // Selection indicator
+                Rectangle()
+                    .fill(AppColors.granite.opacity(0.15))
+                    .frame(height: itemHeight)
+                    .allowsHitTesting(false)
+            }
+        }
+        .clipped()
     }
 }
