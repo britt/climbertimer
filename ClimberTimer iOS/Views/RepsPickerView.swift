@@ -53,5 +53,6 @@ struct RepsPickerView: View {
             Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(AppColors.tan)
     }
 }

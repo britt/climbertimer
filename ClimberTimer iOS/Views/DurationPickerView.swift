@@ -90,6 +90,7 @@ struct DurationPickerView: View {
             Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(AppColors.tan)
     }
 }
 
