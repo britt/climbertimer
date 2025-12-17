@@ -76,8 +76,8 @@ struct SettingsView: View {
                         .listRowInsets(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                 } header: {
                     Text("Feedback")
-                        .font(.custom("AvenirNext-Regular", size: 15))
-                        .foregroundStyle(AppColors.granite.opacity(0.7))
+                        .font(.custom("AvenirNext-DemiBold", size: 17))
+                        .foregroundStyle(AppColors.granite.opacity(0.8))
                 }
                 .foregroundStyle(AppColors.granite)
             }

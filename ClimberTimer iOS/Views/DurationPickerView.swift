@@ -56,36 +56,34 @@ struct DurationPickerView: View {
             .padding(.bottom, 12)
 
             // Picker content
-            HStack(spacing: 0) {
-                // Hours
-                VStack(spacing: 4) {
+            VStack(spacing: 0) {
+                HStack(spacing: 0) {
                     SilentWheelPicker(selection: $hours, items: Array(0..<24), cornerStyle: .left)
                         .frame(width: 80, height: itemHeight * CGFloat(visibleItems))
 
-                    Text("hours")
-                        .font(.custom("AvenirNext-DemiBold", size: 13))
-                        .foregroundStyle(AppColors.granite)
-                }
-
-                // Minutes
-                VStack(spacing: 4) {
                     SilentWheelPicker(selection: $minutes, items: Array(0..<60), cornerStyle: .none)
                         .frame(width: 80, height: itemHeight * CGFloat(visibleItems))
 
-                    Text("min")
-                        .font(.custom("AvenirNext-DemiBold", size: 13))
-                        .foregroundStyle(AppColors.granite)
-                }
-
-                // Seconds
-                VStack(spacing: 4) {
                     SilentWheelPicker(selection: $seconds, items: Array(0..<60), cornerStyle: .right)
                         .frame(width: 80, height: itemHeight * CGFloat(visibleItems))
-
-                    Text("sec")
-                        .font(.custom("AvenirNext-DemiBold", size: 13))
-                        .foregroundStyle(AppColors.granite)
                 }
+
+                Rectangle()
+                    .fill(AppColors.granite.opacity(0.3))
+                    .frame(width: 240, height: 1)
+                    .padding(.top, 8)
+
+                HStack(spacing: 0) {
+                    Text("hours")
+                        .frame(width: 80)
+                    Text("min")
+                        .frame(width: 80)
+                    Text("sec")
+                        .frame(width: 80)
+                }
+                .font(.custom("AvenirNext-DemiBold", size: 15))
+                .foregroundStyle(AppColors.granite)
+                .padding(.top, 8)
             }
             .padding(.top, 20)
 

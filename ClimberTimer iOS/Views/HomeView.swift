@@ -57,8 +57,8 @@ struct HomeView: View {
                         .listRowInsets(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                     } header: {
                         Text("Last Used")
-                            .font(.custom("AvenirNext-Regular", size: 15))
-                            .foregroundStyle(AppColors.granite.opacity(0.7))
+                            .font(.custom("AvenirNext-DemiBold", size: 17))
+                            .foregroundStyle(AppColors.granite.opacity(0.8))
                     }
                 }
 
@@ -118,8 +118,8 @@ struct HomeView: View {
                     }
                 } header: {
                     Text("Presets")
-                        .font(.custom("AvenirNext-Regular", size: 15))
-                        .foregroundStyle(AppColors.granite.opacity(0.7))
+                        .font(.custom("AvenirNext-DemiBold", size: 17))
+                        .foregroundStyle(AppColors.granite.opacity(0.8))
                 }
             }
             .listStyle(.plain)
