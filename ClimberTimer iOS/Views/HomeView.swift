@@ -9,7 +9,6 @@ struct HomeView: View {
     @State private var showingNewTimer = false
     @State private var showingLastUsedTimer = false
     @State private var navigationPath = NavigationPath()
-    @State private var isEditing = false
 
     init(presetStore: PresetStore) {
         self.presetStore = presetStore
@@ -31,13 +30,13 @@ struct HomeView: View {
                                         .font(.custom("AvenirNextCondensed-DemiBold", size: 21))
                                         .foregroundStyle(AppColors.granite)
                                     Text(lastUsed.summary)
-                                        .font(.custom("AvenirNext-Regular", size: 15))
-                                        .foregroundStyle(AppColors.granite.opacity(0.7))
+                                        .font(.custom("AvenirNext-Medium", size: 16))
+                                        .foregroundStyle(AppColors.granite.opacity(0.8))
                                 }
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .contentShape(Rectangle())
                             }
-                            .buttonStyle(.plain)
+                            .buttonStyle(.borderless)
                             Button(action: {
                                 showingLastUsedTimer = true
                             }) {
@@ -45,7 +44,7 @@ struct HomeView: View {
                                     .font(.title)
                                     .foregroundStyle(AppColors.woodlandGreen)
                             }
-                            .buttonStyle(.plain)
+                            .buttonStyle(.borderless)
                         }
                         .padding(.vertical, 8)
                         .overlay(alignment: .bottom) {
@@ -58,8 +57,8 @@ struct HomeView: View {
                         .listRowInsets(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                     } header: {
                         Text("Last Used")
-                            .font(.custom("AvenirNext-Regular", size: 15))
-                            .foregroundStyle(AppColors.granite.opacity(0.7))
+                            .font(.custom("AvenirNext-DemiBold", size: 17))
+                            .foregroundStyle(AppColors.granite.opacity(0.8))
                     }
                 }
 
@@ -90,8 +89,8 @@ struct HomeView: View {
                                         .font(.custom("AvenirNextCondensed-DemiBold", size: 21))
                                         .foregroundStyle(AppColors.granite)
                                     Text(preset.summary)
-                                        .font(.custom("AvenirNext-Regular", size: 15))
-                                        .foregroundStyle(AppColors.granite.opacity(0.7))
+                                        .font(.custom("AvenirNext-Medium", size: 16))
+                                        .foregroundStyle(AppColors.granite.opacity(0.8))
                                 }
                                 .padding(.vertical, 8)
                                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -102,7 +101,7 @@ struct HomeView: View {
                                         .frame(height: 1)
                                 }
                             }
-                            .buttonStyle(.plain)
+                            .buttonStyle(.borderless)
                             .swipeActions(edge: .trailing, allowsFullSwipe: true) {
                                 Button(role: .destructive) {
                                     if let index = presetsViewModel.presets.firstIndex(where: { $0.id == preset.id }) {
@@ -118,52 +117,42 @@ struct HomeView: View {
                         }
                     }
                 } header: {
-                    HStack {
-                        Text("Presets")
-                            .font(.custom("AvenirNext-Regular", size: 15))
-                            .foregroundStyle(AppColors.granite.opacity(0.7))
-                        Spacer()
-                        if !presetsViewModel.presets.isEmpty {
-                            Button(isEditing ? "Done" : "Edit") {
-                                withAnimation {
-                                    isEditing.toggle()
-                                }
-                            }
-                            .font(.custom("AvenirNext-Regular", size: 15))
-                            .foregroundStyle(AppColors.granite.opacity(0.7))
-                            .textCase(nil)
-                        }
-                    }
+                    Text("Presets")
+                        .font(.custom("AvenirNext-DemiBold", size: 17))
+                        .foregroundStyle(AppColors.granite.opacity(0.8))
                 }
             }
             .listStyle(.plain)
             .padding(.top, 8)
-            .environment(\.editMode, .constant(isEditing ? .active : .inactive))
-            .navigationTitle("")
-            .toolbarBackground(.hidden, for: .navigationBar)
-            .toolbarColorScheme(.light, for: .navigationBar)
-            .overlay(alignment: .top) {
-                Rectangle()
-                    .fill(AppColors.granite.opacity(0.3))
-                    .frame(height: 1)
-            }
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Text("Climber Timer")
-                        .font(.custom("AvenirNextCondensed-Bold", size: 20))
-                        .foregroundStyle(AppColors.darkBrown)
-                }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        showingSettings = true
-                    } label: {
-                        Image(systemName: "gear")
-                            .font(.title2)
-                            .foregroundColor(AppColors.granite)
+            .navigationBarHidden(true)
+            .safeAreaInset(edge: .top) {
+                VStack(spacing: 0) {
+                    HStack {
+                        Spacer()
+
+                        Text("Climber Timer")
+                            .font(.custom("AvenirNextCondensed-Bold", size: 20))
+                            .foregroundStyle(AppColors.darkBrown)
+
+                        Spacer()
                     }
+                    .overlay(alignment: .trailing) {
+                        Button {
+                            showingSettings = true
+                        } label: {
+                            Image(systemName: "gear")
+                                .font(.title2)
+                                .foregroundColor(AppColors.granite)
+                        }
+                    }
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 12)
+
+                    Rectangle()
+                        .fill(AppColors.granite.opacity(0.3))
+                        .frame(height: 1)
                 }
             }
-            .navigationBarTitleDisplayMode(.inline)
             .safeAreaInset(edge: .bottom) {
                 Button {
                     showingNewTimer = true
@@ -176,6 +165,7 @@ struct HomeView: View {
                         .foregroundColor(.white)
                         .cornerRadius(12)
                 }
+                .buttonStyle(.borderless)
                 .padding()
             }
             .navigationDestination(for: Interval.self) { interval in

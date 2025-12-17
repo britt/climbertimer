@@ -50,6 +50,7 @@ struct ActiveTimerView: View {
                                 .background(Color.white.opacity(0.2))
                                 .clipShape(Circle())
                         }
+                        .buttonStyle(.borderless)
 
                         // Play/Pause button
                         Button(action: toggleTimer) {
@@ -60,6 +61,7 @@ struct ActiveTimerView: View {
                                 .background(Color.white.opacity(0.3))
                                 .clipShape(Circle())
                         }
+                        .buttonStyle(.borderless)
 
                         // Close button
                         Button(action: { dismiss() }) {
@@ -70,6 +72,7 @@ struct ActiveTimerView: View {
                                 .background(Color.white.opacity(0.2))
                                 .clipShape(Circle())
                         }
+                        .buttonStyle(.borderless)
                     }
                 }
                 .padding()
