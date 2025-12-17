@@ -14,41 +14,44 @@ struct RepsPickerView: View {
     }
 
     var body: some View {
-        NavigationStack {
-            VStack(spacing: 0) {
-                SilentWheelPicker(selection: $selectedReps, items: Array(1...20))
-                    .frame(width: 100, height: itemHeight * CGFloat(visibleItems))
-                    .padding(.top, 20)
+        VStack(spacing: 0) {
+            // Custom navigation bar
+            HStack {
+                Button {
+                    dismiss()
+                } label: {
+                    Text("Cancel")
+                        .font(.custom("AvenirNext-Regular", size: 17))
+                        .foregroundStyle(AppColors.granite)
+                }
 
                 Spacer()
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(.ultraThinMaterial)
-            .navigationTitle("")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbarBackground(.hidden, for: .navigationBar)
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") {
-                        dismiss()
-                    }
-                    .font(.custom("AvenirNext-Regular", size: 17))
-                    .foregroundStyle(AppColors.granite)
-                }
-                ToolbarItem(placement: .principal) {
-                    Text("Repetitions")
-                        .font(.custom("AvenirNextCondensed-Bold", size: 20))
-                        .foregroundStyle(AppColors.darkBrown)
-                }
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("Done") {
-                        reps = selectedReps
-                        dismiss()
-                    }
-                    .font(.custom("AvenirNext-DemiBold", size: 17))
-                    .foregroundStyle(AppColors.granite)
+
+                Text("Repetitions")
+                    .font(.custom("AvenirNextCondensed-Bold", size: 20))
+                    .foregroundStyle(AppColors.darkBrown)
+
+                Spacer()
+
+                Button {
+                    reps = selectedReps
+                    dismiss()
+                } label: {
+                    Text("Done")
+                        .font(.custom("AvenirNext-DemiBold", size: 17))
+                        .foregroundStyle(AppColors.granite)
                 }
             }
+            .padding(.horizontal, 20)
+            .padding(.top, 16)
+            .padding(.bottom, 12)
+
+            SilentWheelPicker(selection: $selectedReps, items: Array(1...20), cornerStyle: .all)
+                .frame(width: 100, height: itemHeight * CGFloat(visibleItems))
+                .padding(.top, 20)
+
+            Spacer()
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }

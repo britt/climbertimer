@@ -45,6 +45,7 @@ struct TimerSetupView: View {
                         .background(AppColors.granite.opacity(0.1))
                         .cornerRadius(8)
                 }
+                .buttonStyle(.borderless)
             }
 
             // Rest Duration
@@ -64,6 +65,7 @@ struct TimerSetupView: View {
                         .background(AppColors.granite.opacity(0.1))
                         .cornerRadius(8)
                 }
+                .buttonStyle(.borderless)
             }
 
             // Repetitions
@@ -83,6 +85,7 @@ struct TimerSetupView: View {
                         .background(AppColors.granite.opacity(0.1))
                         .cornerRadius(8)
                 }
+                .buttonStyle(.borderless)
             }
 
             Spacer()
@@ -93,8 +96,7 @@ struct TimerSetupView: View {
             }
             .font(.custom("AvenirNext-DemiBold", size: 21))
             .foregroundStyle(AppColors.granite)
-            .buttonStyle(.bordered)
-            .tint(AppColors.granite)
+            .buttonStyle(.borderless)
 
             // Start Button
             Button(action: {
@@ -109,6 +111,7 @@ struct TimerSetupView: View {
                     .foregroundColor(.white)
                     .cornerRadius(12)
             }
+            .buttonStyle(.borderless)
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -122,33 +125,46 @@ struct TimerSetupView: View {
             }
             .ignoresSafeArea()
         }
-        .navigationTitle("")
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
-        .toolbarBackground(.hidden, for: .navigationBar)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button {
-                    dismiss()
-                } label: {
+        .navigationBarHidden(true)
+        .safeAreaInset(edge: .top) {
+            VStack(spacing: 0) {
+                HStack {
+                    Button {
+                        dismiss()
+                    } label: {
+                        HStack(spacing: 4) {
+                            Image(systemName: "chevron.left")
+                                .font(.body)
+                            Text("Back")
+                                .font(.custom("AvenirNext-Regular", size: 17))
+                        }
+                        .foregroundStyle(AppColors.granite)
+                    }
+
+                    Spacer()
+
+                    Text(savedPresetName ?? (initialInterval?.name.isEmpty == false ? initialInterval!.name : "New Timer"))
+                        .font(.custom("AvenirNextCondensed-Bold", size: 20))
+                        .foregroundStyle(AppColors.darkBrown)
+
+                    Spacer()
+
+                    // Invisible spacer to balance the back button
                     HStack(spacing: 4) {
                         Image(systemName: "chevron.left")
+                            .font(.body)
                         Text("Back")
                             .font(.custom("AvenirNext-Regular", size: 17))
                     }
-                    .foregroundStyle(AppColors.granite)
+                    .opacity(0)
                 }
+                .padding(.horizontal, 16)
+                .padding(.vertical, 12)
+
+                Rectangle()
+                    .fill(AppColors.granite.opacity(0.3))
+                    .frame(height: 1)
             }
-            ToolbarItem(placement: .principal) {
-                Text(savedPresetName ?? (initialInterval?.name.isEmpty == false ? initialInterval!.name : "New Timer"))
-                    .font(.custom("AvenirNextCondensed-Bold", size: 20))
-                    .foregroundStyle(AppColors.darkBrown)
-            }
-        }
-        .overlay(alignment: .top) {
-            Rectangle()
-                .fill(AppColors.granite.opacity(0.3))
-                .frame(height: 1)
         }
         .fullScreenCover(isPresented: $showingTimer) {
             ActiveTimerView(
@@ -175,17 +191,14 @@ struct TimerSetupView: View {
         .sheet(isPresented: $showingWorkPicker) {
             DurationPickerView(title: "Work Duration", duration: $viewModel.workDuration)
                 .presentationDetents([.medium])
-                .presentationBackground(.clear)
         }
         .sheet(isPresented: $showingRestPicker) {
             DurationPickerView(title: "Rest Duration", duration: $viewModel.restDuration)
                 .presentationDetents([.medium])
-                .presentationBackground(.clear)
         }
         .sheet(isPresented: $showingRepsPicker) {
             RepsPickerView(reps: $viewModel.repetitions)
                 .presentationDetents([.medium])
-                .presentationBackground(.clear)
         }
         .onAppear {
             // Load initial interval when view appears (not in init, due to SwiftUI state issues)

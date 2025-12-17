@@ -36,7 +36,7 @@ struct HomeView: View {
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .contentShape(Rectangle())
                             }
-                            .buttonStyle(.plain)
+                            .buttonStyle(.borderless)
                             Button(action: {
                                 showingLastUsedTimer = true
                             }) {
@@ -44,7 +44,7 @@ struct HomeView: View {
                                     .font(.title)
                                     .foregroundStyle(AppColors.woodlandGreen)
                             }
-                            .buttonStyle(.plain)
+                            .buttonStyle(.borderless)
                         }
                         .padding(.vertical, 8)
                         .overlay(alignment: .bottom) {
@@ -101,7 +101,7 @@ struct HomeView: View {
                                         .frame(height: 1)
                                 }
                             }
-                            .buttonStyle(.plain)
+                            .buttonStyle(.borderless)
                             .swipeActions(edge: .trailing, allowsFullSwipe: true) {
                                 Button(role: .destructive) {
                                     if let index = presetsViewModel.presets.firstIndex(where: { $0.id == preset.id }) {
@@ -124,31 +124,35 @@ struct HomeView: View {
             }
             .listStyle(.plain)
             .padding(.top, 8)
-            .navigationTitle("")
-            .toolbarBackground(.hidden, for: .navigationBar)
-            .toolbarColorScheme(.light, for: .navigationBar)
-            .overlay(alignment: .top) {
-                Rectangle()
-                    .fill(AppColors.granite.opacity(0.3))
-                    .frame(height: 1)
-            }
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Text("Climber Timer")
-                        .font(.custom("AvenirNextCondensed-Bold", size: 20))
-                        .foregroundStyle(AppColors.darkBrown)
-                }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        showingSettings = true
-                    } label: {
-                        Image(systemName: "gear")
-                            .font(.title2)
-                            .foregroundColor(AppColors.granite)
+            .navigationBarHidden(true)
+            .safeAreaInset(edge: .top) {
+                VStack(spacing: 0) {
+                    HStack {
+                        Spacer()
+
+                        Text("Climber Timer")
+                            .font(.custom("AvenirNextCondensed-Bold", size: 20))
+                            .foregroundStyle(AppColors.darkBrown)
+
+                        Spacer()
                     }
+                    .overlay(alignment: .trailing) {
+                        Button {
+                            showingSettings = true
+                        } label: {
+                            Image(systemName: "gear")
+                                .font(.title2)
+                                .foregroundColor(AppColors.granite)
+                        }
+                    }
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 12)
+
+                    Rectangle()
+                        .fill(AppColors.granite.opacity(0.3))
+                        .frame(height: 1)
                 }
             }
-            .navigationBarTitleDisplayMode(.inline)
             .safeAreaInset(edge: .bottom) {
                 Button {
                     showingNewTimer = true
@@ -161,6 +165,7 @@ struct HomeView: View {
                         .foregroundColor(.white)
                         .cornerRadius(12)
                 }
+                .buttonStyle(.borderless)
                 .padding()
             }
             .navigationDestination(for: Interval.self) { interval in

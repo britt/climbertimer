@@ -5,7 +5,34 @@ struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
-        NavigationStack {
+        VStack(spacing: 0) {
+            // Custom navigation bar
+            HStack {
+                Spacer()
+
+                Text("Settings")
+                    .font(.custom("AvenirNextCondensed-Bold", size: 20))
+                    .foregroundStyle(AppColors.darkBrown)
+
+                Spacer()
+            }
+            .overlay(alignment: .trailing) {
+                Button {
+                    dismiss()
+                } label: {
+                    Text("Done")
+                        .font(.custom("AvenirNext-DemiBold", size: 17))
+                        .foregroundStyle(AppColors.granite)
+                }
+            }
+            .padding(.horizontal, 20)
+            .padding(.top, 16)
+            .padding(.bottom, 12)
+
+            Rectangle()
+                .fill(AppColors.granite.opacity(0.3))
+                .frame(height: 1)
+
             List {
                 Section {
                     Toggle("Sound", isOn: $viewModel.audioEnabled)
@@ -55,41 +82,18 @@ struct SettingsView: View {
                 .foregroundStyle(AppColors.granite)
             }
             .listStyle(.plain)
-            .padding(.top, 8)
-            .navigationTitle("")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbarBackground(.hidden, for: .navigationBar)
-            .toolbarColorScheme(.light, for: .navigationBar)
-            .overlay(alignment: .top) {
-                Rectangle()
-                    .fill(AppColors.granite.opacity(0.3))
-                    .frame(height: 1)
-            }
             .scrollContentBackground(.hidden)
-            .background {
-                ZStack {
-                    Image("Background")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .offset(x: -500)
-                    AppColors.tan.opacity(0.85)
-                }
-                .ignoresSafeArea()
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background {
+            ZStack {
+                Image("Background")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .offset(x: -500)
+                AppColors.tan.opacity(0.85)
             }
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Text("Settings")
-                        .font(.custom("AvenirNextCondensed-Bold", size: 20))
-                        .foregroundStyle(AppColors.darkBrown)
-                }
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button("Done") {
-                        dismiss()
-                    }
-                    .foregroundStyle(AppColors.granite)
-                }
-            }
-            .tint(AppColors.granite)
+            .ignoresSafeArea()
         }
         .tint(AppColors.granite)
     }

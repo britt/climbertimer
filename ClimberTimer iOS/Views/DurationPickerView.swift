@@ -23,79 +23,92 @@ struct DurationPickerView: View {
     }
 
     var body: some View {
-        NavigationStack {
-            VStack(spacing: 0) {
-                HStack(spacing: 0) {
-                    // Hours
-                    VStack(spacing: 4) {
-                        SilentWheelPicker(selection: $hours, items: Array(0..<24))
-                            .frame(width: 80, height: itemHeight * CGFloat(visibleItems))
-
-                        Text("hours")
-                            .font(.custom("AvenirNext-DemiBold", size: 13))
-                            .foregroundStyle(AppColors.granite)
-                    }
-
-                    // Minutes
-                    VStack(spacing: 4) {
-                        SilentWheelPicker(selection: $minutes, items: Array(0..<60))
-                            .frame(width: 80, height: itemHeight * CGFloat(visibleItems))
-
-                        Text("min")
-                            .font(.custom("AvenirNext-DemiBold", size: 13))
-                            .foregroundStyle(AppColors.granite)
-                    }
-
-                    // Seconds
-                    VStack(spacing: 4) {
-                        SilentWheelPicker(selection: $seconds, items: Array(0..<60))
-                            .frame(width: 80, height: itemHeight * CGFloat(visibleItems))
-
-                        Text("sec")
-                            .font(.custom("AvenirNext-DemiBold", size: 13))
-                            .foregroundStyle(AppColors.granite)
-                    }
+        VStack(spacing: 0) {
+            // Custom navigation bar
+            HStack {
+                Button {
+                    dismiss()
+                } label: {
+                    Text("Cancel")
+                        .font(.custom("AvenirNext-Regular", size: 17))
+                        .foregroundStyle(AppColors.granite)
                 }
-                .padding(.top, 20)
 
                 Spacer()
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(.ultraThinMaterial)
-            .navigationTitle("")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbarBackground(.hidden, for: .navigationBar)
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") {
-                        dismiss()
-                    }
-                    .font(.custom("AvenirNext-Regular", size: 17))
-                    .foregroundStyle(AppColors.granite)
-                }
-                ToolbarItem(placement: .principal) {
-                    Text(title)
-                        .font(.custom("AvenirNextCondensed-Bold", size: 20))
-                        .foregroundStyle(AppColors.darkBrown)
-                }
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("Done") {
-                        duration = TimeInterval(hours * 3600 + minutes * 60 + seconds)
-                        dismiss()
-                    }
-                    .font(.custom("AvenirNext-DemiBold", size: 17))
-                    .foregroundStyle(AppColors.granite)
+
+                Text(title)
+                    .font(.custom("AvenirNextCondensed-Bold", size: 20))
+                    .foregroundStyle(AppColors.darkBrown)
+
+                Spacer()
+
+                Button {
+                    duration = TimeInterval(hours * 3600 + minutes * 60 + seconds)
+                    dismiss()
+                } label: {
+                    Text("Done")
+                        .font(.custom("AvenirNext-DemiBold", size: 17))
+                        .foregroundStyle(AppColors.granite)
                 }
             }
+            .padding(.horizontal, 20)
+            .padding(.top, 16)
+            .padding(.bottom, 12)
+
+            // Picker content
+            HStack(spacing: 0) {
+                // Hours
+                VStack(spacing: 4) {
+                    SilentWheelPicker(selection: $hours, items: Array(0..<24), cornerStyle: .left)
+                        .frame(width: 80, height: itemHeight * CGFloat(visibleItems))
+
+                    Text("hours")
+                        .font(.custom("AvenirNext-DemiBold", size: 13))
+                        .foregroundStyle(AppColors.granite)
+                }
+
+                // Minutes
+                VStack(spacing: 4) {
+                    SilentWheelPicker(selection: $minutes, items: Array(0..<60), cornerStyle: .none)
+                        .frame(width: 80, height: itemHeight * CGFloat(visibleItems))
+
+                    Text("min")
+                        .font(.custom("AvenirNext-DemiBold", size: 13))
+                        .foregroundStyle(AppColors.granite)
+                }
+
+                // Seconds
+                VStack(spacing: 4) {
+                    SilentWheelPicker(selection: $seconds, items: Array(0..<60), cornerStyle: .right)
+                        .frame(width: 80, height: itemHeight * CGFloat(visibleItems))
+
+                    Text("sec")
+                        .font(.custom("AvenirNext-DemiBold", size: 13))
+                        .foregroundStyle(AppColors.granite)
+                }
+            }
+            .padding(.top, 20)
+
+            Spacer()
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
+}
+
+enum PickerCornerStyle {
+    case all
+    case left
+    case right
+    case none
 }
 
 struct SilentWheelPicker: View {
     @Binding var selection: Int
     let items: [Int]
+    var cornerStyle: PickerCornerStyle = .all
 
     private let itemHeight: CGFloat = 44
+    private let cornerRadius: CGFloat = 8
     @State private var scrollPosition: Int?
 
     var body: some View {
@@ -136,12 +149,39 @@ struct SilentWheelPicker: View {
             }
             .overlay {
                 // Selection indicator
-                Rectangle()
-                    .fill(AppColors.granite.opacity(0.15))
+                selectionIndicator
                     .frame(height: itemHeight)
                     .allowsHitTesting(false)
             }
         }
         .clipped()
+    }
+
+    @ViewBuilder
+    private var selectionIndicator: some View {
+        switch cornerStyle {
+        case .all:
+            RoundedRectangle(cornerRadius: cornerRadius)
+                .fill(AppColors.granite.opacity(0.15))
+        case .left:
+            UnevenRoundedRectangle(
+                topLeadingRadius: cornerRadius,
+                bottomLeadingRadius: cornerRadius,
+                bottomTrailingRadius: 0,
+                topTrailingRadius: 0
+            )
+            .fill(AppColors.granite.opacity(0.15))
+        case .right:
+            UnevenRoundedRectangle(
+                topLeadingRadius: 0,
+                bottomLeadingRadius: 0,
+                bottomTrailingRadius: cornerRadius,
+                topTrailingRadius: cornerRadius
+            )
+            .fill(AppColors.granite.opacity(0.15))
+        case .none:
+            Rectangle()
+                .fill(AppColors.granite.opacity(0.15))
+        }
     }
 }
