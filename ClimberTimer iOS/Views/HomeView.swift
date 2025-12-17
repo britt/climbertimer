@@ -30,8 +30,8 @@ struct HomeView: View {
                                         .font(.custom("AvenirNextCondensed-DemiBold", size: 21))
                                         .foregroundStyle(AppColors.granite)
                                     Text(lastUsed.summary)
-                                        .font(.custom("AvenirNext-Regular", size: 15))
-                                        .foregroundStyle(AppColors.granite.opacity(0.7))
+                                        .font(.custom("AvenirNext-Medium", size: 16))
+                                        .foregroundStyle(AppColors.granite.opacity(0.8))
                                 }
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .contentShape(Rectangle())
@@ -89,8 +89,8 @@ struct HomeView: View {
                                         .font(.custom("AvenirNextCondensed-DemiBold", size: 21))
                                         .foregroundStyle(AppColors.granite)
                                     Text(preset.summary)
-                                        .font(.custom("AvenirNext-Regular", size: 15))
-                                        .foregroundStyle(AppColors.granite.opacity(0.7))
+                                        .font(.custom("AvenirNext-Medium", size: 16))
+                                        .foregroundStyle(AppColors.granite.opacity(0.8))
                                 }
                                 .padding(.vertical, 8)
                                 .frame(maxWidth: .infinity, alignment: .leading)
