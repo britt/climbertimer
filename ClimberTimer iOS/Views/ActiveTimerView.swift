@@ -79,7 +79,11 @@ struct ActiveTimerView: View {
             }
         }
         .onAppear {
+            AppDelegate.orientationManager.allowAllOrientations()
             timer.start()
+        }
+        .onDisappear {
+            AppDelegate.orientationManager.lockToPortrait()
         }
         .onChange(of: timer.countdownWarningSecond) { oldValue, newValue in
             if let second = newValue, second != oldValue {

@@ -14,6 +14,7 @@
 		1801C3BDFC829D0EE210D185 /* Interval.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89F75D5A587D47489BA4064 /* Interval.swift */; };
 		194F9D4896B681AADC76CD65 /* PresetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF238667267FD6E3065250A7 /* PresetStore.swift */; };
 		1A46799AC31CDDA8BD1E6E6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D26570FEFD5F55CEA1FE911C /* Assets.xcassets */; };
+		1ACE7CFBCDD653C07F5F0D0B /* OrientationManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1C999324D287CFB5754348 /* OrientationManagerTests.swift */; };
 		2AB3005907AE7FF911975552 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33A597C831F998A89AE0BD4 /* SettingsView.swift */; };
 		2BE0CF721746411A15EF3879 /* PresetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1504680F560943987AB20286 /* PresetsViewModel.swift */; };
 		313581DD4F804934F1322FA6 /* PresetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF238667267FD6E3065250A7 /* PresetStore.swift */; };
@@ -47,8 +48,10 @@
 		C46BEF39325E2C86D21D0CED /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF10BDFAB787E71F62BE34A9 /* HomeView.swift */; };
 		C5978918C88B9746E3ED5854 /* IntervalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7243353B18F89DF630A6A409 /* IntervalTests.swift */; };
 		CC12558CAE6D95E05D14C121 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E41A2D571D145833092DE1 /* SettingsViewModel.swift */; };
+		CC6327FD85FBC0786FAC6301 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4446B3536D9CFD14CE289877 /* AppDelegate.swift */; };
 		COLR0001A2B3C4D5E6F78901 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = COLR0000A2B3C4D5E6F78901 /* Colors.swift */; };
 		COLR0002A2B3C4D5E6F78901 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = COLR0000A2B3C4D5E6F78901 /* Colors.swift */; };
+		E18E98744C09D3168BA27361 /* OrientationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4868439B2D4FBC4977F33420 /* OrientationManager.swift */; };
 		E257F0412FBAE5E40AB5D52C /* WatchPresetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B2C6D955E53A0390E9861B /* WatchPresetsView.swift */; };
 		E2ECCB108407AFCBAEC0A16A /* ClimberTimerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF9A9FBE56C26BE21F6B819 /* ClimberTimerApp.swift */; };
 		E88438F2CB7F1FF0532CA09A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6866EF410FB6E6483791B91D /* Assets.xcassets */; };
@@ -88,8 +91,10 @@
 		32B73521D73004909C4A42D7 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		39920330C8CCFB86F27CA4C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3A59FC09B72AE63D98D4D99F /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		4446B3536D9CFD14CE289877 /* AppDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44815C38B66CA0483084955E /* FeedbackSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackSettings.swift; sourceTree = "<group>"; };
 		47E41A2D571D145833092DE1 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		4868439B2D4FBC4977F33420 /* OrientationManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OrientationManager.swift; sourceTree = "<group>"; };
 		524E542F0B38AAFE1EF67F3F /* TimeFormattingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormattingTests.swift; sourceTree = "<group>"; };
 		57CC0B4B80FD3F1DD602BBFE /* FeedbackSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackSettingsTests.swift; sourceTree = "<group>"; };
 		5E5ACCB55D3E6A697F362708 /* WatchActiveTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchActiveTimerView.swift; sourceTree = "<group>"; };
@@ -98,6 +103,7 @@
 		6866EF410FB6E6483791B91D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6DF9A9FBE56C26BE21F6B819 /* ClimberTimerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimberTimerApp.swift; sourceTree = "<group>"; };
 		7243353B18F89DF630A6A409 /* IntervalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalTests.swift; sourceTree = "<group>"; };
+		7B1C999324D287CFB5754348 /* OrientationManagerTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OrientationManagerTests.swift; sourceTree = "<group>"; };
 		7E27853E3061BE52971F2946 /* DataStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreTests.swift; sourceTree = "<group>"; };
 		8A48A9BEB1D72CE5F22216C9 /* IntervalTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalTimerTests.swift; sourceTree = "<group>"; };
 		90713EC44E0FACEB589563C7 /* ClimberTimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClimberTimer.entitlements; sourceTree = "<group>"; };
@@ -135,6 +141,7 @@
 				BE7C78BD70DAFD2CA1D08289 /* ViewModels */,
 				B58BD2C6A78D4CD2EC029B55 /* Views */,
 				04F9085239A59B090BF258A3 /* Components */,
+				CFCF0D3C0E78D5550FA45896 /* Services */,
 			);
 			path = "ClimberTimer iOS";
 			sourceTree = "<group>";
@@ -170,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				6DF9A9FBE56C26BE21F6B819 /* ClimberTimerApp.swift */,
+				4446B3536D9CFD14CE289877 /* AppDelegate.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -300,12 +308,22 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		CFCF0D3C0E78D5550FA45896 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4868439B2D4FBC4977F33420 /* OrientationManager.swift */,
+			);
+			name = Services;
+			path = Services;
+			sourceTree = "<group>";
+		};
 		DB886BF3696725A6541F02ED /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				7E27853E3061BE52971F2946 /* DataStoreTests.swift */,
 				2CD2632C584EE599B225E3AC /* FeedbackManagerTests.swift */,
 				8A48A9BEB1D72CE5F22216C9 /* IntervalTimerTests.swift */,
+				7B1C999324D287CFB5754348 /* OrientationManagerTests.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -479,6 +497,7 @@
 				F535D519CF52B4E68813F39B /* TimeFormattingTests.swift in Sources */,
 				B118A851A510299DDF8839BB /* TimerPhaseTests.swift in Sources */,
 				77300B4951D64B28B5BADB84 /* SilentPickerTests.swift in Sources */,
+				1ACE7CFBCDD653C07F5F0D0B /* OrientationManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,6 +553,8 @@
 				0057F012544EC510FB5702AF /* DurationPickerView.swift in Sources */,
 				46203F0D8F58CA270817BB21 /* RepsPickerView.swift in Sources */,
 				609BBF1A57D3A72420541EAC /* SilentPicker.swift in Sources */,
+				E18E98744C09D3168BA27361 /* OrientationManager.swift in Sources */,
+				CC6327FD85FBC0786FAC6301 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

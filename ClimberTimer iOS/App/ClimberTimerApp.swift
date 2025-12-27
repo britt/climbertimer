@@ -3,6 +3,7 @@ import SwiftData
 
 @main
 struct ClimberTimerApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     let modelContainer: ModelContainer
     @State private var presetStore: PresetStore
 
