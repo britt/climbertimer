@@ -10,6 +10,17 @@
 
 ---
 
+## Task: Fix GitHub #4 - Orientation Lock - COMPLETE
+- Started: 2025-12-27
+- Tests: 3 passing (OrientationManagerTests)
+- Build iOS: ✅ Successful
+- Build watchOS: ✅ Successful
+- Warnings: ✅ Clean
+- Completed: 2025-12-27
+- Notes: Per-view orientation control - ActiveTimerView allows all orientations, other views portrait only
+
+---
+
 ## Task: Fix GitHub #5 - Picker Selection Issue - COMPLETE
 - Started: 2025-12-27
 - Tests: 3 passing (SilentPickerCoordinatorTests)
@@ -114,8 +125,9 @@
 | PresetsViewModel | 4 | ✅ |
 | SettingsViewModel | 2 | ✅ |
 | SilentPickerCoordinator | 3 | ✅ |
+| OrientationManager | 3 | ✅ |
 | Placeholder | 1 | ✅ |
-| **Total** | **46** | **✅** |
+| **Total** | **49** | **✅** |
 
 ---
 
