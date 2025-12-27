@@ -46,7 +46,7 @@ struct RepsPickerView: View {
             .padding(.top, 16)
             .padding(.bottom, 12)
 
-            SilentWheelPicker(selection: $selectedReps, items: Array(1...20), cornerStyle: .all)
+            SilentPicker(selection: $selectedReps, items: Array(1...20))
                 .frame(width: 100, height: itemHeight * CGFloat(visibleItems))
                 .padding(.top, 20)
 
