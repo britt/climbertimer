@@ -1,12 +1,31 @@
 # ClimberTimer Implementation Progress
 
-## Overall Status: COMPLETE
+## Overall Status: IN PROGRESS
 
 ### Summary
-- **Total Tests:** 43 passing
+- **Total Tests:** 44 passing (1 new in SilentPickerCoordinator)
 - **iOS Build:** Successful
-- **watchOS Build:** Not verified (SDK not installed)
-- **Coverage:** Models 90%+, Services 85%+, ViewModels 85%+
+- **watchOS Build:** Successful
+- **Coverage:** Models 90%+, Services 85%+, ViewModels 85%+, Components 100%
+
+---
+
+## Task: Fix GitHub #5 - Picker Selection Issue - COMPLETE
+- Started: 2025-12-27
+- Tests: 3 passing (SilentPickerCoordinatorTests)
+- Build iOS: ✅ Successful
+- Build watchOS: ✅ Successful
+- Warnings: ✅ Clean
+- Completed: 2025-12-27
+- Notes: Replaced broken SilentWheelPicker (ScrollView-based) with SilentPicker (UIPickerView-based)
+
+### Subtasks Completed:
+1. Create SilentPickerCoordinator - UIPickerViewDataSource/Delegate
+2. Add coordinator tests for row count and selection
+3. Add SilentPicker UIViewRepresentable wrapper
+4. Update DurationPickerView to use SilentPicker
+5. Update RepsPickerView to use SilentPicker
+6. Verify builds and tests pass
 
 ---
 
@@ -94,8 +113,9 @@
 | HomeViewModel | 4 | ✅ |
 | PresetsViewModel | 4 | ✅ |
 | SettingsViewModel | 2 | ✅ |
+| SilentPickerCoordinator | 3 | ✅ |
 | Placeholder | 1 | ✅ |
-| **Total** | **43** | **✅** |
+| **Total** | **46** | **✅** |
 
 ---
 

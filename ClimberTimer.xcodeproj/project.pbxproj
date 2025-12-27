@@ -23,9 +23,11 @@
 		5996EA75E2392C245C8A1EED /* IntervalTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92038A8EBA13AB01D84798E /* IntervalTimer.swift */; };
 		5BA7CF414ABB50C8C0E5C678 /* ClimberTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D26E7C031F2BAF3F2EA2660 /* ClimberTimerTests.swift */; };
 		5C26C813019B10C930846627 /* LastUsedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79F0E37FA910F52F319BC66 /* LastUsedUITests.swift */; };
+		609BBF1A57D3A72420541EAC /* SilentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14A02277714322A78BCABAA /* SilentPicker.swift */; };
 		699761B286BA56146A108941 /* SettingsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B019707A9D9468261B7BD735 /* SettingsViewModelTests.swift */; };
 		6B5829D8694306AB141B25E2 /* FeedbackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9FF769EC901DE7BA20973 /* FeedbackManager.swift */; };
 		6BCBE24C3030D3D97020A0AD /* TimeFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982C27C0F6D4AD002F151D74 /* TimeFormatting.swift */; };
+		77300B4951D64B28B5BADB84 /* SilentPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217829999FD37B0F44A43829 /* SilentPickerTests.swift */; };
 		78CFF3E784795FD7CD91A65D /* ClimberTimerWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063252CCD86E1F2807C32AFE /* ClimberTimerWatchApp.swift */; };
 		7980EEA34615803C4A4B4665 /* WatchActiveTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5ACCB55D3E6A697F362708 /* WatchActiveTimerView.swift */; };
 		81B8474EC71C05A7EE09B14F /* Interval.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89F75D5A587D47489BA4064 /* Interval.swift */; };
@@ -77,6 +79,7 @@
 		1504680F560943987AB20286 /* PresetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetsViewModel.swift; sourceTree = "<group>"; };
 		1670AF383C0813909E0B4D3B /* TimerPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPhase.swift; sourceTree = "<group>"; };
 		1B01A02BA7E04876BD6C842F /* RepsPickerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RepsPickerView.swift; sourceTree = "<group>"; };
+		217829999FD37B0F44A43829 /* SilentPickerTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SilentPickerTests.swift; sourceTree = "<group>"; };
 		2ABC17943849D22370525287 /* TimerPhaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPhaseTests.swift; sourceTree = "<group>"; };
 		2B6AA05E8C85126B4168CD2B /* DurationPickerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DurationPickerView.swift; sourceTree = "<group>"; };
 		2CD2632C584EE599B225E3AC /* FeedbackManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackManagerTests.swift; sourceTree = "<group>"; };
@@ -103,6 +106,7 @@
 		982C27C0F6D4AD002F151D74 /* TimeFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatting.swift; sourceTree = "<group>"; };
 		A79F0E37FA910F52F319BC66 /* LastUsedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastUsedUITests.swift; sourceTree = "<group>"; };
 		B019707A9D9468261B7BD735 /* SettingsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelTests.swift; sourceTree = "<group>"; };
+		B14A02277714322A78BCABAA /* SilentPicker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SilentPicker.swift; sourceTree = "<group>"; };
 		B677E980FAFB33EE890B6998 /* ClimberTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClimberTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF10BDFAB787E71F62BE34A9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C2B2C6D955E53A0390E9861B /* WatchPresetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchPresetsView.swift; sourceTree = "<group>"; };
@@ -130,8 +134,18 @@
 				310288FB682B27352EB9906F /* App */,
 				BE7C78BD70DAFD2CA1D08289 /* ViewModels */,
 				B58BD2C6A78D4CD2EC029B55 /* Views */,
+				04F9085239A59B090BF258A3 /* Components */,
 			);
 			path = "ClimberTimer iOS";
+			sourceTree = "<group>";
+		};
+		04F9085239A59B090BF258A3 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B14A02277714322A78BCABAA /* SilentPicker.swift */,
+			);
+			name = Components;
+			path = Components;
 			sourceTree = "<group>";
 		};
 		1276F18C4F0399F7E2D91E7F /* Utilities */ = {
@@ -231,6 +245,15 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		B2F209358BBFC7940A6476E3 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				217829999FD37B0F44A43829 /* SilentPickerTests.swift */,
+			);
+			name = Components;
+			path = Components;
+			sourceTree = "<group>";
+		};
 		B58BD2C6A78D4CD2EC029B55 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +275,7 @@
 				DB886BF3696725A6541F02ED /* Services */,
 				1276F18C4F0399F7E2D91E7F /* Utilities */,
 				15764A46D4466B34D8936486 /* ViewModels */,
+				B2F209358BBFC7940A6476E3 /* Components */,
 			);
 			path = ClimberTimerTests;
 			sourceTree = "<group>";
@@ -454,6 +478,7 @@
 				699761B286BA56146A108941 /* SettingsViewModelTests.swift in Sources */,
 				F535D519CF52B4E68813F39B /* TimeFormattingTests.swift in Sources */,
 				B118A851A510299DDF8839BB /* TimerPhaseTests.swift in Sources */,
+				77300B4951D64B28B5BADB84 /* SilentPickerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +533,7 @@
 				COLR0001A2B3C4D5E6F78901 /* Colors.swift in Sources */,
 				0057F012544EC510FB5702AF /* DurationPickerView.swift in Sources */,
 				46203F0D8F58CA270817BB21 /* RepsPickerView.swift in Sources */,
+				609BBF1A57D3A72420541EAC /* SilentPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
