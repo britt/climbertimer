@@ -10,16 +10,22 @@
 
 ---
 
-## Task: Fix GitHub #5 - Picker Selection Issue - IN PROGRESS
+## Task: Fix GitHub #5 - Picker Selection Issue - COMPLETE
 - Started: 2025-12-27
-- Subtask 1: Create SilentPickerCoordinator - COMPLETE
-  - Tests: 1 passing (test_numberOfComponents_returnsOne)
-  - Coverage: 100% for implemented methods
-  - Build iOS: ✅ Successful
-  - Build watchOS: ✅ Successful
-  - Warnings: ✅ Clean (only metadata warnings)
-  - Completed: 2025-12-27
-  - Notes: Implemented UIPickerViewDataSource and UIPickerViewDelegate coordinator class
+- Tests: 3 passing (SilentPickerCoordinatorTests)
+- Build iOS: ✅ Successful
+- Build watchOS: ✅ Successful
+- Warnings: ✅ Clean
+- Completed: 2025-12-27
+- Notes: Replaced broken SilentWheelPicker (ScrollView-based) with SilentPicker (UIPickerView-based)
+
+### Subtasks Completed:
+1. Create SilentPickerCoordinator - UIPickerViewDataSource/Delegate
+2. Add coordinator tests for row count and selection
+3. Add SilentPicker UIViewRepresentable wrapper
+4. Update DurationPickerView to use SilentPicker
+5. Update RepsPickerView to use SilentPicker
+6. Verify builds and tests pass
 
 ---
 
@@ -107,8 +113,9 @@
 | HomeViewModel | 4 | ✅ |
 | PresetsViewModel | 4 | ✅ |
 | SettingsViewModel | 2 | ✅ |
+| SilentPickerCoordinator | 3 | ✅ |
 | Placeholder | 1 | ✅ |
-| **Total** | **43** | **✅** |
+| **Total** | **46** | **✅** |
 
 ---
 
