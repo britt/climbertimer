@@ -42,18 +42,33 @@ struct SilentPicker: UIViewRepresentable {
         SilentPickerCoordinator(selection: $selection, items: items)
     }
 
-    func makeUIView(context: Context) -> UIPickerView {
+    func makeUIView(context: Context) -> UIView {
         let picker = UIPickerView()
         picker.dataSource = context.coordinator
         picker.delegate = context.coordinator
         picker.backgroundColor = .clear
-        return picker
+
+        // Wrap in a container that clips touch events to bounds
+        let container = UIView()
+        container.clipsToBounds = true
+        container.addSubview(picker)
+
+        // Center the picker in the container
+        picker.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            picker.centerXAnchor.constraint(equalTo: container.centerXAnchor),
+            picker.centerYAnchor.constraint(equalTo: container.centerYAnchor),
+            picker.heightAnchor.constraint(equalTo: container.heightAnchor)
+        ])
+
+        return container
     }
 
-    func updateUIView(_ uiView: UIPickerView, context: Context) {
+    func updateUIView(_ uiView: UIView, context: Context) {
+        guard let picker = uiView.subviews.first as? UIPickerView else { return }
         if let index = items.firstIndex(of: selection) {
-            if uiView.selectedRow(inComponent: 0) != index {
-                uiView.selectRow(index, inComponent: 0, animated: false)
+            if picker.selectedRow(inComponent: 0) != index {
+                picker.selectRow(index, inComponent: 0, animated: false)
             }
         }
     }
