@@ -33,3 +33,28 @@ class SilentPickerCoordinator: NSObject, UIPickerViewDataSource, UIPickerViewDel
         )
     }
 }
+
+struct SilentPicker: UIViewRepresentable {
+    @Binding var selection: Int
+    let items: [Int]
+
+    func makeCoordinator() -> SilentPickerCoordinator {
+        SilentPickerCoordinator(selection: $selection, items: items)
+    }
+
+    func makeUIView(context: Context) -> UIPickerView {
+        let picker = UIPickerView()
+        picker.dataSource = context.coordinator
+        picker.delegate = context.coordinator
+        picker.backgroundColor = .clear
+        return picker
+    }
+
+    func updateUIView(_ uiView: UIPickerView, context: Context) {
+        if let index = items.firstIndex(of: selection) {
+            if uiView.selectedRow(inComponent: 0) != index {
+                uiView.selectRow(index, inComponent: 0, animated: false)
+            }
+        }
+    }
+}
