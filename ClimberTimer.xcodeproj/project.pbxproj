@@ -61,6 +61,8 @@
 		SVVM0002A2B3C4D5E6F78901 /* SavePresetSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = SVVM0000A2B3C4D5E6F78901 /* SavePresetSheetViewModel.swift */; };
 		TYPO0001A2B3C4D5E6F78901 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = TYPO0000A2B3C4D5E6F78901 /* Typography.swift */; };
 		TYPO0002A2B3C4D5E6F78901 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = TYPO0000A2B3C4D5E6F78901 /* Typography.swift */; };
+		SPSH0001A2B3C4D5E6F78901 /* SavePresetSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = SPSH0000A2B3C4D5E6F78901 /* SavePresetSheet.swift */; };
+		SPSH0002A2B3C4D5E6F78901 /* SavePresetSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = SPSH0000A2B3C4D5E6F78901 /* SavePresetSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +135,7 @@
 		TYPO0000A2B3C4D5E6F78901 /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
 		SVPS0000A2B3C4D5E6F78901 /* SavePresetSheetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePresetSheetTests.swift; sourceTree = "<group>"; };
 		SVVM0000A2B3C4D5E6F78901 /* SavePresetSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePresetSheetViewModel.swift; sourceTree = "<group>"; };
+		SPSH0000A2B3C4D5E6F78901 /* SavePresetSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePresetSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -150,6 +153,14 @@
 				SVVM0000A2B3C4D5E6F78901 /* SavePresetSheetViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		SPSH0003A2B3C4D5E6F78901 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				SPSH0000A2B3C4D5E6F78901 /* SavePresetSheet.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		034A2AEB652DFE0A5B192101 /* ClimberTimer iOS */ = {
@@ -210,6 +221,7 @@
 				F72BFEA1471706442DE75853 /* Services */,
 				75D23E311D010FA9FD7575C0 /* Utilities */,
 				SVVM0003A2B3C4D5E6F78901 /* ViewModels */,
+				SPSH0003A2B3C4D5E6F78901 /* Views */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -551,6 +563,7 @@
 				B4779BC330FFA434D952B920 /* WatchHomeView.swift in Sources */,
 				E257F0412FBAE5E40AB5D52C /* WatchPresetsView.swift in Sources */,
 				SVVM0002A2B3C4D5E6F78901 /* SavePresetSheetViewModel.swift in Sources */,
+				SPSH0002A2B3C4D5E6F78901 /* SavePresetSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,6 +594,7 @@
 				E18E98744C09D3168BA27361 /* OrientationManager.swift in Sources */,
 				CC6327FD85FBC0786FAC6301 /* AppDelegate.swift in Sources */,
 				SVVM0001A2B3C4D5E6F78901 /* SavePresetSheetViewModel.swift in Sources */,
+				SPSH0001A2B3C4D5E6F78901 /* SavePresetSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
