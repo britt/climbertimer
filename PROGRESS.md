@@ -10,6 +10,25 @@
 
 ---
 
+## Task: Fix GitHub #11 - Modal Button Contrast - COMPLETE
+- Started: 2026-01-15
+- Tests: 4 passing (SavePresetSheetTests)
+- Build iOS: ✅ Successful
+- Build watchOS: ✅ Successful
+- Warnings: ✅ Clean
+- Completed: 2026-01-15
+- Notes: Replaced system .alert() with custom SavePresetSheet using themed colors (granite, woodlandGreen, chalk) for proper contrast. Delete swipe action uses system destructive styling (white on red) - no changes needed.
+
+### Files Added:
+- `Shared/ViewModels/SavePresetSheetViewModel.swift` - ViewModel with canSave validation
+- `Shared/Views/SavePresetSheet.swift` - Custom sheet with themed button styling
+- `ClimberTimerTests/Views/SavePresetSheetTests.swift` - TDD tests for ViewModel
+
+### Files Modified:
+- `ClimberTimer iOS/Views/TimerSetupView.swift` - Integrated SavePresetSheet
+
+---
+
 ## Task: Fix GitHub #4 - Orientation Lock - COMPLETE
 - Started: 2025-12-27
 - Tests: 3 passing (OrientationManagerTests)
@@ -126,8 +145,9 @@
 | SettingsViewModel | 2 | ✅ |
 | SilentPickerCoordinator | 3 | ✅ |
 | OrientationManager | 3 | ✅ |
+| SavePresetSheet | 4 | ✅ |
 | Placeholder | 1 | ✅ |
-| **Total** | **49** | **✅** |
+| **Total** | **53** | **✅** |
 
 ---
 
