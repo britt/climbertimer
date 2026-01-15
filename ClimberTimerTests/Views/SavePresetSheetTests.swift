@@ -10,4 +10,37 @@ final class SavePresetSheetTests: XCTestCase {
         // Then
         XCTAssertEqual(viewModel.presetName, "")
     }
+
+    func test_canSave_returnsFalse_whenPresetNameIsEmpty() {
+        // Given
+        let viewModel = SavePresetSheetViewModel()
+
+        // When
+        viewModel.presetName = ""
+
+        // Then
+        XCTAssertFalse(viewModel.canSave)
+    }
+
+    func test_canSave_returnsFalse_whenPresetNameIsWhitespaceOnly() {
+        // Given
+        let viewModel = SavePresetSheetViewModel()
+
+        // When
+        viewModel.presetName = "   "
+
+        // Then
+        XCTAssertFalse(viewModel.canSave)
+    }
+
+    func test_canSave_returnsTrue_whenPresetNameHasContent() {
+        // Given
+        let viewModel = SavePresetSheetViewModel()
+
+        // When
+        viewModel.presetName = "My Preset"
+
+        // Then
+        XCTAssertTrue(viewModel.canSave)
+    }
 }
