@@ -10,7 +10,6 @@ struct TimerSetupView: View {
     @State private var showingWorkPicker = false
     @State private var showingRestPicker = false
     @State private var showingRepsPicker = false
-    @State private var presetName = ""
     @State private var hasLoadedInitialInterval = false
     @State private var savedPresetName: String?
     @Environment(\.dismiss) private var dismiss
@@ -90,13 +89,15 @@ struct TimerSetupView: View {
 
             Spacer()
 
-            // Save as Preset Button
-            Button("Save as Preset") {
-                showingSavePreset = true
+            // Save as Preset Button - only show for new timers that haven't been saved yet
+            if savedPresetName == nil && (initialInterval?.name.isEmpty ?? true) {
+                Button("Save as Preset") {
+                    showingSavePreset = true
+                }
+                .font(.custom("AvenirNext-DemiBold", size: 21))
+                .foregroundStyle(AppColors.granite)
+                .buttonStyle(.borderless)
             }
-            .font(.custom("AvenirNext-DemiBold", size: 21))
-            .foregroundStyle(AppColors.granite)
-            .buttonStyle(.borderless)
 
             // Start Button
             Button(action: {
@@ -172,21 +173,23 @@ struct TimerSetupView: View {
                 settings: settingsViewModel.toFeedbackSettings()
             )
         }
-        .alert("Save Preset", isPresented: $showingSavePreset) {
-            TextField("Preset Name", text: $presetName)
-            Button("Cancel", role: .cancel) { presetName = "" }
-            Button("Save") {
-                let name = presetName
-                presetsViewModel.saveCurrentAsPreset(
-                    name: name,
-                    workDuration: viewModel.workDuration,
-                    restDuration: viewModel.restDuration,
-                    repetitions: viewModel.repetitions
-                )
-                viewModel.presetName = name
-                savedPresetName = name
-                presetName = ""
-            }
+        .sheet(isPresented: $showingSavePreset) {
+            SavePresetSheet(
+                onSave: { name in
+                    presetsViewModel.saveCurrentAsPreset(
+                        name: name,
+                        workDuration: viewModel.workDuration,
+                        restDuration: viewModel.restDuration,
+                        repetitions: viewModel.repetitions
+                    )
+                    viewModel.presetName = name
+                    savedPresetName = name
+                    showingSavePreset = false
+                },
+                onCancel: {
+                    showingSavePreset = false
+                }
+            )
         }
         .sheet(isPresented: $showingWorkPicker) {
             DurationPickerView(title: "Work Duration", duration: $viewModel.workDuration)

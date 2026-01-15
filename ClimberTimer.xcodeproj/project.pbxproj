@@ -56,8 +56,13 @@
 		E2ECCB108407AFCBAEC0A16A /* ClimberTimerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF9A9FBE56C26BE21F6B819 /* ClimberTimerApp.swift */; };
 		E88438F2CB7F1FF0532CA09A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6866EF410FB6E6483791B91D /* Assets.xcassets */; };
 		F535D519CF52B4E68813F39B /* TimeFormattingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524E542F0B38AAFE1EF67F3F /* TimeFormattingTests.swift */; };
+		SVPS0001A2B3C4D5E6F78901 /* SavePresetSheetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = SVPS0000A2B3C4D5E6F78901 /* SavePresetSheetTests.swift */; };
+		SVVM0001A2B3C4D5E6F78901 /* SavePresetSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = SVVM0000A2B3C4D5E6F78901 /* SavePresetSheetViewModel.swift */; };
+		SVVM0002A2B3C4D5E6F78901 /* SavePresetSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = SVVM0000A2B3C4D5E6F78901 /* SavePresetSheetViewModel.swift */; };
 		TYPO0001A2B3C4D5E6F78901 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = TYPO0000A2B3C4D5E6F78901 /* Typography.swift */; };
 		TYPO0002A2B3C4D5E6F78901 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = TYPO0000A2B3C4D5E6F78901 /* Typography.swift */; };
+		SPSH0001A2B3C4D5E6F78901 /* SavePresetSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = SPSH0000A2B3C4D5E6F78901 /* SavePresetSheet.swift */; };
+		SPSH0002A2B3C4D5E6F78901 /* SavePresetSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = SPSH0000A2B3C4D5E6F78901 /* SavePresetSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,9 +133,36 @@
 		F92F3755622CCC6BFAFA0276 /* PresetsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetsViewModelTests.swift; sourceTree = "<group>"; };
 		FC013C7BB41A809FED7723A7 /* WatchHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHomeView.swift; sourceTree = "<group>"; };
 		TYPO0000A2B3C4D5E6F78901 /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
+		SVPS0000A2B3C4D5E6F78901 /* SavePresetSheetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePresetSheetTests.swift; sourceTree = "<group>"; };
+		SVVM0000A2B3C4D5E6F78901 /* SavePresetSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePresetSheetViewModel.swift; sourceTree = "<group>"; };
+		SPSH0000A2B3C4D5E6F78901 /* SavePresetSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePresetSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
+		SVPS0003A2B3C4D5E6F78901 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				SVPS0000A2B3C4D5E6F78901 /* SavePresetSheetTests.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		SVVM0003A2B3C4D5E6F78901 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				SVVM0000A2B3C4D5E6F78901 /* SavePresetSheetViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		SPSH0003A2B3C4D5E6F78901 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				SPSH0000A2B3C4D5E6F78901 /* SavePresetSheet.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		034A2AEB652DFE0A5B192101 /* ClimberTimer iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +220,8 @@
 				BAFFFDE71F9209E9CD49F051 /* Models */,
 				F72BFEA1471706442DE75853 /* Services */,
 				75D23E311D010FA9FD7575C0 /* Utilities */,
+				SVVM0003A2B3C4D5E6F78901 /* ViewModels */,
+				SPSH0003A2B3C4D5E6F78901 /* Views */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -283,6 +317,7 @@
 				DB886BF3696725A6541F02ED /* Services */,
 				1276F18C4F0399F7E2D91E7F /* Utilities */,
 				15764A46D4466B34D8936486 /* ViewModels */,
+				SVPS0003A2B3C4D5E6F78901 /* Views */,
 				B2F209358BBFC7940A6476E3 /* Components */,
 			);
 			path = ClimberTimerTests;
@@ -498,6 +533,7 @@
 				B118A851A510299DDF8839BB /* TimerPhaseTests.swift in Sources */,
 				77300B4951D64B28B5BADB84 /* SilentPickerTests.swift in Sources */,
 				1ACE7CFBCDD653C07F5F0D0B /* OrientationManagerTests.swift in Sources */,
+				SVPS0001A2B3C4D5E6F78901 /* SavePresetSheetTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +562,8 @@
 				7980EEA34615803C4A4B4665 /* WatchActiveTimerView.swift in Sources */,
 				B4779BC330FFA434D952B920 /* WatchHomeView.swift in Sources */,
 				E257F0412FBAE5E40AB5D52C /* WatchPresetsView.swift in Sources */,
+				SVVM0002A2B3C4D5E6F78901 /* SavePresetSheetViewModel.swift in Sources */,
+				SPSH0002A2B3C4D5E6F78901 /* SavePresetSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,6 +593,8 @@
 				609BBF1A57D3A72420541EAC /* SilentPicker.swift in Sources */,
 				E18E98744C09D3168BA27361 /* OrientationManager.swift in Sources */,
 				CC6327FD85FBC0786FAC6301 /* AppDelegate.swift in Sources */,
+				SVVM0001A2B3C4D5E6F78901 /* SavePresetSheetViewModel.swift in Sources */,
+				SPSH0001A2B3C4D5E6F78901 /* SavePresetSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
