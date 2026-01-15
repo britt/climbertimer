@@ -89,13 +89,15 @@ struct TimerSetupView: View {
 
             Spacer()
 
-            // Save as Preset Button
-            Button("Save as Preset") {
-                showingSavePreset = true
+            // Save as Preset Button - only show for new timers that haven't been saved yet
+            if savedPresetName == nil && (initialInterval?.name.isEmpty ?? true) {
+                Button("Save as Preset") {
+                    showingSavePreset = true
+                }
+                .font(.custom("AvenirNext-DemiBold", size: 21))
+                .foregroundStyle(AppColors.granite)
+                .buttonStyle(.borderless)
             }
-            .font(.custom("AvenirNext-DemiBold", size: 21))
-            .foregroundStyle(AppColors.granite)
-            .buttonStyle(.borderless)
 
             // Start Button
             Button(action: {
