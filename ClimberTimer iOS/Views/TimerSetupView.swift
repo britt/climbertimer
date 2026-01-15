@@ -10,7 +10,6 @@ struct TimerSetupView: View {
     @State private var showingWorkPicker = false
     @State private var showingRestPicker = false
     @State private var showingRepsPicker = false
-    @State private var presetName = ""
     @State private var hasLoadedInitialInterval = false
     @State private var savedPresetName: String?
     @Environment(\.dismiss) private var dismiss
@@ -172,21 +171,23 @@ struct TimerSetupView: View {
                 settings: settingsViewModel.toFeedbackSettings()
             )
         }
-        .alert("Save Preset", isPresented: $showingSavePreset) {
-            TextField("Preset Name", text: $presetName)
-            Button("Cancel", role: .cancel) { presetName = "" }
-            Button("Save") {
-                let name = presetName
-                presetsViewModel.saveCurrentAsPreset(
-                    name: name,
-                    workDuration: viewModel.workDuration,
-                    restDuration: viewModel.restDuration,
-                    repetitions: viewModel.repetitions
-                )
-                viewModel.presetName = name
-                savedPresetName = name
-                presetName = ""
-            }
+        .sheet(isPresented: $showingSavePreset) {
+            SavePresetSheet(
+                onSave: { name in
+                    presetsViewModel.saveCurrentAsPreset(
+                        name: name,
+                        workDuration: viewModel.workDuration,
+                        restDuration: viewModel.restDuration,
+                        repetitions: viewModel.repetitions
+                    )
+                    viewModel.presetName = name
+                    savedPresetName = name
+                    showingSavePreset = false
+                },
+                onCancel: {
+                    showingSavePreset = false
+                }
+            )
         }
         .sheet(isPresented: $showingWorkPicker) {
             DurationPickerView(title: "Work Duration", duration: $viewModel.workDuration)
