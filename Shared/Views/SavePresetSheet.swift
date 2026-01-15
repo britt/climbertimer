@@ -1,9 +1,13 @@
 import SwiftUI
 
 struct SavePresetSheet: View {
-    @State private var viewModel = SavePresetSheetViewModel()
+    @State private var presetName = ""
     let onSave: (String) -> Void
     let onCancel: () -> Void
+
+    private var canSave: Bool {
+        !presetName.trimmingCharacters(in: .whitespaces).isEmpty
+    }
 
     var body: some View {
         NavigationStack {
@@ -12,7 +16,7 @@ struct SavePresetSheet: View {
                     .font(.custom("AvenirNext-Regular", size: 17))
                     .foregroundStyle(AppColors.granite)
 
-                TextField("Preset Name", text: $viewModel.presetName)
+                TextField("Preset Name", text: $presetName)
                     .font(.custom("AvenirNext-Medium", size: 17))
                     #if os(iOS)
                     .textFieldStyle(.roundedBorder)
@@ -36,10 +40,10 @@ struct SavePresetSheet: View {
 
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save") {
-                        onSave(viewModel.presetName)
+                        onSave(presetName)
                     }
-                    .disabled(!viewModel.canSave)
-                    .foregroundStyle(viewModel.canSave ? AppColors.woodlandGreen : AppColors.granite.opacity(0.5))
+                    .disabled(!canSave)
+                    .foregroundStyle(canSave ? AppColors.woodlandGreen : AppColors.granite.opacity(0.5))
                 }
             }
             .background(AppColors.chalk)
