@@ -10,6 +10,7 @@ options:
 settings:
   SWIFT_VERSION: "5.9"
   ENABLE_USER_SCRIPT_SANDBOXING: false
+  DEVELOPMENT_TEAM: T3WWQ3395H
 
 targets:
   ClimberTimer:
@@ -19,14 +20,14 @@ targets:
       - path: ClimberTimer iOS
       - path: Shared
     settings:
-      PRODUCT_BUNDLE_IDENTIFIER: com.climbertimer.ios
+      PRODUCT_BUNDLE_IDENTIFIER: com.snugglebearteam.climbertimer
       INFOPLIST_FILE: ClimberTimer iOS/Info.plist
       CODE_SIGN_ENTITLEMENTS: ClimberTimer iOS/ClimberTimer.entitlements
     entitlements:
       path: ClimberTimer iOS/ClimberTimer.entitlements
       properties:
         com.apple.security.application-groups:
-          - group.com.climbertimer.shared
+          - group.com.snugglebearteam.climbertimer
     dependencies:
       - target: ClimberTimer Widgets
         embed: true
@@ -38,7 +39,7 @@ targets:
       - path: ClimberTimer Widgets
       - path: Shared
     settings:
-      PRODUCT_BUNDLE_IDENTIFIER: com.climbertimer.ios.widgets
+      PRODUCT_BUNDLE_IDENTIFIER: com.snugglebearteam.climbertimer.widgets
       INFOPLIST_FILE: ClimberTimer Widgets/Info.plist
       SKIP_INSTALL: true
       LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks"
@@ -50,7 +51,7 @@ targets:
       - path: ClimberTimer Watch
       - path: Shared
     settings:
-      PRODUCT_BUNDLE_IDENTIFIER: com.climbertimer.ios.watchkitapp
+      PRODUCT_BUNDLE_IDENTIFIER: com.snugglebearteam.climbertimer.watchkitapp
       INFOPLIST_FILE: ClimberTimer Watch/Info.plist
       CODE_SIGN_ENTITLEMENTS: ClimberTimer Watch/ClimberTimer Watch.entitlements
       WATCHOS_DEPLOYMENT_TARGET: "10.0"
@@ -58,7 +59,7 @@ targets:
       path: ClimberTimer Watch/ClimberTimer Watch.entitlements
       properties:
         com.apple.security.application-groups:
-          - group.com.climbertimer.shared
+          - group.com.snugglebearteam.climbertimer
 
   ClimberTimerTests:
     type: bundle.unit-test

@@ -586,8 +586,21 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					152E0F83161CAFFFF17651C3 = {
+						DevelopmentTeam = T3WWQ3395H;
+					};
+					2186A00212E511AC5FF386B1 = {
+						DevelopmentTeam = T3WWQ3395H;
+					};
+					5D48B829EA240F4850E0DDE6 = {
+						DevelopmentTeam = T3WWQ3395H;
+					};
 					6C03E3E428A4BF708E8FBBD0 = {
+						DevelopmentTeam = T3WWQ3395H;
 						TestTargetID = 5D48B829EA240F4850E0DDE6;
+					};
+					FC3D2C4D961BFB4692F68727 = {
+						DevelopmentTeam = T3WWQ3395H;
 					};
 				};
 			};
@@ -798,7 +811,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "ClimberTimer Watch/ClimberTimer Watch.entitlements";
 				INFOPLIST_FILE = "ClimberTimer Watch/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.climbertimer.ios.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.snugglebearteam.climbertimer.watchkitapp;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -817,7 +830,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.climbertimer.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.snugglebearteam.climbertimer;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -858,6 +871,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = T3WWQ3395H;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -885,7 +899,7 @@
 			buildSettings = {
 				INFOPLIST_FILE = "ClimberTimer Widgets/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.climbertimer.ios.widgets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.snugglebearteam.climbertimer.widgets;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -914,7 +928,7 @@
 			buildSettings = {
 				INFOPLIST_FILE = "ClimberTimer Widgets/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.climbertimer.ios.widgets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.snugglebearteam.climbertimer.widgets;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -956,6 +970,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = T3WWQ3395H;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -996,7 +1011,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.climbertimer.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.snugglebearteam.climbertimer;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1042,7 +1057,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "ClimberTimer Watch/ClimberTimer Watch.entitlements";
 				INFOPLIST_FILE = "ClimberTimer Watch/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.climbertimer.ios.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.snugglebearteam.climbertimer.watchkitapp;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
