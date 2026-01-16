@@ -187,6 +187,16 @@ xcodebuild build -scheme "ClimberTimer Watch Watch App" -destination 'platform=w
 xcodebuild test -scheme "ClimberTimer" -destination 'platform=iOS Simulator,name=iPhone 16' -enableCodeCoverage YES
 ```
 
+## TestFlight Builds
+
+**When asked to upload a build to TestFlight, follow the instructions in [docs/testflight-upload.md](docs/testflight-upload.md).**
+
+Key points:
+- Use `xcodegen generate` to regenerate the project before building
+- Use `xcodebuild -exportArchive` with `-allowProvisioningUpdates` for upload
+- Authentication uses Xcode's stored credentials - no API keys needed
+- Do NOT use `fastlane upload_to_testflight` or `xcrun altool`
+
 ## Red Flags - STOP Immediately
 
 If you catch yourself:
