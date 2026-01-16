@@ -1,12 +1,97 @@
 # ClimberTimer Implementation Progress
 
-## Overall Status: IN PROGRESS
+## Overall Status: COMPLETE
 
 ### Summary
-- **Total Tests:** 44 passing (1 new in SilentPickerCoordinator)
+- **Total Tests:** 91 passing (including BackgroundTimerCoordinator, NotificationManager, PhaseSchedule, TimerPersistence, LiveActivityManager)
 - **iOS Build:** Successful
 - **watchOS Build:** Successful
 - **Coverage:** Models 90%+, Services 85%+, ViewModels 85%+, Components 100%
+
+---
+
+## Task: Background Timer & Notifications - COMPLETE
+- Started: 2026-01-15
+- Tests: 91 passing (all unit tests)
+- Coverage: Models 90%+, Services 85%+
+- Build iOS: Successful
+- Build watchOS: Successful
+- Warnings: Clean (1 info-level note about AppIntents metadata)
+- Completed: 2026-01-15
+
+### Features Implemented:
+- **PhaseSchedule model** for zero-drift timing using absolute timestamps
+- **TimerPersistence** for background state storage in UserDefaults
+- **NotificationManager** for phase transition notifications (countdown, work, rest, finished)
+- **Live Activity widget** for lock screen timer display (Dynamic Island support)
+- **BackgroundTimerCoordinator** orchestrating all components
+- Integration with **ActiveTimerView** via SwiftUI environment
+
+### Acceptance Criteria Met:
+- [x] Timer continues to run when the app is backgrounded
+- [x] Timer state is preserved when the app is closed
+- [x] Push notification is triggered when a timer expires and the app is not in the foreground
+- [x] Notification displays relevant timer information (phase, rep count)
+- [x] Live Activity shows timer on lock screen
+
+### Files Created:
+- `Shared/Models/PhaseSchedule.swift` - Schedule with absolute timestamps for zero-drift timing
+- `Shared/Models/TimerPersistence.swift` - UserDefaults-based state persistence
+- `Shared/Models/TimerActivityAttributes.swift` - Live Activity attributes model
+- `ClimberTimer iOS/Services/NotificationManager.swift` - Local notification scheduling
+- `ClimberTimer iOS/Services/LiveActivityManager.swift` - ActivityKit Live Activity management
+- `ClimberTimer iOS/Services/BackgroundTimerCoordinator.swift` - Central coordinator for background timing
+- `ClimberTimer Widgets/TimerLiveActivity.swift` - Live Activity UI implementation
+- `ClimberTimer Widgets/ClimberTimerWidgets.swift` - Widget bundle entry point
+
+### Test Files Created:
+- `ClimberTimerTests/Models/PhaseScheduleTests.swift` - 7 tests
+- `ClimberTimerTests/Models/TimerPersistenceTests.swift` - 5 tests
+- `ClimberTimerTests/Services/NotificationManagerTests.swift` - 8 tests
+- `ClimberTimerTests/Services/LiveActivityManagerTests.swift` - 4 tests
+- `ClimberTimerTests/Services/BackgroundTimerCoordinatorTests.swift` - 13 tests
+
+---
+
+## Task 8: Integrate BackgroundTimerCoordinator into ActiveTimerView - COMPLETE
+- Started: 2026-01-15
+- Tests: 13 passing (BackgroundTimerCoordinatorTests)
+- Build iOS: Successful
+- Build watchOS: Successful
+- Warnings: Clean
+- Completed: 2026-01-15
+- Notes: ActiveTimerView now uses BackgroundTimerCoordinator for timer management instead of creating its own IntervalTimer. Coordinator is injected via SwiftUI environment from ClimberTimerApp.
+
+### Files Modified:
+- `ClimberTimer iOS/App/ClimberTimerApp.swift` - Added coordinator as @State property and passes it as environment object
+- `ClimberTimer iOS/Views/ActiveTimerView.swift` - Uses coordinator from environment for timer operations (start, pause, resume, reset)
+
+### Key Changes:
+- ActiveTimerView gets coordinator from environment: `@Environment(BackgroundTimerCoordinator.self)`
+- Timer accessed via `coordinator.timer` computed property
+- All timer operations are async and use coordinator methods
+- `.task { }` modifier starts timer on view appear
+- Existing feedback logic (FeedbackManager calls) preserved
+- Background timer restoration handled automatically by coordinator
+
+---
+
+## Task 6: LiveActivityManager Service (TDD) - COMPLETE
+- Started: 2026-01-15
+- Tests: 4 passing (LiveActivityManagerTests)
+- Build iOS: ✅ Successful
+- Build watchOS: ✅ Successful
+- Warnings: ✅ Clean
+- Completed: 2026-01-15
+- Notes: Manages Live Activity lifecycle for lock screen timer display. Uses ActivityKit APIs with async/await pattern.
+
+### Files Added:
+- `ClimberTimer iOS/Services/LiveActivityManager.swift` - @Observable service for Live Activity lifecycle
+- `ClimberTimerTests/Services/LiveActivityManagerTests.swift` - TDD tests for start, update, end activity
+
+### Files Modified:
+- `Shared/Models/TimerActivityAttributes.swift` - Moved from Widgets to Shared, added #if os(iOS) guard
+- `project.yml` - Added Shared sources to Widgets target
 
 ---
 
@@ -133,10 +218,15 @@
 
 | Module | Tests | Status |
 |--------|-------|--------|
+| BackgroundTimerCoordinator | 13 | ✅ |
+| PhaseSchedule | 7 | ✅ |
+| TimerPersistence | 5 | ✅ |
+| NotificationManager | 8 | ✅ |
+| LiveActivityManager | 4 | ✅ |
 | Interval | 3 | ✅ |
 | FeedbackSettings | 3 | ✅ |
 | TimerPhase | 2 | ✅ |
-| IntervalTimer | 12 | ✅ |
+| IntervalTimer | 13 | ✅ |
 | TimeFormatting | 4 | ✅ |
 | PresetStore | 5 | ✅ |
 | FeedbackManager | 3 | ✅ |
@@ -147,7 +237,7 @@
 | OrientationManager | 3 | ✅ |
 | SavePresetSheet | 4 | ✅ |
 | Placeholder | 1 | ✅ |
-| **Total** | **53** | **✅** |
+| **Total** | **91** | **✅** |
 
 ---
 

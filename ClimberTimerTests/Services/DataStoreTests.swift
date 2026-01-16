@@ -13,7 +13,10 @@ final class PresetStoreTests: XCTestCase {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         modelContainer = try! ModelContainer(for: Interval.self, configurations: config)
         testDefaults = UserDefaults(suiteName: "DataStoreTests")!
+        // Clear all stored data before each test
         testDefaults.removePersistentDomain(forName: "DataStoreTests")
+        testDefaults.removeObject(forKey: "lastUsedInterval")
+        testDefaults.synchronize()
         presetStore = PresetStore(modelContainer: modelContainer, userDefaults: testDefaults)
     }
 
@@ -86,8 +89,13 @@ final class PresetStoreTests: XCTestCase {
         XCTAssertEqual(loaded?.repetitions, 4)
     }
 
-    func test_load_last_used_returns_nil_when_none_saved() {
+    func test_load_last_used_returns_default_when_none_saved() {
+        // When nothing is saved, PresetStore returns defaultQuickStart
         let loaded = presetStore.loadLastUsed()
-        XCTAssertNil(loaded)
+        XCTAssertNotNil(loaded)
+        // Should be the default quick start values
+        XCTAssertEqual(loaded?.workDuration, Interval.defaultQuickStart.workDuration)
+        XCTAssertEqual(loaded?.restDuration, Interval.defaultQuickStart.restDuration)
+        XCTAssertEqual(loaded?.repetitions, Interval.defaultQuickStart.repetitions)
     }
 }

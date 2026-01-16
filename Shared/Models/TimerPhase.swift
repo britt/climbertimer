@@ -1,6 +1,6 @@
 import Foundation
 
-public enum TimerPhase: Equatable {
+public enum TimerPhase: Equatable, Codable {
     case countdown
     case work
     case rest
@@ -17,10 +17,10 @@ public enum TimerPhase: Equatable {
 
     public var colorName: String {
         switch self {
-        case .countdown: return "orange"
-        case .work: return "green"
-        case .rest: return "blue"
-        case .finished: return "gray"
+        case .countdown: return "rust"
+        case .work: return "woodlandGreen"
+        case .rest: return "slate"
+        case .finished: return "granite"
         }
     }
 }

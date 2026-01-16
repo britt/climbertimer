@@ -15,8 +15,11 @@ final class TimeFormattingTests: XCTestCase {
     }
 
     func test_format_with_decimal() {
-        XCTAssertEqual(TimeFormatting.format(7.5), "0:07")
-        XCTAssertEqual(TimeFormatting.format(7.9), "0:07")
+        // ceil() is used to round up for countdown timers - ensures we don't show 0 while time remains
+        XCTAssertEqual(TimeFormatting.format(7.5), "0:08")
+        XCTAssertEqual(TimeFormatting.format(7.9), "0:08")
+        XCTAssertEqual(TimeFormatting.format(7.1), "0:08")
+        XCTAssertEqual(TimeFormatting.format(7.0), "0:07")  // Exact integer stays as-is
     }
 
     func test_format_zero() {

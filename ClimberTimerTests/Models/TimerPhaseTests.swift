@@ -9,9 +9,11 @@ final class TimerPhaseTests: XCTestCase {
         XCTAssertEqual(TimerPhase.finished.displayName, "DONE")
     }
 
-    func test_phase_colors() {
-        XCTAssertEqual(TimerPhase.work.colorName, "green")
-        XCTAssertEqual(TimerPhase.rest.colorName, "blue")
-        XCTAssertEqual(TimerPhase.finished.colorName, "gray")
+    func test_phase_colors_matchAppColors() {
+        // Color names must match AppColors names for Live Activity widget
+        XCTAssertEqual(TimerPhase.countdown.colorName, "rust")
+        XCTAssertEqual(TimerPhase.work.colorName, "woodlandGreen")
+        XCTAssertEqual(TimerPhase.rest.colorName, "slate")
+        XCTAssertEqual(TimerPhase.finished.colorName, "granite")
     }
 }

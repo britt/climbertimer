@@ -59,4 +59,20 @@ public enum AppColors {
 
     /// Finished phase - uses granite
     public static let finished = granite
+
+    // MARK: - Color Name Mapping
+
+    /// Returns the Color for a given color name string.
+    /// Used by Widget extension to map phase color names to actual colors.
+    /// - Parameter name: Color name (e.g., "rust", "woodlandGreen", "slate", "granite")
+    /// - Returns: The corresponding Color, or .primary if name is unknown
+    public static func color(forName name: String) -> Color {
+        switch name {
+        case "rust": return rust
+        case "woodlandGreen": return woodlandGreen
+        case "slate": return slate
+        case "granite": return granite
+        default: return .primary
+        }
+    }
 }
