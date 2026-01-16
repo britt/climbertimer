@@ -51,6 +51,7 @@
 		9872ACD149AA845CC5CD0D37 /* IntervalTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92038A8EBA13AB01D84798E /* IntervalTimer.swift */; };
 		A4809D274DB712002D8C8F7F /* TimeFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982C27C0F6D4AD002F151D74 /* TimeFormatting.swift */; };
 		AE8E73A1029AB9FA138D3CE8 /* OrientationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DD9DEBF5645C16C88564A4 /* OrientationManager.swift */; };
+		NOTIF002A2B3C4D5E6F7890AB /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = NOTIF002A2B3C4D5E6F78901A /* NotificationManager.swift */; };
 		B118A851A510299DDF8839BB /* TimerPhaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABC17943849D22370525287 /* TimerPhaseTests.swift */; };
 		C1A2B3C4D5E6F78901234567 /* TimerPersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E2F3A4B5C6D78901234568 /* TimerPersistenceTests.swift */; };
 		B3D05E50E9D754DC4BE15066 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A59FC09B72AE63D98D4D99F /* HomeViewModelTests.swift */; };
@@ -60,6 +61,7 @@
 		BDAFAA1B4C73A6039FCED1C9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B73521D73004909C4A42D7 /* HomeViewModel.swift */; };
 		BE12A38E0AA6B273A256D0D1 /* FeedbackManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD2632C584EE599B225E3AC /* FeedbackManagerTests.swift */; };
 		BE8BA2691124F4AD6C642AFB /* OrientationManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05021F46228CBB8F3F7400BC /* OrientationManagerTests.swift */; };
+		NOTIF001A2B3C4D5E6F7890AB /* NotificationManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = NOTIF001A2B3C4D5E6F78901A /* NotificationManagerTests.swift */; };
 		C46BEF39325E2C86D21D0CED /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF10BDFAB787E71F62BE34A9 /* HomeView.swift */; };
 		C5978918C88B9746E3ED5854 /* IntervalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7243353B18F89DF630A6A409 /* IntervalTests.swift */; };
 		CC12558CAE6D95E05D14C121 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E41A2D571D145833092DE1 /* SettingsViewModel.swift */; };
@@ -90,6 +92,7 @@
 
 /* Begin PBXFileReference section */
 		05021F46228CBB8F3F7400BC /* OrientationManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationManagerTests.swift; sourceTree = "<group>"; };
+		NOTIF001A2B3C4D5E6F78901A /* NotificationManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManagerTests.swift; sourceTree = "<group>"; };
 		063252CCD86E1F2807C32AFE /* ClimberTimerWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimberTimerWatchApp.swift; sourceTree = "<group>"; };
 		0ED2DD23D6402F1CB387E112 /* SavePresetSheetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePresetSheetTests.swift; sourceTree = "<group>"; };
 		1504680F560943987AB20286 /* PresetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetsViewModel.swift; sourceTree = "<group>"; };
@@ -138,6 +141,7 @@
 		D26570FEFD5F55CEA1FE911C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D33A597C831F998A89AE0BD4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		E0DD9DEBF5645C16C88564A4 /* OrientationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationManager.swift; sourceTree = "<group>"; };
+		NOTIF002A2B3C4D5E6F78901A /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		E5F20F758721D9A8EA306222 /* TimerSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSetupView.swift; sourceTree = "<group>"; };
 		E6734CFCBED0FF8152BA1F11 /* SilentPickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SilentPickerTests.swift; sourceTree = "<group>"; };
 		E92038A8EBA13AB01D84798E /* IntervalTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalTimer.swift; sourceTree = "<group>"; };
@@ -353,6 +357,7 @@
 				7E27853E3061BE52971F2946 /* DataStoreTests.swift */,
 				2CD2632C584EE599B225E3AC /* FeedbackManagerTests.swift */,
 				8A48A9BEB1D72CE5F22216C9 /* IntervalTimerTests.swift */,
+				NOTIF001A2B3C4D5E6F78901A /* NotificationManagerTests.swift */,
 				05021F46228CBB8F3F7400BC /* OrientationManagerTests.swift */,
 			);
 			path = Services;
@@ -377,6 +382,7 @@
 		F6A2913FD05664DF5F568771 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				NOTIF002A2B3C4D5E6F78901A /* NotificationManager.swift */,
 				E0DD9DEBF5645C16C88564A4 /* OrientationManager.swift */,
 			);
 			path = Services;
@@ -546,6 +552,7 @@
 				B3D05E50E9D754DC4BE15066 /* HomeViewModelTests.swift in Sources */,
 				C5978918C88B9746E3ED5854 /* IntervalTests.swift in Sources */,
 				15E39D07CE143183B461957A /* IntervalTimerTests.swift in Sources */,
+				NOTIF001A2B3C4D5E6F7890AB /* NotificationManagerTests.swift in Sources */,
 				BE8BA2691124F4AD6C642AFB /* OrientationManagerTests.swift in Sources */,
 				94C7E4EC7DCD809BB350AD25 /* PhaseScheduleTests.swift in Sources */,
 				90561B36AA9DD8ACAB56FF07 /* PresetsViewModelTests.swift in Sources */,
@@ -605,6 +612,7 @@
 				BDAFAA1B4C73A6039FCED1C9 /* HomeViewModel.swift in Sources */,
 				1801C3BDFC829D0EE210D185 /* Interval.swift in Sources */,
 				9872ACD149AA845CC5CD0D37 /* IntervalTimer.swift in Sources */,
+				NOTIF002A2B3C4D5E6F7890AB /* NotificationManager.swift in Sources */,
 				AE8E73A1029AB9FA138D3CE8 /* OrientationManager.swift in Sources */,
 				3540B366B71BB16CF2AD2241 /* PhaseSchedule.swift in Sources */,
 				313581DD4F804934F1322FA6 /* PresetStore.swift in Sources */,
