@@ -27,6 +27,20 @@ targets:
       properties:
         com.apple.security.application-groups:
           - group.com.climbertimer.shared
+    dependencies:
+      - target: ClimberTimer Widgets
+        embed: true
+
+  ClimberTimer Widgets:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: ClimberTimer Widgets
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.climbertimer.ios.widgets
+      INFOPLIST_FILE: ClimberTimer Widgets/Info.plist
+      SKIP_INSTALL: true
+      LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks"
 
   ClimberTimer Watch Watch App:
     type: application
