@@ -18,8 +18,16 @@ struct SavePresetSheet: View {
 
                 TextField("Preset Name", text: $presetName)
                     .font(.custom("AvenirNext-Medium", size: 17))
+                    .foregroundStyle(AppColors.granite)
                     #if os(iOS)
-                    .textFieldStyle(.roundedBorder)
+                    .textFieldStyle(.plain)
+                    .padding(12)
+                    .background(AppColors.warmWhite)
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(AppColors.tan, lineWidth: 1)
+                    )
                     #endif
                     .padding(.horizontal)
 
