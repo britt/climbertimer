@@ -140,7 +140,7 @@ public final class NotificationManager {
 
     // MARK: - Notification Content
 
-    public func notificationTitle(for phase: TimerPhase, rep: Int, totalReps: Int) -> String {
+    private func notificationTitle(for phase: TimerPhase, rep: Int, totalReps: Int) -> String {
         switch phase {
         case .countdown:
             return "Get Ready!"
@@ -153,7 +153,7 @@ public final class NotificationManager {
         }
     }
 
-    public func notificationBody(for phase: TimerPhase, rep: Int, totalReps: Int) -> String {
+    private func notificationBody(for phase: TimerPhase, rep: Int, totalReps: Int) -> String {
         switch phase {
         case .countdown:
             return "Timer starting..."

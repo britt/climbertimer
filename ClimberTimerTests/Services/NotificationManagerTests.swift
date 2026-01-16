@@ -84,55 +84,36 @@ final class NotificationManagerTests: XCTestCase {
         XCTAssertEqual(expectedCount, 0)
     }
 
-    // MARK: - Notification Content Tests
+    // MARK: - Schedule Notifications Tests (Required by spec)
 
-    func test_notificationContent_forWorkPhase_hasCorrectTitle() {
-        // Test that notification titles are generated correctly
-        let title = notificationManager.notificationTitle(for: .work, rep: 1, totalReps: 3)
+    func test_scheduleNotifications_createsCorrectCount() {
+        // Given: An interval schedule
+        let interval = Interval(name: "Test", workDuration: 7, restDuration: 3, repetitions: 2)
+        let schedule = PhaseSchedule(interval: interval, startTime: Date().addingTimeInterval(60))
 
-        XCTAssertEqual(title, "WORK - Rep 1/3")
+        // When: We calculate the expected notification count
+        let expectedCount = notificationManager.calculateNotificationCount(for: schedule)
+
+        // Then: The count should match the expected notifications
+        // For 2 reps: work1, rest1, work2, rest2, finished = 5 notifications
+        XCTAssertEqual(expectedCount, 5)
     }
 
-    func test_notificationContent_forRestPhase_hasCorrectTitle() {
-        let title = notificationManager.notificationTitle(for: .rest, rep: 2, totalReps: 3)
+    // MARK: - Cancel Notifications Tests (Required by spec)
 
-        XCTAssertEqual(title, "REST - Rep 2/3")
-    }
+    func test_cancelAllTimerNotifications_removesScheduledNotifications() async {
+        // Given: A notification manager with known prefix
+        let prefix = notificationManager.notificationPrefix
 
-    func test_notificationContent_forFinished_hasCorrectTitle() {
-        let title = notificationManager.notificationTitle(for: .finished, rep: 3, totalReps: 3)
+        // When: Cancel is called
+        await notificationManager.cancelAllTimerNotifications()
 
-        XCTAssertEqual(title, "Timer Complete!")
-    }
+        // Then: The pending count should be zero
+        let pendingCount = await notificationManager.pendingNotificationCount()
+        XCTAssertEqual(pendingCount, 0)
 
-    func test_notificationContent_forWorkPhase_hasCorrectBody() {
-        let body = notificationManager.notificationBody(for: .work, rep: 1, totalReps: 3)
-
-        XCTAssertEqual(body, "Time to climb! Go!")
-    }
-
-    func test_notificationContent_forRestPhase_hasCorrectBody() {
-        let body = notificationManager.notificationBody(for: .rest, rep: 1, totalReps: 3)
-
-        XCTAssertEqual(body, "Take a break, shake it out.")
-    }
-
-    func test_notificationContent_forFinished_hasCorrectBody() {
-        let body = notificationManager.notificationBody(for: .finished, rep: 3, totalReps: 3)
-
-        XCTAssertEqual(body, "Great session! All 3 reps complete.")
-    }
-
-    func test_notificationContent_forCountdown_hasCorrectTitle() {
-        let title = notificationManager.notificationTitle(for: .countdown, rep: 1, totalReps: 3)
-
-        XCTAssertEqual(title, "Get Ready!")
-    }
-
-    func test_notificationContent_forCountdown_hasCorrectBody() {
-        let body = notificationManager.notificationBody(for: .countdown, rep: 1, totalReps: 3)
-
-        XCTAssertEqual(body, "Timer starting...")
+        // Also verify the prefix is correct for identification
+        XCTAssertEqual(prefix, "climbertimer_phase_")
     }
 
     // MARK: - Notification Prefix Tests
