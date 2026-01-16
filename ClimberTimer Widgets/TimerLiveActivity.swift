@@ -14,7 +14,7 @@ struct TimerLiveActivity: Widget {
                     HStack {
                         Text(context.state.phase)
                             .font(.headline)
-                            .foregroundColor(phaseColor(context.state.phaseColor))
+                            .foregroundColor(AppColors.color(forName: context.state.phaseColor))
                     }
                 }
                 DynamicIslandExpandedRegion(.trailing) {
@@ -33,7 +33,7 @@ struct TimerLiveActivity: Widget {
                 }
             } compactLeading: {
                 Text(context.state.phase.prefix(1))
-                    .foregroundColor(phaseColor(context.state.phaseColor))
+                    .foregroundColor(AppColors.color(forName: context.state.phaseColor))
             } compactTrailing: {
                 Text(timerInterval: Date()...context.state.endTime, countsDown: true)
                     .font(.system(.caption, design: .monospaced))
@@ -46,16 +46,6 @@ struct TimerLiveActivity: Widget {
             }
         }
     }
-
-    private func phaseColor(_ name: String) -> Color {
-        switch name {
-        case "rust": return Color(red: 0.76, green: 0.38, blue: 0.26)
-        case "woodlandGreen": return Color(red: 0.35, green: 0.49, blue: 0.36)
-        case "slate": return Color(red: 0.44, green: 0.50, blue: 0.56)
-        case "granite": return Color(red: 0.45, green: 0.40, blue: 0.35)
-        default: return .primary
-        }
-    }
 }
 
 struct TimerLiveActivityView: View {
@@ -66,7 +56,7 @@ struct TimerLiveActivityView: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text(context.state.phase)
                     .font(.headline)
-                    .foregroundColor(phaseColor(context.state.phaseColor))
+                    .foregroundColor(AppColors.color(forName: context.state.phaseColor))
                 Text("Rep \(context.state.currentRep) of \(context.state.totalReps)")
                     .font(.caption)
                     .foregroundColor(.secondary)
@@ -80,15 +70,5 @@ struct TimerLiveActivityView: View {
         }
         .padding()
         .background(Color(UIColor.secondarySystemBackground))
-    }
-
-    private func phaseColor(_ name: String) -> Color {
-        switch name {
-        case "rust": return Color(red: 0.76, green: 0.38, blue: 0.26)
-        case "woodlandGreen": return Color(red: 0.35, green: 0.49, blue: 0.36)
-        case "slate": return Color(red: 0.44, green: 0.50, blue: 0.56)
-        case "granite": return Color(red: 0.45, green: 0.40, blue: 0.35)
-        default: return .primary
-        }
     }
 }

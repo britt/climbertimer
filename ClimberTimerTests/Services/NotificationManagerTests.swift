@@ -121,4 +121,42 @@ final class NotificationManagerTests: XCTestCase {
     func test_notificationPrefix_isCorrect() {
         XCTAssertEqual(notificationManager.notificationPrefix, "climbertimer_phase_")
     }
+
+    // MARK: - Remaining Notification Count Tests
+
+    func test_calculateRemainingNotificationCount_midTimer_returnsCorrectCount() {
+        // Given: A schedule with 2 reps, and we're currently in phase index 2 (rest1)
+        // Phases: [0:countdown, 1:work1, 2:rest1, 3:work2, 4:rest2]
+        let interval = Interval(name: "Test", workDuration: 7, restDuration: 3, repetitions: 2)
+        let startTime = Date().addingTimeInterval(-10) // Started 10 seconds ago
+        let schedule = PhaseSchedule(interval: interval, startTime: startTime)
+
+        // We're in phase index 2 (rest1)
+        // Remaining phases after current: work2 (index 3), rest2 (index 4), finished
+        let count = notificationManager.calculateRemainingNotificationCount(
+            for: schedule,
+            fromPhaseIndex: 2,
+            resumeTime: Date()
+        )
+
+        // Remaining: work2, rest2, finished = 3
+        XCTAssertEqual(count, 3)
+    }
+
+    func test_calculateRemainingNotificationCount_nearEnd_returnsOne() {
+        // Given: A schedule with 2 reps, and we're in the last rest phase
+        let interval = Interval(name: "Test", workDuration: 7, restDuration: 3, repetitions: 2)
+        let startTime = Date().addingTimeInterval(-10)
+        let schedule = PhaseSchedule(interval: interval, startTime: startTime)
+
+        // Phase index 4 is rest2 (last phase before finished)
+        // Remaining: finished = 1 notification
+        let count = notificationManager.calculateRemainingNotificationCount(
+            for: schedule,
+            fromPhaseIndex: 4,
+            resumeTime: Date()
+        )
+
+        XCTAssertEqual(count, 1) // Just the finished notification
+    }
 }

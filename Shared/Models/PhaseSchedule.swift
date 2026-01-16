@@ -95,4 +95,16 @@ public struct PhaseSchedule: Codable, Equatable {
     public func isFinished(at date: Date) -> Bool {
         return date >= endTime
     }
+
+    // MARK: - Computed Properties
+
+    /// Work duration extracted from the schedule phases
+    public var workDuration: TimeInterval {
+        phases.first { $0.phase == .work }?.duration ?? 7
+    }
+
+    /// Rest duration extracted from the schedule phases
+    public var restDuration: TimeInterval {
+        phases.first { $0.phase == .rest }?.duration ?? 3
+    }
 }

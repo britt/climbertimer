@@ -90,4 +90,20 @@ final class PhaseScheduleTests: XCTestCase {
 
         XCTAssertTrue(schedule.isFinished(at: checkTime))
     }
+
+    // MARK: - Duration Computed Properties Tests
+
+    func test_workDuration_returnsCorrectValue() {
+        let interval = Interval(name: "Test", workDuration: 7, restDuration: 3, repetitions: 2)
+        let schedule = PhaseSchedule(interval: interval, startTime: Date())
+
+        XCTAssertEqual(schedule.workDuration, 7)
+    }
+
+    func test_restDuration_returnsCorrectValue() {
+        let interval = Interval(name: "Test", workDuration: 7, restDuration: 3, repetitions: 2)
+        let schedule = PhaseSchedule(interval: interval, startTime: Date())
+
+        XCTAssertEqual(schedule.restDuration, 3)
+    }
 }

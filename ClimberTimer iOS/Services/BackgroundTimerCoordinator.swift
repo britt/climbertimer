@@ -223,8 +223,8 @@ public final class BackgroundTimerCoordinator {
         // Create a finished timer for display
         let interval = Interval(
             name: schedule.intervalName,
-            workDuration: schedule.phases.first { $0.phase == .work }?.duration ?? 7,
-            restDuration: schedule.phases.first { $0.phase == .rest }?.duration ?? 3,
+            workDuration: schedule.workDuration,
+            restDuration: schedule.restDuration,
             repetitions: schedule.totalReps
         )
         let newTimer = IntervalTimer(interval: interval)
@@ -244,8 +244,8 @@ public final class BackgroundTimerCoordinator {
         // Create timer with interval from schedule
         let interval = Interval(
             name: state.schedule.intervalName,
-            workDuration: state.schedule.phases.first { $0.phase == .work }?.duration ?? 7,
-            restDuration: state.schedule.phases.first { $0.phase == .rest }?.duration ?? 3,
+            workDuration: state.schedule.workDuration,
+            restDuration: state.schedule.restDuration,
             repetitions: state.schedule.totalReps
         )
 
@@ -280,8 +280,8 @@ public final class BackgroundTimerCoordinator {
         // Create timer with interval from schedule
         let interval = Interval(
             name: state.schedule.intervalName,
-            workDuration: state.schedule.phases.first { $0.phase == .work }?.duration ?? 7,
-            restDuration: state.schedule.phases.first { $0.phase == .rest }?.duration ?? 3,
+            workDuration: state.schedule.workDuration,
+            restDuration: state.schedule.restDuration,
             repetitions: state.schedule.totalReps
         )
 
@@ -309,7 +309,20 @@ public final class BackgroundTimerCoordinator {
     }
 
     private func rescheduleNotificationsFromCurrentState() async {
-        // For simplicity, we don't reschedule mid-timer
-        // Notifications are scheduled once at start
+        guard let timer = timer, let schedule = schedule else { return }
+
+        // Find the current phase index by matching phase and rep
+        guard let currentPhaseIndex = schedule.phases.firstIndex(where: { phase in
+            phase.phase == timer.currentPhase && phase.rep == timer.currentRep
+        }) else {
+            return
+        }
+
+        // Schedule notifications for remaining phases
+        await notificationManager.scheduleRemainingNotifications(
+            for: schedule,
+            fromPhaseIndex: currentPhaseIndex,
+            timeRemainingInPhase: timer.timeRemaining
+        )
     }
 }

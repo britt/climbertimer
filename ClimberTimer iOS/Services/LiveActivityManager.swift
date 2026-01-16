@@ -25,8 +25,8 @@ public final class LiveActivityManager {
 
         let attributes = TimerActivityAttributes(
             timerName: schedule.intervalName,
-            workDuration: schedule.phases.first { $0.phase == .work }?.duration ?? 7,
-            restDuration: schedule.phases.first { $0.phase == .rest }?.duration ?? 3
+            workDuration: schedule.workDuration,
+            restDuration: schedule.restDuration
         )
 
         let initialState = TimerActivityAttributes.ContentState(
