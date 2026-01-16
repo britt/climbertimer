@@ -1,14 +1,22 @@
 import SwiftUI
 
 struct ActiveTimerView: View {
-    @State private var timer: IntervalTimer
+    @Environment(BackgroundTimerCoordinator.self) private var coordinator
     @State private var feedbackManager: FeedbackManager
     @State private var flashOpacity: Double = 1.0
     @Environment(\.dismiss) private var dismiss
 
+    private let interval: Interval
+    private let settings: FeedbackSettings
+
     init(interval: Interval, settings: FeedbackSettings) {
-        _timer = State(initialValue: IntervalTimer(interval: interval))
+        self.interval = interval
+        self.settings = settings
         _feedbackManager = State(initialValue: FeedbackManager(settings: settings))
+    }
+
+    private var timer: IntervalTimer? {
+        coordinator.timer
     }
 
     var body: some View {
@@ -23,17 +31,17 @@ struct ActiveTimerView: View {
 
                 VStack(spacing: isLandscape ? 8 : 24) {
                     // Phase indicator
-                    Text(timer.currentPhase.displayName)
+                    Text(timer?.currentPhase.displayName ?? "Ready")
                         .font(.custom("AvenirNextCondensed-Bold", size: isLandscape ? 44 : 68))
                         .foregroundColor(.white)
 
                     // Time remaining
-                    Text(TimeFormatting.format(timer.timeRemaining))
+                    Text(TimeFormatting.format(timer?.timeRemaining ?? 0))
                         .font(.custom("Menlo-Bold", size: isLandscape ? 60 : 80))
                         .foregroundColor(.white)
 
                     // Rep counter
-                    Text("Rep \(timer.currentRep) of \(timer.totalReps)")
+                    Text("Rep \(timer?.currentRep ?? 1) of \(timer?.totalReps ?? interval.repetitions)")
                         .font(Typography.title3)
                         .foregroundColor(.white.opacity(0.8))
 
@@ -42,7 +50,11 @@ struct ActiveTimerView: View {
                     // Controls
                     HStack(spacing: 32) {
                         // Reset button
-                        Button(action: { timer.reset() }) {
+                        Button(action: {
+                            Task {
+                                await coordinator.resetTimer()
+                            }
+                        }) {
                             Image(systemName: "arrow.counterclockwise")
                                 .font(.title)
                                 .foregroundColor(.white)
@@ -53,8 +65,12 @@ struct ActiveTimerView: View {
                         .buttonStyle(.borderless)
 
                         // Play/Pause button
-                        Button(action: toggleTimer) {
-                            Image(systemName: timer.isRunning ? "pause.fill" : "play.fill")
+                        Button(action: {
+                            Task {
+                                await toggleTimer()
+                            }
+                        }) {
+                            Image(systemName: (timer?.isRunning ?? false) ? "pause.fill" : "play.fill")
                                 .font(.title)
                                 .foregroundColor(.white)
                                 .frame(width: isLandscape ? 60 : 80, height: isLandscape ? 60 : 80)
@@ -64,7 +80,12 @@ struct ActiveTimerView: View {
                         .buttonStyle(.borderless)
 
                         // Close button
-                        Button(action: { dismiss() }) {
+                        Button(action: {
+                            Task {
+                                await coordinator.resetTimer()
+                                dismiss()
+                            }
+                        }) {
                             Image(systemName: "xmark")
                                 .font(.title)
                                 .foregroundColor(.white)
@@ -78,14 +99,14 @@ struct ActiveTimerView: View {
                 .padding()
             }
         }
-        .onAppear {
+        .task {
             AppDelegate.orientationManager.allowAllOrientations()
-            timer.start()
+            await coordinator.startTimer(with: interval)
         }
         .onDisappear {
             AppDelegate.orientationManager.lockToPortrait()
         }
-        .onChange(of: timer.countdownWarningSecond) { oldValue, newValue in
+        .onChange(of: timer?.countdownWarningSecond) { oldValue, newValue in
             if let second = newValue, second != oldValue {
                 feedbackManager.playCountdownBeep()
                 feedbackManager.triggerHaptic()
@@ -98,7 +119,8 @@ struct ActiveTimerView: View {
                 }
             }
         }
-        .onChange(of: timer.currentPhase) { _, newPhase in
+        .onChange(of: timer?.currentPhase) { _, newPhase in
+            guard let newPhase = newPhase else { return }
             if newPhase == .finished {
                 feedbackManager.playCompletion()
             } else {
@@ -109,7 +131,10 @@ struct ActiveTimerView: View {
     }
 
     private var backgroundColor: Color {
-        switch timer.currentPhase {
+        guard let phase = timer?.currentPhase else {
+            return AppColors.countdown
+        }
+        switch phase {
         case .countdown: return AppColors.countdown
         case .work: return AppColors.work
         case .rest: return AppColors.rest
@@ -117,14 +142,16 @@ struct ActiveTimerView: View {
         }
     }
 
-    private func toggleTimer() {
+    private func toggleTimer() async {
+        guard let timer = timer else { return }
+
         if timer.isRunning {
-            timer.pause()
+            await coordinator.pauseTimer()
         } else if timer.currentPhase == .finished {
-            timer.reset()
-            timer.start()
+            await coordinator.resetTimer()
+            await coordinator.startTimer(with: interval)
         } else {
-            timer.resume()
+            await coordinator.resumeTimer()
         }
     }
 }

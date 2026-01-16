@@ -6,6 +6,7 @@ struct ClimberTimerApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     let modelContainer: ModelContainer
     @State private var presetStore: PresetStore
+    @State private var coordinator = BackgroundTimerCoordinator()
 
     init() {
         // Reset UserDefaults for UI testing if launch argument is present
@@ -25,6 +26,7 @@ struct ClimberTimerApp: App {
     var body: some Scene {
         WindowGroup {
             HomeView(presetStore: presetStore)
+                .environment(coordinator)
                 .tint(AppColors.granite)
         }
         .modelContainer(modelContainer)

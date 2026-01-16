@@ -3,10 +3,33 @@
 ## Overall Status: IN PROGRESS
 
 ### Summary
-- **Total Tests:** 44 passing (1 new in SilentPickerCoordinator)
+- **Total Tests:** 70+ passing (including BackgroundTimerCoordinator, NotificationManager, PhaseSchedule, TimerPersistence)
 - **iOS Build:** Successful
 - **watchOS Build:** Successful
 - **Coverage:** Models 90%+, Services 85%+, ViewModels 85%+, Components 100%
+
+---
+
+## Task 8: Integrate BackgroundTimerCoordinator into ActiveTimerView - COMPLETE
+- Started: 2026-01-15
+- Tests: 13 passing (BackgroundTimerCoordinatorTests)
+- Build iOS: Successful
+- Build watchOS: Successful
+- Warnings: Clean
+- Completed: 2026-01-15
+- Notes: ActiveTimerView now uses BackgroundTimerCoordinator for timer management instead of creating its own IntervalTimer. Coordinator is injected via SwiftUI environment from ClimberTimerApp.
+
+### Files Modified:
+- `ClimberTimer iOS/App/ClimberTimerApp.swift` - Added coordinator as @State property and passes it as environment object
+- `ClimberTimer iOS/Views/ActiveTimerView.swift` - Uses coordinator from environment for timer operations (start, pause, resume, reset)
+
+### Key Changes:
+- ActiveTimerView gets coordinator from environment: `@Environment(BackgroundTimerCoordinator.self)`
+- Timer accessed via `coordinator.timer` computed property
+- All timer operations are async and use coordinator methods
+- `.task { }` modifier starts timer on view appear
+- Existing feedback logic (FeedbackManager calls) preserved
+- Background timer restoration handled automatically by coordinator
 
 ---
 
