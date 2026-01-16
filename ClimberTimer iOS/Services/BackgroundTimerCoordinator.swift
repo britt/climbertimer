@@ -52,7 +52,11 @@ public final class BackgroundTimerCoordinator {
         // Persist state
         persistence.save(schedule: newSchedule, isPaused: false, pausedAt: nil)
 
-        // Schedule notifications
+        // Request notification permission if needed, then schedule
+        await notificationManager.checkAuthorizationStatus()
+        if !notificationManager.isAuthorized {
+            _ = await notificationManager.requestAuthorization()
+        }
         await notificationManager.scheduleNotifications(for: newSchedule)
 
         // Start Live Activity
