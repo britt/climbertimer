@@ -1,6 +1,6 @@
 import Foundation
 
-public enum TimerPhase: Equatable {
+public enum TimerPhase: Equatable, Codable {
     case countdown
     case work
     case rest
