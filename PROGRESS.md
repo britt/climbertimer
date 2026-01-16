@@ -10,6 +10,25 @@
 
 ---
 
+## Task 6: LiveActivityManager Service (TDD) - COMPLETE
+- Started: 2026-01-15
+- Tests: 4 passing (LiveActivityManagerTests)
+- Build iOS: ✅ Successful
+- Build watchOS: ✅ Successful
+- Warnings: ✅ Clean
+- Completed: 2026-01-15
+- Notes: Manages Live Activity lifecycle for lock screen timer display. Uses ActivityKit APIs with async/await pattern.
+
+### Files Added:
+- `ClimberTimer iOS/Services/LiveActivityManager.swift` - @Observable service for Live Activity lifecycle
+- `ClimberTimerTests/Services/LiveActivityManagerTests.swift` - TDD tests for start, update, end activity
+
+### Files Modified:
+- `Shared/Models/TimerActivityAttributes.swift` - Moved from Widgets to Shared, added #if os(iOS) guard
+- `project.yml` - Added Shared sources to Widgets target
+
+---
+
 ## Task: Fix GitHub #11 - Modal Button Contrast - COMPLETE
 - Started: 2026-01-15
 - Tests: 4 passing (SavePresetSheetTests)
@@ -146,8 +165,9 @@
 | SilentPickerCoordinator | 3 | ✅ |
 | OrientationManager | 3 | ✅ |
 | SavePresetSheet | 4 | ✅ |
+| LiveActivityManager | 4 | ✅ |
 | Placeholder | 1 | ✅ |
-| **Total** | **53** | **✅** |
+| **Total** | **57** | **✅** |
 
 ---
 

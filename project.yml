@@ -36,6 +36,7 @@ targets:
     platform: iOS
     sources:
       - path: ClimberTimer Widgets
+      - path: Shared
     settings:
       PRODUCT_BUNDLE_IDENTIFIER: com.climbertimer.ios.widgets
       INFOPLIST_FILE: ClimberTimer Widgets/Info.plist

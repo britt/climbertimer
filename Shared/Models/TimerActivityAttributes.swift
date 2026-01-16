@@ -1,3 +1,4 @@
+#if os(iOS)
 import ActivityKit
 import Foundation
 
@@ -37,3 +38,4 @@ public struct TimerActivityAttributes: ActivityAttributes {
         self.restDuration = restDuration
     }
 }
+#endif
