@@ -28,6 +28,7 @@ struct ClimberTimerApp: App {
             HomeView(presetStore: presetStore)
                 .environment(coordinator)
                 .tint(AppColors.granite)
+                .preferredColorScheme(.light)
         }
         .modelContainer(modelContainer)
     }

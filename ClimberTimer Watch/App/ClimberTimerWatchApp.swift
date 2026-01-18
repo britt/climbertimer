@@ -19,6 +19,7 @@ struct ClimberTimerWatchApp: App {
     var body: some Scene {
         WindowGroup {
             WatchHomeView(presetStore: presetStore)
+                .preferredColorScheme(.light)
         }
         .modelContainer(modelContainer)
     }
